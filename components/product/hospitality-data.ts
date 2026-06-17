@@ -601,12 +601,24 @@ export function mapBackendProductToHospitality(p: any): HospitalityProduct {
   };
 }
 
+const CATEGORY_SLUG_MAP: Record<string, string> = {
+  restaurant: "restaurant-furniture",
+  cafe: "cafe-furniture",
+  bar: "bar-furniture",
+  hotel: "hotel-furniture",
+  cane: "cane-furniture",
+  rope: "rope-furniture",
+  bone: "bone-inlay-furniture",
+};
+
 export async function fetchProducts(filters?: ProductFilters): Promise<HospitalityProduct[]> {
   try {
     const url = new URL(`${API_BASE}/products`);
     if (filters) {
       if (filters.category && filters.category.toLowerCase() !== "all") {
-        url.searchParams.append("category", filters.category);
+        const cat = filters.category.toLowerCase();
+        const mappedCat = CATEGORY_SLUG_MAP[cat] || filters.category;
+        url.searchParams.append("category", mappedCat);
       }
       if (filters.query) {
         url.searchParams.append("search", filters.query);

@@ -49,26 +49,52 @@ const DEFAULT_CATEGORIES = [
 
 // Default Subcategories Mock
 const DEFAULT_SUBCATEGORIES = [
-  { parentSlug: 'cafe-furniture', name: 'Cafe Chairs', slug: 'cafe-chairs', description: 'Atelier design dining chairs' },
-  { parentSlug: 'cafe-furniture', name: 'Cafe Tables', slug: 'cafe-tables', description: 'Heritage teak table tops' },
-  { parentSlug: 'cafe-furniture', name: 'Cafe Benches', slug: 'cafe-benches', description: 'Traditional weaving benches' },
-  { parentSlug: 'cafe-furniture', name: 'Outdoor Cafe Furniture', slug: 'outdoor-cafe', description: 'Weather resistant items' },
-  { parentSlug: 'hotel-furniture', name: 'Hotel Beds', slug: 'hotel-beds', description: 'Sanctuary bedroom suites' },
-  { parentSlug: 'hotel-furniture', name: 'Hotel Chairs', slug: 'hotel-chairs', description: 'Lobby easy chairs' },
-  { parentSlug: 'hotel-furniture', name: 'Hotel Sofas', slug: 'hotel-sofas', description: 'Deep seat modular lounges' },
-  { parentSlug: 'hotel-furniture', name: 'Hotel Tables', slug: 'hotel-tables', description: 'Large scale layout desks' },
-  { parentSlug: 'hotel-furniture', name: 'Wardrobes', slug: 'wardrobes', description: 'Mango wood custom storage' },
+  // Restaurant Furniture
+  { parentSlug: 'restaurant-furniture', name: 'Restaurant Chairs', slug: 'restaurant-chairs', description: 'Atelier dining chairs' },
+  { parentSlug: 'restaurant-furniture', name: 'Restaurant Tables', slug: 'restaurant-tables', description: 'Atelier dining tables' },
+  
+  // Cafe Furniture
+  { parentSlug: 'cafe-furniture', name: 'Café Chairs', slug: 'cafe-chairs', description: 'Atelier design cafe chairs' },
+  { parentSlug: 'cafe-furniture', name: 'Café Tables', slug: 'cafe-tables', description: 'Heritage teak table tops' },
+  { parentSlug: 'cafe-furniture', name: 'Café Benches', slug: 'cafe-benches', description: 'Traditional weaving benches' },
+  { parentSlug: 'cafe-furniture', name: 'Outdoor Café Furniture', slug: 'outdoor-cafe-furniture', description: 'Weather resistant items' },
+  
+  // Bar Furniture
+  { parentSlug: 'bar-furniture', name: 'Bar Chairs', slug: 'bar-chairs', description: 'Woven bar chairs' },
+  { parentSlug: 'bar-furniture', name: 'Bar Stools', slug: 'bar-stools', description: 'Woven high stools' },
+  { parentSlug: 'bar-furniture', name: 'Bar Tables', slug: 'bar-tables', description: 'Cocktail tables' },
+  { parentSlug: 'bar-furniture', name: 'Outdoor Bar Furniture', slug: 'outdoor-bar-furniture', description: 'Weather resistant bar items' },
+  
+  // Hotel Furniture
+  { parentSlug: 'hotel-furniture', name: 'Hotel Dining Chairs', slug: 'hotel-dining-chairs', description: 'Lobby easy chairs' },
+  { parentSlug: 'hotel-furniture', name: 'Hotel Dining Tables', slug: 'hotel-dining-tables', description: 'Lobby dining tables' },
+  { parentSlug: 'hotel-furniture', name: 'Hotel Room Chairs', slug: 'hotel-room-chairs', description: 'Lobby reading chairs' },
+  { parentSlug: 'hotel-furniture', name: 'Coffee Tables', slug: 'coffee-tables', description: 'Large scale coffee tables' },
   { parentSlug: 'hotel-furniture', name: 'Bedside Tables', slug: 'bedside-tables', description: 'Bespoke accent chests' },
-  { parentSlug: 'restaurant-furniture', name: 'Dining Seating', slug: 'seating', description: 'High-density restaurant seating' },
-  { parentSlug: 'restaurant-furniture', name: 'Dining Tables', slug: 'tables', description: 'Solid wood dining configurations' },
-  { parentSlug: 'bar-furniture', name: 'Bar Seating', slug: 'bar-seating', description: 'Woven high chairs' },
-  { parentSlug: 'bar-furniture', name: 'Bar Cabinets', slug: 'bar-cabinets', description: 'Liquor casegoods' },
-  { parentSlug: 'cane-furniture', name: 'Lounge Loungers', slug: 'lounge-loungers', description: 'Airy tropical loungers' },
-  { parentSlug: 'cane-furniture', name: 'Cane Tables', slug: 'cane-tables', description: 'Marble topped cane coffee tables' },
-  { parentSlug: 'rope-furniture', name: 'Daybeds & Benches', slug: 'daybed-benches', description: 'Charpais and rope weaving beds' },
-  { parentSlug: 'rope-furniture', name: 'Dining Benches', slug: 'dining-benches', description: 'Coromandel jute benches' },
-  { parentSlug: 'bone-inlay-furniture', name: 'Cabinets & Storage', slug: 'bone-cabinets', description: 'Damask inlay credenzas' },
-  { parentSlug: 'bone-inlay-furniture', name: 'Bistro & Accent Tables', slug: 'bone-tables', description: 'Stepped arch bone inlay tops' }
+  
+  // Cane Furniture
+  { parentSlug: 'cane-furniture', name: 'Cane Chairs', slug: 'cane-chairs', description: 'Airy tropical loungers' },
+  { parentSlug: 'cane-furniture', name: 'Cane Dining Chairs', slug: 'cane-dining-chairs', description: 'Cane dining seating' },
+  { parentSlug: 'cane-furniture', name: 'Cane Bar Stools', slug: 'cane-bar-stools', description: 'High cane stools' },
+  { parentSlug: 'cane-furniture', name: 'Cane Sofa Sets', slug: 'cane-sofa-sets', description: 'Cane seating suites' },
+  { parentSlug: 'cane-furniture', name: 'Cane Sideboards', slug: 'cane-sideboards', description: 'Cane console credenzas' },
+  { parentSlug: 'cane-furniture', name: 'Cane Coffee Tables', slug: 'cane-coffee-tables', description: 'Marble topped cane coffee tables' },
+  { parentSlug: 'cane-furniture', name: 'Cane Bedside Tables', slug: 'cane-bedside-tables', description: 'Cane nightstands' },
+  { parentSlug: 'cane-furniture', name: 'Cane Cabinets', slug: 'cane-cabinets', description: 'Cane storage cupboards' },
+  
+  // Rope Furniture
+  { parentSlug: 'rope-furniture', name: 'Rope Chairs', slug: 'rope-chairs', description: 'Woven rope chairs' },
+  { parentSlug: 'rope-furniture', name: 'Rope Stools', slug: 'rope-stools', description: 'Coir rope stools' },
+  { parentSlug: 'rope-furniture', name: 'Rope Sofa Sets', slug: 'rope-sofa-sets', description: 'Woven rope lounge sets' },
+  { parentSlug: 'rope-furniture', name: 'Rope Benches', slug: 'rope-benches', description: 'Charpais and rope weaving benches' },
+  { parentSlug: 'rope-furniture', name: 'Rope Outdoor Furniture', slug: 'rope-outdoor-furniture', description: 'Outdoor treated rope items' },
+  
+  // Bone Inlay Furniture
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Storage Cabinets', slug: 'bone-inlay-storage-cabinets', description: 'Damask inlay cabinets' },
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Sideboards', slug: 'bone-inlay-sideboards', description: 'Damask inlay credenzas' },
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Bedside Tables', slug: 'bone-inlay-bedside-tables', description: 'Floral inlay nightstands' },
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Coffee Tables', slug: 'bone-inlay-coffee-tables', description: 'Stepped arch bone inlay coffee tables' },
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Side Tables', slug: 'bone-inlay-side-tables', description: 'Inlay accent tables' }
 ];
 
 // Default Products Mock
@@ -77,7 +103,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Haveli Reclaimed Teak Dining Chair',
     slug: 'haveli-reclaimed-teak-dining-chair',
     categorySlug: 'restaurant-furniture',
-    subcategorySlug: 'seating',
+    subcategorySlug: 'restaurant-chairs',
     description: 'Monolithic, hand-planed dining chair sculpted from century-old Shekhawati haveli timbers.',
     materials: ['Reclaimed Teakwood', 'Natural Rattan Cane', 'Brushed Brass Dowels'],
     dimensions: { height: 82, width: 54, depth: 56, unit: 'cm' },
@@ -94,7 +120,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Dune Sand Wet-Bent Cane Lounge',
     slug: 'dune-sand-wet-bent-cane-lounge',
     categorySlug: 'cane-furniture',
-    subcategorySlug: 'lounge-loungers',
+    subcategorySlug: 'cane-chairs',
     description: 'An organically curved lounge chair showcasing steam-bent cane wrapped in rich rattan peel.',
     materials: ['Natural Wet-Bent Cane', 'Premium Linen Bouclé', 'Satin Brass Fittings'],
     dimensions: { height: 74, width: 82, depth: 80, unit: 'cm' },
@@ -110,7 +136,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Shekhawati Floral Bone Inlay Bar Cabinet',
     slug: 'shekhawati-floral-bone-inlay-bar-cabinet',
     categorySlug: 'bone-inlay-furniture',
-    subcategorySlug: 'bone-cabinets',
+    subcategorySlug: 'bone-inlay-storage-cabinets',
     description: 'An ornate bar cabinet featuring hand-cut camel bone tiles set in deep charcoal resin.',
     materials: ['Ethically Sourced Camel Bone', 'Water-resistant Resin Inlay', 'Brushed Brass Hardware', 'Solid Mango Wood Frame'],
     dimensions: { height: 142, width: 92, depth: 46, unit: 'cm' },
@@ -126,7 +152,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Keralite Coir Rope Daybed',
     slug: 'keralite-coir-rope-daybed',
     categorySlug: 'rope-furniture',
-    subcategorySlug: 'daybed-benches',
+    subcategorySlug: 'rope-benches',
     description: 'A low-profile daybed crafted from solid Indian rosewood and hand-tensioned coir ropes.',
     materials: ['Solid Indian Rosewood', 'Organic Coconut Coir Ropes', 'Unbleached Cotton Cushioning'],
     dimensions: { height: 45, width: 200, depth: 95, unit: 'cm' },
@@ -158,7 +184,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Jaipur Arch Bone Inlay Bistro Table',
     slug: 'jaipur-arch-bone-inlay-bistro-table',
     categorySlug: 'bone-inlay-furniture',
-    subcategorySlug: 'bone-tables',
+    subcategorySlug: 'bone-inlay-coffee-tables',
     description: 'An octagonal bistro table with chevron bone inlay and an architectural stepped base.',
     materials: ['Ethically Sourced Bone', 'Black Resin Pigment', 'Solid Mango Wood Core', 'Weighted Steel Sub-base'],
     dimensions: { height: 76, width: 80, depth: 80, unit: 'cm' },
@@ -174,7 +200,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Varanasi Silk-Rope Barstool',
     slug: 'varanasi-silk-rope-barstool',
     categorySlug: 'bar-furniture',
-    subcategorySlug: 'bar-seating',
+    subcategorySlug: 'bar-stools',
     description: 'A sleek barstool weaving high-tensile silk-blend cords with full-grain Indian leather.',
     materials: ['High-tensile Silk-blend Cord', 'Powder-coated Stainless Steel Frame', 'Full-grain Indian Saddle Leather'],
     dimensions: { height: 96, width: 46, depth: 46, unit: 'cm' },
@@ -189,7 +215,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Thar Teakwood Monolithic Coffee Table',
     slug: 'thar-teakwood-monolithic-coffee-table',
     categorySlug: 'hotel-furniture',
-    subcategorySlug: 'hotel-tables',
+    subcategorySlug: 'coffee-tables',
     description: 'A grounding, monolithic coffee table carved from a single slab of desert teakwood.',
     materials: ['Aged Solid Teakwood Wood', 'Traditional Wooden Joinery'],
     dimensions: { height: 36, width: 120, depth: 120, unit: 'cm' },
@@ -200,6 +226,160 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
       'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80'
     ],
     featured: 1
+  },
+  {
+    title: 'Jodhpur Starry Night Bone Inlay Credenza',
+    slug: 'jodhpur-starry-night-bone-inlay-credenza',
+    categorySlug: 'bone-inlay-furniture',
+    subcategorySlug: 'bone-inlay-sideboards',
+    description: 'A celestial-themed credenza featuring bone inlay motifs set in midnight indigo resin.',
+    materials: ['Ethically Sourced Bone', 'Indigo Blue Resin', 'Aged Walnut Cabinetry', 'Solid Brass Legs'],
+    dimensions: { height: 78, width: 160, depth: 45, unit: 'cm' },
+    price: 145000.00,
+    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Nilgiri Forest Cane Coffee Table',
+    slug: 'nilgiri-forest-cane-coffee-table',
+    categorySlug: 'cane-furniture',
+    subcategorySlug: 'cane-coffee-tables',
+    description: 'A double-tiered circular table combining green Indian marble, cane weave, and teak.',
+    materials: ['Plantation Teakwood Frame', 'Woven Cane Mesh', 'Forest Green Indian Marble'],
+    dimensions: { height: 40, width: 90, depth: 90, unit: 'cm' },
+    price: 34000.00,
+    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 0
+  },
+  {
+    title: 'Maharaja Oval Sheesham Dining Table',
+    slug: 'maharaja-oval-sheesham-dining-table',
+    categorySlug: 'restaurant-furniture',
+    subcategorySlug: 'restaurant-tables',
+    description: 'An expansive oval dining table sculpted from solid Indian Rosewood with elegant brass inlay strips.',
+    materials: ['Solid Sheesham Wood', 'Brushed Brass Inlays', 'Weighted Iron Core'],
+    dimensions: { height: 76, width: 240, depth: 110, unit: 'cm' },
+    price: 95000.00,
+    image: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Malabar Coastal Cane Easy Chair',
+    slug: 'malabar-coastal-cane-easy-chair',
+    categorySlug: 'cane-furniture',
+    subcategorySlug: 'cane-chairs',
+    description: 'A low-slung, reclining lounge chair weaving blonde Malabar cane onto a plantation teak frame.',
+    materials: ['Plantation Teakwood', 'Natural Malabar Cane', 'Brass Pivot Screws'],
+    dimensions: { height: 70, width: 68, depth: 78, unit: 'cm' },
+    price: 26500.00,
+    image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 0
+  },
+  {
+    title: 'Coromandel Hand-woven Rope Bench',
+    slug: 'coromandel-hand-woven-rope-bench',
+    categorySlug: 'rope-furniture',
+    subcategorySlug: 'rope-benches',
+    description: 'An elegant dining bench featuring organic jute cords hand-tensioned in a basket-weave grid.',
+    materials: ['Solid Indian Rosewood', 'Dyed Organic Jute Rope', 'Brass Joinery Pins'],
+    dimensions: { height: 46, width: 140, depth: 40, unit: 'cm' },
+    price: 29500.00,
+    image: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 0
+  },
+  {
+    title: 'Artisan Reclaimed Teak Cafe Table',
+    slug: 'artisan-reclaimed-teak-cafe-table',
+    categorySlug: 'cafe-furniture',
+    subcategorySlug: 'cafe-tables',
+    description: 'A compact square bistro table crafted from seasoned reclaimed teakwood with a fluted cast-iron base.',
+    materials: ['Reclaimed Teakwood', 'Cast-Iron Base', 'Brass Edge Brackets'],
+    dimensions: { height: 75, width: 75, depth: 75, unit: 'cm' },
+    price: 21000.00,
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Heritage Brass-Repoussé Bar Cabinet',
+    slug: 'heritage-brass-repousse-bar-cabinet',
+    categorySlug: 'bar-furniture',
+    subcategorySlug: 'bar-tables',
+    description: 'An opulent bar cabinet clad in hand-beaten repoussé brass sheets over solid teak.',
+    materials: ['Solid Brass Sheets', 'Solid Teakwood Core', 'Tempered Mirrored Glass', 'Velvet Lining'],
+    dimensions: { height: 135, width: 85, depth: 45, unit: 'cm' },
+    price: 135000.00,
+    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Mehrangarh Carved Teak Lobby Console',
+    slug: 'mehrangarh-carved-teak-lobby-console',
+    categorySlug: 'hotel-furniture',
+    subcategorySlug: 'bedside-tables',
+    description: 'A grand carved teakwood console featuring intricate Mughal arch lattice work.',
+    materials: ['Plantation Teakwood', 'Brass Handle Accents'],
+    dimensions: { height: 85, width: 180, depth: 50, unit: 'cm' },
+    price: 88000.00,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 0
+  },
+  {
+    title: 'Mughal Octagonal Floral Bone Inlay Table',
+    slug: 'mughal-octagonal-floral-bone-inlay-table',
+    categorySlug: 'bone-inlay-furniture',
+    subcategorySlug: 'bone-inlay-side-tables',
+    description: 'An octagonal accent table featuring floral bone inlay detailing set in olive green resin.',
+    materials: ['Ethically Sourced Camel Bone', 'Olive Green Resin', 'Solid Mango Wood Core'],
+    dimensions: { height: 50, width: 45, depth: 45, unit: 'cm' },
+    price: 24500.00,
+    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 0
+  },
+  {
+    title: 'Rajputana Chevron Bone Inlay Wall Mirror',
+    slug: 'rajputana-chevron-bone-inlay-wall-mirror',
+    categorySlug: 'bone-inlay-furniture',
+    subcategorySlug: 'bone-inlay-storage-cabinets',
+    description: 'A wide, rectangular wall mirror with a hand-laid geometric bone inlay frame.',
+    materials: ['Ethically Sourced Bone', 'Black Resin Pigment', 'Premium Mirrored Glass', 'Mango Wood Frame'],
+    dimensions: { height: 120, width: 80, depth: 4, unit: 'cm' },
+    price: 16500.00,
+    image: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 0
   }
 ];
 

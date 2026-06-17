@@ -153,3 +153,25 @@
   color: var(--admin-text-bright) !important;
   background-color: var(--admin-bg-input) !important;
 }
+
+/* Hide scrollbars completely while keeping scroll functionality */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+.scrollbar-none::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+.scrollbar-none::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+.scrollbar-none::-webkit-scrollbar-track {
+  display: none !important;
+}
+.scrollbar-none {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
