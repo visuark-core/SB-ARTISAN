@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../../lib/utils";
 import { Product } from "./product-data";
@@ -103,16 +104,18 @@ export default function ProductCard({
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="md:col-span-5 overflow-hidden">
-          <ProductImage
-            src={product.image}
-            alt={product.name}
-            aspectRatio={aspectRatio}
-            isNew={product.isNew}
-            isFeatured={product.isFeatured}
-            isWishlisted={isWishlisted}
-            onWishlistToggle={onWishlistToggle ? handleWishlistToggle : undefined}
-            isHovered={isHovered}
-          />
+          <Link to={`/product/${product.id}`} className="block overflow-hidden">
+            <ProductImage
+              src={product.image}
+              alt={product.name}
+              aspectRatio={aspectRatio}
+              isNew={product.isNew}
+              isFeatured={product.isFeatured}
+              isWishlisted={isWishlisted}
+              onWishlistToggle={onWishlistToggle ? handleWishlistToggle : undefined}
+              isHovered={isHovered}
+            />
+          </Link>
         </div>
         
         <div className="md:col-span-7 space-y-4 lg:space-y-6">
@@ -122,6 +125,7 @@ export default function ProductCard({
             designer={product.designer}
             description={product.description}
             price={product.price}
+            href={`/product/${product.id}`}
           />
           
           <ProductActions
@@ -142,16 +146,18 @@ export default function ProductCard({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <ProductImage
-          src={product.image}
-          alt={product.name}
-          aspectRatio={aspectRatio}
-          isNew={product.isNew}
-          isFeatured={product.isFeatured}
-          isWishlisted={isWishlisted}
-          onWishlistToggle={onWishlistToggle ? handleWishlistToggle : undefined}
-          isHovered={isHovered}
-        />
+        <Link to={`/product/${product.id}`} className="block overflow-hidden">
+          <ProductImage
+            src={product.image}
+            alt={product.name}
+            aspectRatio={aspectRatio}
+            isNew={product.isNew}
+            isFeatured={product.isFeatured}
+            isWishlisted={isWishlisted}
+            onWishlistToggle={onWishlistToggle ? handleWishlistToggle : undefined}
+            isHovered={isHovered}
+          />
+        </Link>
 
         <div className="space-y-4">
           <ProductInfo
@@ -160,6 +166,7 @@ export default function ProductCard({
             designer={product.designer}
             description={product.description}
             price={product.price}
+            href={`/product/${product.id}`}
           />
 
           <ProductActions
@@ -179,16 +186,18 @@ export default function ProductCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <ProductImage
-        src={product.image}
-        alt={product.name}
-        aspectRatio={aspectRatio}
-        isNew={product.isNew}
-        isFeatured={product.isFeatured}
-        isWishlisted={isWishlisted}
-        onWishlistToggle={onWishlistToggle ? handleWishlistToggle : undefined}
-        isHovered={isHovered}
-      />
+      <Link to={`/product/${product.id}`} className="block overflow-hidden">
+        <ProductImage
+          src={product.image}
+          alt={product.name}
+          aspectRatio={aspectRatio}
+          isNew={product.isNew}
+          isFeatured={product.isFeatured}
+          isWishlisted={isWishlisted}
+          onWishlistToggle={onWishlistToggle ? handleWishlistToggle : undefined}
+          isHovered={isHovered}
+        />
+      </Link>
 
       <div className="mt-4 flex justify-between items-start gap-4">
         <div className="space-y-1">
@@ -196,7 +205,9 @@ export default function ProductCard({
             {product.category}
           </span>
           <h3 className="font-serif text-base font-light text-[#1A1A1A]">
-            {product.name}
+            <Link to={`/product/${product.id}`} className="hover:text-[#A3927B] transition-colors duration-300">
+              {product.name}
+            </Link>
           </h3>
         </div>
         {product.price && (

@@ -68,7 +68,7 @@ export default function BlogPreview({
               transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
             >
               {/* Image Container */}
-              <div className="aspect-[3/2] w-full overflow-hidden bg-[#F5F2EA] relative">
+              <Link to={`/journal?article=${article.id}`} className="block overflow-hidden aspect-[3/2] w-full bg-[#F5F2EA] relative">
                 <div className="absolute inset-0 bg-black/[0.02] z-10 pointer-events-none" />
                 <img
                   src={article.image}
@@ -76,7 +76,7 @@ export default function BlogPreview({
                   className="w-full h-full object-cover object-center transition-transform duration-[1500ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-104"
                   loading="lazy"
                 />
-              </div>
+              </Link>
 
               {/* Text Meta Container */}
               <div className="space-y-3">
@@ -86,7 +86,7 @@ export default function BlogPreview({
                 </div>
                 
                 <h3 className="font-serif text-lg font-light text-[#1A1A1A] leading-snug group-hover:text-[#8C8273] transition-colors duration-300 text-pretty">
-                  <Link to={article.href}>{article.title}</Link>
+                  <Link to={`/journal?article=${article.id}`}>{article.title}</Link>
                 </h3>
                 
                 <div className="flex justify-between items-center text-[10px] font-sans text-[#9E9B95] font-light pt-2">

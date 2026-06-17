@@ -14,6 +14,11 @@ export interface MegaMenuProps {
   config: MegaMenuConfig;
 
   /**
+   * Callback triggered when mouse enters the mega menu pane.
+   */
+  onMouseEnter?: () => void;
+
+  /**
    * Callback triggered when mouse leaves the mega menu pane.
    */
   onMouseLeave?: () => void;
@@ -44,13 +49,14 @@ const menuVariants = {
  * Premium MegaMenu overlay that slides down below the main navigation bar.
  * Features a multi-column grid layout, organic linen tones, and Framer Motion entries.
  */
-export default function MegaMenu({ config, onMouseLeave }: MegaMenuProps) {
+export default function MegaMenu({ config, onMouseEnter, onMouseLeave }: MegaMenuProps) {
   return (
     <motion.div
       variants={menuVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
+      onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       className="absolute top-full left-0 w-full bg-[#FDFCF7] border-b border-[#EAE5D9] shadow-[0_20px_40px_rgba(0,0,0,0.03)] z-50 overflow-hidden"
     >

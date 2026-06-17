@@ -246,6 +246,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
               <MegaMenu
                 key={activeMenuIdx}
                 config={NAVIGATION_DATA[activeMenuIdx].megaMenu!}
+                onMouseEnter={handleMenuLinkEnter}
                 onMouseLeave={handleMouseLeave}
               />
             )}

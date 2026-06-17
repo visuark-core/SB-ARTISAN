@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { BLOG_ARTICLES, BlogArticle } from "../sections/section-data";
 import { Container, Heading, SubHeading, Paragraph, SEO } from "../ui";
 import { cn } from "../../lib/utils";
@@ -18,6 +19,22 @@ const JOURNAL_CONTENTS: Record<string, string> = {
 export default function JournalPage() {
   const [blogs, setBlogs] = useState<BlogArticle[]>([]);
   const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const articleIdParam = searchParams.get("article");
+
+  useEffect(() => {
+    if (articleIdParam && blogs.length > 0) {
+      const found = blogs.find((b) => b.id === articleIdParam);
+      if (found) {
+        setSelectedArticle(found);
+      } else {
+        setSelectedArticle(null);
+      }
+    } else {
+      setSelectedArticle(null);
+    }
+  }, [articleIdParam, blogs]);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Articles");
 
@@ -119,331 +136,335 @@ export default function JournalPage() {
   return (
     <div className="bg-[#FDFCF7] pt-28 pb-20 selection:bg-[#EAE5D9]">
       <SEO 
-        title="Furniture Insights & Export Guides | SB Artisan Jodhpur"
-        description="Explore SB Artisan's B2B knowledge base: technical specifications for commercial furniture seasoning, custom inlay commissions, and export container logistics coordinates."
+        title={selectedArticle ? `${selectedArticle.title} - SB Artisan Journal` : "Furniture Insights & Export Guides | SB Artisan Jodhpur"}
+        description={selectedArticle ? selectedArticle.description : "Explore SB Artisan's B2B knowledge base: technical specifications for commercial furniture seasoning, custom inlay commissions, and export container logistics coordinates."}
         keywords="hospitality furniture procurement, furniture manufacturer Jodhpur, solid wood kiln seasoning, export coordinates India, hotel furniture supplier Jodhpur"
-        canonical="/journal"
+        canonical={selectedArticle ? `/journal?article=${selectedArticle.id}` : "/journal"}
         schema={journalSchema}
       />
       
-      {/* 1. HEADER SECTION */}
-      <section className="py-12 border-b border-[#F2EDE2] bg-[#FAF8F2]/60">
-        <Container variant="default">
-          <div className="max-w-3xl space-y-4">
-            <SubHeading variant="caps" size="sm" className="text-[#8C6D4F]">
-              FURNITURE INSIGHTS & EXPORT GUIDES
-            </SubHeading>
-            <Heading variant="hero" weight="light" className="text-[#1A1A1A] leading-tight">
-              SB Artisan Journal
-            </Heading>
-            <Paragraph variant="lg" className="text-[#5A5751] font-light leading-relaxed">
-              Technical manuals, material specification protocols, and international shipping coordinates compiled by our Jodhpur production workshop and logistics desks. Designed for hotel developers, procurement teams, architects, and trade importers.
-            </Paragraph>
+      {selectedArticle ? (
+        <Container variant="narrow" className="py-8">
+          {/* Back button */}
+          <button
+            onClick={() => setSearchParams({})}
+            className="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#8C8273] hover:text-[#1A1A1A] transition-colors duration-300 mb-10 border-none bg-transparent cursor-pointer outline-none"
+          >
+            <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 8H1M6 13L1 8l5-5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Back to Journal Archive
+          </button>
+
+          {/* Article Header */}
+          <div className="space-y-6 mb-12">
+            <span className="inline-block text-[9px] uppercase tracking-[0.25em] font-sans text-[#8C6D4F] border border-[#8C6D4F]/20 px-3 py-1 bg-[#FAF8F2] rounded-xs">
+              {selectedArticle.category} • {selectedArticle.readTime}
+            </span>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#1A1A1A] leading-tight tracking-wide">
+              {selectedArticle.title}
+            </h1>
+            <div className="flex items-center gap-4 text-xs font-sans text-[#8C8273] font-light">
+              <span>Published by <strong className="font-medium text-[#1A1A1A]">{selectedArticle.author}</strong></span>
+              <span>•</span>
+              <span>{selectedArticle.date}</span>
+            </div>
           </div>
+
+          {/* Hero Image */}
+          <div className="aspect-[16/9] w-full overflow-hidden bg-[#F5F2EA] border border-[#EAE5D9] mb-12 rounded-sm shadow-sm">
+            <img
+              src={selectedArticle.image}
+              alt={selectedArticle.title}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
+          {/* Article Content */}
+          <div className="max-w-2xl mx-auto font-sans text-sm text-[#5A5751] font-light leading-relaxed space-y-6 text-justify">
+            <p className="font-serif text-lg text-[#1A1A1A] italic leading-relaxed font-light border-l-2 border-[#8C6D4F] pl-6 py-1 my-8">
+              {selectedArticle.description}
+            </p>
+            <p className="text-base text-[#2D2A26] font-light leading-relaxed">
+              {(selectedArticle as any).content || JOURNAL_CONTENTS[selectedArticle.id] || "Dossier content matches catalog details..."}
+            </p>
+            <p>
+              As an export-oriented manufacturer, SB Artisan ensures all orders strictly align with destination coordinates. Every batch processed through our Jodhpur facility goes through seasoned checks, double-insulated structural finishes, and drop-tested cardboard packing configurations suitable for sea-freight container corridors. We guarantee compliance with FSC and Vriksh standards for all international shipments.
+            </p>
+            <p>
+              Our design team collaborates directly with architectural firms and hospitality designers globally to manufacture custom furniture programs. From large-scale hotel projects to boutique resort installations, we coordinate each detail to fit your technical and aesthetic criteria.
+            </p>
+          </div>
+
+          {/* Bottom Action Section */}
+          <div className="border-t border-[#EAE5D9] pt-12 mt-16 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div className="space-y-1 text-center sm:text-left">
+              <h4 className="font-serif text-lg text-[#1A1A1A] font-light">Interested in custom contract commissions?</h4>
+              <p className="text-xs text-[#8C8273] font-light">Contact our design desk to explore materials, finishes, and trade pricing guidelines.</p>
+            </div>
+            <a
+              href="/contact"
+              className="font-sans text-[10px] uppercase tracking-[0.2em] font-medium py-3.5 px-8 bg-[#1A1A1A] text-white hover:bg-[#8C6D4F] transition-all duration-300 rounded-xs shrink-0 text-center"
+            >
+              Inquire about project
+            </a>
+          </div>
+
         </Container>
-      </section>
-
-      {/* 2. MAIN ARTICLES LAYOUT */}
-      <section className="py-20">
-        <Container variant="default">
-          
-          {/* Search & Category Filter Bar */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-[#F2EDE2] pb-8 mb-12">
-            {/* Search Input */}
-            <div className="relative w-full lg:max-w-xs">
-              <span className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#8C8273]">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637z" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                placeholder="Search knowledge base..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-8 py-2 bg-white border border-[#EAE5D9] rounded-sm text-xs font-light placeholder-[#9E9B95] text-[#1A1A1A] focus:outline-none focus:border-[#8C6D4F] transition-all duration-300"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute inset-y-0 right-3 flex items-center text-[#8C8273] hover:text-[#1A1A1A]"
-                >
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </button>
-              )}
-            </div>
-
-            {/* Category Filter list */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none -mx-4 px-4 lg:mx-0 lg:px-0">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={cn(
-                    "px-3 py-1.5 text-[9px] uppercase tracking-wider font-mono whitespace-nowrap rounded-xs transition-all duration-200 outline-none cursor-pointer border",
-                    selectedCategory === cat
-                      ? "bg-[#1A1A1A] border-[#1A1A1A] text-white"
-                      : "bg-white border-[#EAE5D9] text-[#6E6B64] hover:border-[#8C6D4F] hover:text-[#1A1A1A]"
-                  )}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Featured and Grid Sections with States */}
-          {isLoading ? (
-            <div className="space-y-16">
-              {/* Featured Skeleton */}
-              {!searchQuery && selectedCategory === "All Articles" && (
-                <div className="space-y-4">
-                  <div className="h-4 bg-[#F5F2EA] w-48 rounded-xs animate-pulse" />
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border border-[#EAE5D9] bg-white rounded-sm overflow-hidden animate-pulse">
-                    <div className="lg:col-span-7 aspect-[16/10] lg:h-[400px] bg-[#F5F2EA]" />
-                    <div className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
-                      <div className="space-y-4">
-                        <div className="h-6 bg-[#F5F2EA] w-24 rounded-xs" />
-                        <div className="h-8 bg-[#F5F2EA] w-3/4 rounded-xs" />
-                        <div className="h-16 bg-[#F5F2EA] w-full rounded-xs" />
-                      </div>
-                      <div className="h-10 bg-[#F5F2EA] w-full rounded-xs" />
-                    </div>
-                  </div>
-                </div>
-              )}
-              {/* Grid Skeletons */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1, 2, 3].map((n) => (
-                  <div key={n} className="flex flex-col justify-between bg-white border border-[#EAE5D9] p-5 rounded-sm animate-pulse space-y-4">
-                    <div className="aspect-[16/10] w-full bg-[#F5F2EA] rounded-xs" />
-                    <div className="space-y-3">
-                      <div className="h-5 bg-[#F5F2EA] w-1/4 rounded-xs" />
-                      <div className="h-6 bg-[#F5F2EA] w-3/4 rounded-xs" />
-                      <div className="h-12 bg-[#F5F2EA] w-full rounded-xs" />
-                    </div>
-                    <div className="h-10 bg-[#F5F2EA] w-full rounded-xs pt-4" />
-                  </div>
-                ))}
+      ) : (
+        <>
+          {/* 1. HEADER SECTION */}
+          <section className="py-12 border-b border-[#F2EDE2] bg-[#FAF8F2]/60">
+            <Container variant="default">
+              <div className="max-w-3xl space-y-4">
+                <SubHeading variant="caps" size="sm" className="text-[#8C6D4F]">
+                  FURNITURE INSIGHTS & EXPORT GUIDES
+                </SubHeading>
+                <Heading variant="hero" weight="light" className="text-[#1A1A1A] leading-tight">
+                  SB Artisan Journal
+                </Heading>
+                <Paragraph variant="lg" className="text-[#5A5751] font-light leading-relaxed">
+                  Technical manuals, material specification protocols, and international shipping coordinates compiled by our Jodhpur production workshop and logistics desks. Designed for hotel developers, procurement teams, architects, and trade importers.
+                </Paragraph>
               </div>
-            </div>
-          ) : error ? (
-            <div className="py-20 text-center space-y-6 max-w-md mx-auto select-none">
-              <div className="w-12 h-12 rounded-full bg-red-50 border border-red-200 flex items-center justify-center text-red-500 mx-auto">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-serif text-lg text-[#1A1A1A] font-light">Failed to load publications</h4>
-                <p className="font-sans text-xs text-[#6E6B64] font-light leading-relaxed">{error}</p>
-              </div>
-              <button
-                onClick={fetchBlogsData}
-                className="px-5 py-2.5 bg-[#1A1A1A] text-white hover:bg-[#8C6D4F] font-sans text-[10px] uppercase tracking-widest font-medium transition-all duration-300 rounded-sm cursor-pointer"
-              >
-                Retry Connection
-              </button>
-            </div>
-          ) : (
-            <>
-              {/* Featured Article Section */}
-              {!searchQuery && selectedCategory === "All Articles" && blogs.length > 0 && (
-                <div className="mb-16">
-                  <span className="text-[10px] tracking-[0.3em] uppercase font-semibold text-[#8C6D4F] block mb-4">
-                    Featured Technical Publication
+            </Container>
+          </section>
+
+          {/* 2. MAIN ARTICLES LAYOUT */}
+          <section className="py-20">
+            <Container variant="default">
+              
+              {/* Search & Category Filter Bar */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-[#F2EDE2] pb-8 mb-12">
+                {/* Search Input */}
+                <div className="relative w-full lg:max-w-xs">
+                  <span className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#8C8273]">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637z" />
+                    </svg>
                   </span>
-                  <div 
-                    onClick={() => setSelectedArticle(blogs[0])}
-                    className="group grid grid-cols-1 lg:grid-cols-12 gap-8 border border-[#EAE5D9] bg-white rounded-sm overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="lg:col-span-7 aspect-[16/10] lg:aspect-auto lg:h-[400px] overflow-hidden bg-[#F5F2EA] relative">
-                      <div className="absolute inset-0 bg-black/[0.02] z-10 pointer-events-none group-hover:bg-black/5 transition-colors duration-500" />
-                      <img
-                        src={blogs[0].image}
-                        alt={blogs[0].title}
-                        className="w-full h-full object-cover object-center transition-transform duration-[1500ms] ease-out group-hover:scale-102"
-                      />
-                    </div>
-                    <div className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
-                      <div className="space-y-4">
-                        <span className="inline-block text-[9px] uppercase tracking-[0.2em] font-sans text-[#8C6D4F] border border-[#8C6D4F]/20 px-2.5 py-1 rounded-xs bg-[#FAF8F2]">
-                          {blogs[0].category}
-                        </span>
-                        <h3 className="font-serif text-2xl lg:text-3xl font-light text-[#1A1A1A] leading-tight group-hover:text-[#8C6D4F] transition-colors duration-300">
-                          {blogs[0].title}
-                        </h3>
-                        <p className="text-xs text-[#6E6B64] font-light leading-relaxed">
-                          {blogs[0].description}
-                        </p>
-                      </div>
-                      <div className="space-y-4 pt-4 border-t border-[#F2EDE2]">
-                        <div className="flex justify-between items-center text-[10px] font-sans text-[#9E9B95] font-light">
-                          <span>By {blogs[0].author}</span>
-                          <span>{blogs[0].date} • {blogs[0].readTime}</span>
+                  <input
+                    type="text"
+                    placeholder="Search knowledge base..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-9 pr-8 py-2 bg-white border border-[#EAE5D9] rounded-sm text-xs font-light placeholder-[#9E9B95] text-[#1A1A1A] focus:outline-none focus:border-[#8C6D4F] transition-all duration-300"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="absolute inset-y-0 right-3 flex items-center text-[#8C8273] hover:text-[#1A1A1A]"
+                    >
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+
+                {/* Category Filter list */}
+                <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none -mx-4 px-4 lg:mx-0 lg:px-0">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      className={cn(
+                        "px-3 py-1.5 text-[9px] uppercase tracking-wider font-mono whitespace-nowrap rounded-xs transition-all duration-200 outline-none cursor-pointer border",
+                        selectedCategory === cat
+                          ? "bg-[#1A1A1A] border-[#1A1A1A] text-white"
+                          : "bg-white border-[#EAE5D9] text-[#6E6B64] hover:border-[#8C6D4F] hover:text-[#1A1A1A]"
+                      )}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Featured and Grid Sections with States */}
+              {isLoading ? (
+                <div className="space-y-16">
+                  {/* Featured Skeleton */}
+                  {!searchQuery && selectedCategory === "All Articles" && (
+                    <div className="space-y-4">
+                      <div className="h-4 bg-[#F5F2EA] w-48 rounded-xs animate-pulse" />
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border border-[#EAE5D9] bg-white rounded-sm overflow-hidden animate-pulse">
+                        <div className="lg:col-span-7 aspect-[16/10] lg:h-[400px] bg-[#F5F2EA]" />
+                        <div className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                          <div className="space-y-4">
+                            <div className="h-6 bg-[#F5F2EA] w-24 rounded-xs" />
+                            <div className="h-8 bg-[#F5F2EA] w-3/4 rounded-xs" />
+                            <div className="h-16 bg-[#F5F2EA] w-full rounded-xs" />
+                          </div>
+                          <div className="h-10 bg-[#F5F2EA] w-full rounded-xs" />
                         </div>
-                        <div className="text-[10px] uppercase tracking-[0.15em] font-sans font-medium text-[#1A1A1A] group-hover:text-[#8C6D4F] inline-flex items-center gap-1 transition-colors">
-                          Read Technical Guide
-                          <svg className="w-2.5 h-2.5 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 8h14M10 3l5 5-5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </div>
                       </div>
                     </div>
+                  )}
+                  {/* Grid Skeletons */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {[1, 2, 3].map((n) => (
+                      <div key={n} className="flex flex-col justify-between bg-white border border-[#EAE5D9] p-5 rounded-sm animate-pulse space-y-4">
+                        <div className="aspect-[16/10] w-full bg-[#F5F2EA] rounded-xs" />
+                        <div className="space-y-3">
+                          <div className="h-5 bg-[#F5F2EA] w-1/4 rounded-xs" />
+                          <div className="h-6 bg-[#F5F2EA] w-3/4 rounded-xs" />
+                          <div className="h-12 bg-[#F5F2EA] w-full rounded-xs" />
+                        </div>
+                        <div className="h-10 bg-[#F5F2EA] w-full rounded-xs pt-4" />
+                      </div>
+                    ))}
                   </div>
                 </div>
-              )}
-
-              {/* Grid Layout of Articles */}
-              {filteredArticles.length === 0 ? (
-                <div className="text-center py-20 border border-dashed border-[#EAE5D9] rounded-sm bg-[#FAF8F2]/50">
-                  <svg className="w-10 h-10 text-[#8C8273] mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                  <p className="text-sm font-light text-[#5A5751]">No export guides or articles matches your query.</p>
-                  <button 
-                    onClick={() => { setSearchQuery(""); setSelectedCategory("All Articles"); }}
-                    className="mt-4 text-[10px] uppercase tracking-widest text-[#8C6D4F] font-mono border-b border-[#8C6D4F] hover:text-[#1A1A1A] hover:border-[#1A1A1A] transition-colors"
+              ) : error ? (
+                <div className="py-20 text-center space-y-6 max-w-md mx-auto select-none">
+                  <div className="w-12 h-12 rounded-full bg-red-50 border border-red-200 flex items-center justify-center text-red-500 mx-auto">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="font-serif text-lg text-[#1A1A1A] font-light">Failed to load publications</h4>
+                    <p className="font-sans text-xs text-[#6E6B64] font-light leading-relaxed">{error}</p>
+                  </div>
+                  <button
+                    onClick={fetchBlogsData}
+                    className="px-5 py-2.5 bg-[#1A1A1A] text-white hover:bg-[#8C6D4F] font-sans text-[10px] uppercase tracking-widest font-medium transition-all duration-300 rounded-sm cursor-pointer"
                   >
-                    Clear filters
+                    Retry Connection
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredArticles.map((article) => {
-                    const isFirstInAll = !searchQuery && selectedCategory === "All Articles" && blogs.length > 0 && article.id === blogs[0].id;
-                    if (isFirstInAll) return null;
-
-                    return (
-                      <article
-                        key={article.id}
-                        className="group flex flex-col justify-between bg-white border border-[#EAE5D9] p-5 rounded-sm cursor-pointer shadow-xs hover:shadow-md transition-all duration-300"
-                        onClick={() => setSelectedArticle(article)}
+                <>
+                  {/* Featured Article Section */}
+                  {!searchQuery && selectedCategory === "All Articles" && blogs.length > 0 && (
+                    <div className="mb-16">
+                      <span className="text-[10px] tracking-[0.3em] uppercase font-semibold text-[#8C6D4F] block mb-4">
+                        Featured Technical Publication
+                      </span>
+                      <div 
+                        onClick={() => setSearchParams({ article: blogs[0].id })}
+                        className="group grid grid-cols-1 lg:grid-cols-12 gap-8 border border-[#EAE5D9] bg-white rounded-sm overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all duration-300"
                       >
-                        <div className="space-y-4">
-                          {/* Image Container */}
-                          <div className="aspect-[16/10] w-full overflow-hidden bg-[#F5F2EA] relative rounded-xs">
-                            <div className="absolute inset-0 bg-black/[0.02] z-10 pointer-events-none group-hover:bg-black/5 transition-colors duration-500" />
-                            <img
-                              src={article.image}
-                              alt={article.title}
-                              className="w-full h-full object-cover object-center transition-transform duration-[1500ms] ease-out group-hover:scale-103"
-                            />
-                          </div>
-
-                          {/* Info Metadata */}
-                          <div className="space-y-3">
-                            <span className="inline-block text-[9px] uppercase tracking-wider font-mono text-[#8C6D4F] bg-[#FAF8F2] border border-[#EAE5D9] px-2 py-0.5 rounded-xs">
-                              {article.category}
+                        <div className="lg:col-span-7 aspect-[16/10] lg:aspect-auto lg:h-[400px] overflow-hidden bg-[#F5F2EA] relative">
+                          <div className="absolute inset-0 bg-black/[0.02] z-10 pointer-events-none group-hover:bg-black/5 transition-colors duration-500" />
+                          <img
+                            src={blogs[0].image}
+                            alt={blogs[0].title}
+                            className="w-full h-full object-cover object-center transition-transform duration-[1500ms] ease-out group-hover:scale-102"
+                          />
+                        </div>
+                        <div className="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                          <div className="space-y-4">
+                            <span className="inline-block text-[9px] uppercase tracking-[0.2em] font-sans text-[#8C6D4F] border border-[#8C6D4F]/20 px-2.5 py-1 rounded-xs bg-[#FAF8F2]">
+                              {blogs[0].category}
                             </span>
-                            
-                            <h3 className="font-serif text-lg text-[#1A1A1A] font-light leading-snug group-hover:text-[#8C6D4F] transition-colors duration-300">
-                              {article.title}
+                            <h3 className="font-serif text-2xl lg:text-3xl font-light text-[#1A1A1A] leading-tight group-hover:text-[#8C6D4F] transition-colors duration-300">
+                              {blogs[0].title}
                             </h3>
-                            
-                            <p className="text-xs text-[#6E6B64] font-light leading-relaxed line-clamp-3">
-                              {article.description}
+                            <p className="text-xs text-[#6E6B64] font-light leading-relaxed">
+                              {blogs[0].description}
                             </p>
                           </div>
-                        </div>
-
-                        <div className="pt-6 mt-6 border-t border-[#F2EDE2] space-y-3">
-                          <div className="flex justify-between items-center text-[10px] font-mono text-[#9E9B95] font-light">
-                            <span>By {article.author}</span>
-                            <span>{article.date}</span>
-                          </div>
-
-                          <div className="flex justify-between items-center pt-1">
-                            <span className="text-[9px] text-[#8C8273] font-mono">{article.readTime}</span>
-                            <span className="text-[10px] uppercase tracking-[0.15em] font-sans font-medium text-[#1A1A1A] group-hover:text-[#8C6D4F] inline-flex items-center gap-1 transition-colors">
-                              Read Guide
+                          <div className="space-y-4 pt-4 border-t border-[#F2EDE2]">
+                            <div className="flex justify-between items-center text-[10px] font-sans text-[#9E9B95] font-light">
+                              <span>By {blogs[0].author}</span>
+                              <span>{blogs[0].date} • {blogs[0].readTime}</span>
+                            </div>
+                            <div className="text-[10px] uppercase tracking-[0.15em] font-sans font-medium text-[#1A1A1A] group-hover:text-[#8C6D4F] inline-flex items-center gap-1 transition-colors">
+                              Read Technical Guide
                               <svg className="w-2.5 h-2.5 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 8h14M10 3l5 5-5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                               </svg>
-                            </span>
+                            </div>
                           </div>
                         </div>
-                      </article>
-                    );
-                  })}
-                </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Grid Layout of Articles */}
+                  {filteredArticles.length === 0 ? (
+                    <div className="text-center py-20 border border-dashed border-[#EAE5D9] rounded-sm bg-[#FAF8F2]/50">
+                      <svg className="w-10 h-10 text-[#8C8273] mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <p className="text-sm font-light text-[#5A5751]">No export guides or articles matches your query.</p>
+                      <button 
+                        onClick={() => { setSearchQuery(""); setSelectedCategory("All Articles"); }}
+                        className="mt-4 text-[10px] uppercase tracking-widest text-[#8C6D4F] font-mono border-b border-[#8C6D4F] hover:text-[#1A1A1A] hover:border-[#1A1A1A] transition-colors"
+                      >
+                        Clear filters
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {filteredArticles.map((article) => {
+                        const isFirstInAll = !searchQuery && selectedCategory === "All Articles" && blogs.length > 0 && article.id === blogs[0].id;
+                        if (isFirstInAll) return null;
+
+                        return (
+                          <article
+                            key={article.id}
+                            className="group flex flex-col justify-between bg-white border border-[#EAE5D9] p-5 rounded-sm cursor-pointer shadow-xs hover:shadow-md transition-all duration-300"
+                            onClick={() => setSearchParams({ article: article.id })}
+                          >
+                            <div className="space-y-4">
+                              {/* Image Container */}
+                              <div className="aspect-[16/10] w-full overflow-hidden bg-[#F5F2EA] relative rounded-xs">
+                                <div className="absolute inset-0 bg-black/[0.02] z-10 pointer-events-none group-hover:bg-black/5 transition-colors duration-500" />
+                                <img
+                                  src={article.image}
+                                  alt={article.title}
+                                  className="w-full h-full object-cover object-center transition-transform duration-[1500ms] ease-out group-hover:scale-103"
+                                />
+                              </div>
+
+                              {/* Info Metadata */}
+                              <div className="space-y-3">
+                                <span className="inline-block text-[9px] uppercase tracking-wider font-mono text-[#8C6D4F] bg-[#FAF8F2] border border-[#EAE5D9] px-2 py-0.5 rounded-xs">
+                                  {article.category}
+                                </span>
+                                
+                                <h3 className="font-serif text-lg text-[#1A1A1A] font-light leading-snug group-hover:text-[#8C6D4F] transition-colors duration-300">
+                                  {article.title}
+                                </h3>
+                                
+                                <p className="text-xs text-[#6E6B64] font-light leading-relaxed line-clamp-3">
+                                  {article.description}
+                                </p>
+                              </div>
+                            </div>
+
+                            <div className="pt-6 mt-6 border-t border-[#F2EDE2] space-y-3">
+                              <div className="flex justify-between items-center text-[10px] font-mono text-[#9E9B95] font-light">
+                                <span>By {article.author}</span>
+                                <span>{article.date}</span>
+                              </div>
+
+                              <div className="flex justify-between items-center pt-1">
+                                <span className="text-[9px] text-[#8C8273] font-mono">{article.readTime}</span>
+                                <span className="text-[10px] uppercase tracking-[0.15em] font-sans font-medium text-[#1A1A1A] group-hover:text-[#8C6D4F] inline-flex items-center gap-1 transition-colors">
+                                  Read Guide
+                                  <svg className="w-2.5 h-2.5 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 8h14M10 3l5 5-5 5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </article>
+                        );
+                      })}
+                    </div>
+                  )}
+                </>
               )}
-            </>
-          )}
 
-        </Container>
-      </section>
-
-      {/* 3. READING POPUP MODAL */}
-      {selectedArticle && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F0E0D]/60 backdrop-blur-sm">
-          <div
-            className="w-full max-w-2xl bg-[#FDFCF7] border border-[#EAE5D9] rounded-sm max-h-[85vh] overflow-y-auto shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header Image */}
-            <div className="aspect-[2.2/1] w-full overflow-hidden bg-[#F5F2EA] relative">
-              <img
-                src={selectedArticle.image}
-                alt={selectedArticle.title}
-                className="w-full h-full object-cover object-center"
-              />
-              <button
-                onClick={() => setSelectedArticle(null)}
-                className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-[#0F0E0D]/75 text-white flex items-center justify-center hover:bg-black transition-colors"
-                aria-label="Close modal"
-              >
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Content Body */}
-            <div className="p-8 space-y-6">
-              <div className="space-y-3">
-                <span className="text-[9px] uppercase tracking-wider font-mono text-[#8C6D4F] bg-[#FAF8F2] border border-[#EAE5D9] px-2.5 py-0.5 rounded-xs">
-                  {selectedArticle.category} • {selectedArticle.readTime}
-                </span>
-                <h2 className="font-serif text-2xl lg:text-3xl font-light text-[#1A1A1A] leading-tight">
-                  {selectedArticle.title}
-                </h2>
-                <div className="text-xs font-sans text-[#9E9B95] font-light">
-                  Published by {selectedArticle.author} on {selectedArticle.date}
-                </div>
-              </div>
-
-              <div className="h-[1px] bg-[#F2EDE2]" />
-
-              <div className="font-sans text-sm text-[#6E6B64] font-light leading-relaxed space-y-4 text-justify">
-                <p className="font-semibold text-[#1A1A1A] italic">
-                  {selectedArticle.description}
-                </p>
-                <p>
-                  {(selectedArticle as any).content || JOURNAL_CONTENTS[selectedArticle.id] || "Dossier content matches catalog details..."}
-                </p>
-                <p>
-                  As an export-oriented manufacturer, SB Artisan ensures all orders strictly align with destination coordinates. Every batch processed through our Jodhpur facility goes through seasoned checks, double-insulated structural finishes, and drop-tested cardboard packing configurations suitable for sea-freight container corridors.
-                </p>
-              </div>
-
-              <div className="pt-4 flex justify-end">
-                <button
-                  onClick={() => setSelectedArticle(null)}
-                  className="font-sans text-[10px] uppercase tracking-[0.2em] font-medium py-3 px-6 bg-[#1A1A1A] text-white hover:bg-transparent hover:text-[#1A1A1A] border border-[#1A1A1A] transition-all duration-300 rounded-sm"
-                >
-                  Close Specification
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+            </Container>
+          </section>
+        </>
       )}
-
     </div>
   );
 }

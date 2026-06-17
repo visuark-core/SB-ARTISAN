@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { cn } from "../../lib/utils";
 
 interface ProductInfoProps {
@@ -10,6 +11,7 @@ interface ProductInfoProps {
   isLoading?: boolean;
   alignment?: "left" | "center";
   className?: string;
+  href?: string;
 }
 
 export default function ProductInfo({
@@ -21,6 +23,7 @@ export default function ProductInfo({
   isLoading = false,
   alignment = "left",
   className,
+  href,
 }: ProductInfoProps) {
   const isCentered = alignment === "center";
 
@@ -69,7 +72,13 @@ export default function ProductInfo({
 
       {/* Title */}
       <h3 className="font-serif text-lg md:text-xl font-light text-[#1A1A1A] leading-snug tracking-wide">
-        {title}
+        {href ? (
+          <Link to={href} className="hover:text-[#A3927B] transition-colors duration-300">
+            {title}
+          </Link>
+        ) : (
+          title
+        )}
       </h3>
 
       {/* Designer */}
