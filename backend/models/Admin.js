@@ -18,11 +18,11 @@ class Admin {
   }
 
   static async create({ fullName, email, passwordHash, role = 'admin' }) {
-    const [result] = await db.execute(
-      'INSERT INTO admins (full_name, email, password_hash, role) VALUES (?, ?, ?, ?)',
+    const [rows] = await db.execute(
+      'INSERT INTO admins (full_name, email, password_hash, role) VALUES (?, ?, ?, ?) RETURNING id',
       [fullName, email, passwordHash, role]
     );
-    return { id: result.insertId, fullName, email, role };
+    return { id: rows[0].id, fullName, email, role };
   }
 }
 

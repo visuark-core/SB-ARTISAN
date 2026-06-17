@@ -17,12 +17,12 @@ class Project {
   }
 
   static async create({ title, slug, project_type, location, client_name, description, image_url, completion_year }) {
-    const [result] = await db.execute(
+    const [rows] = await db.execute(
       `INSERT INTO projects (title, slug, project_type, location, client_name, description, image_url, completion_year) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`,
       [title, slug, project_type, location, client_name, description, image_url, completion_year]
     );
-    return { id: result.insertId, title, slug, project_type, location, client_name, description, image_url, completion_year };
+    return { id: rows[0].id, title, slug, project_type, location, client_name, description, image_url, completion_year };
   }
 
   static async update(id, { title, slug, project_type, location, client_name, description, image_url, completion_year }) {
@@ -35,8 +35,8 @@ class Project {
   }
 
   static async delete(id) {
-    const [result] = await db.execute('DELETE FROM projects WHERE id = ?', [id]);
-    return result.affectedRows > 0;
+    const [rows] = await db.execute('DELETE FROM projects WHERE id = ? RETURNING id', [id]);
+    return rows.length > 0;
   }
 }
 

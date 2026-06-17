@@ -17,7 +17,7 @@ class Product {
     const params = [];
 
     if (search) {
-      query += ' AND (p.name LIKE ? OR p.description LIKE ? OR p.material LIKE ?)';
+      query += ' AND (p.name ILIKE ? OR p.description ILIKE ? OR p.material ILIKE ?)';
       const searchWild = `%${search}%`;
       params.push(searchWild, searchWild, searchWild);
     }
@@ -119,15 +119,15 @@ class Product {
     try {
       await conn.beginTransaction();
 
-      const [res] = await conn.execute(
+      const [rows] = await conn.execute(
         `INSERT INTO products 
          (category_id, subcategory_id, name, slug, description, material, dimensions, price, featured) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`
          ,
         [category_id, subcategory_id, name, slug, description, material, dimensions, price, featured ? 1 : 0]
       );
 
-      const productId = res.insertId;
+      const productId = rows[0].id;
 
       if (images && images.length > 0) {
         for (const img of images) {
@@ -204,10 +204,10 @@ class Product {
       await conn.execute('DELETE FROM product_images WHERE product_id = ?', [id]);
       
       // Delete product
-      const [res] = await conn.execute('DELETE FROM products WHERE id = ?', [id]);
+      const [rows] = await conn.execute('DELETE FROM products WHERE id = ? RETURNING id', [id]);
 
       await conn.commit();
-      return res.affectedRows > 0;
+      return rows.length > 0;
     } catch (err) {
       await conn.rollback();
       throw err;

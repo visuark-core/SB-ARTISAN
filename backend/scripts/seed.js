@@ -1,8 +1,12 @@
-const mysql = require('mysql2/promise');
+const db = require('../config/db');
 const bcrypt = require('bcryptjs');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const Admin = require('../models/Admin');
+const Category = require('../models/Category');
+const Subcategory = require('../models/Subcategory');
+const Product = require('../models/Product');
+const Blog = require('../models/Blog');
+const Project = require('../models/Project');
+const Inquiry = require('../models/Inquiry');
 
 // Default Categories Mock
 const DEFAULT_CATEGORIES = [
@@ -291,68 +295,50 @@ const DEFAULT_INQUIRIES = [
 ];
 
 async function seed() {
-  console.log('Initiating SB Artisan database seeding sequence...');
+  console.log('Initiating SB Artisan PostgreSQL database seeding sequence...');
   
-  const connection = await mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME || 'sb_artisan',
-    port: parseInt(process.env.DB_PORT) || 3306
-  });
-
   try {
     // 1. Clean Database
     console.log('Cleaning existing records from registry tables...');
-    await connection.execute('SET FOREIGN_KEY_CHECKS = 0');
-    await connection.execute('TRUNCATE TABLE product_images');
-    await connection.execute('TRUNCATE TABLE products');
-    await connection.execute('TRUNCATE TABLE subcategories');
-    await connection.execute('TRUNCATE TABLE categories');
-    await connection.execute('TRUNCATE TABLE blogs');
-    await connection.execute('TRUNCATE TABLE projects');
-    await connection.execute('TRUNCATE TABLE inquiries');
-    await connection.execute('TRUNCATE TABLE admins');
-    await connection.execute('SET FOREIGN_KEY_CHECKS = 1');
+    await db.pool.query('TRUNCATE TABLE product_images, products, subcategories, categories, blogs, projects, inquiries, admins RESTART IDENTITY CASCADE');
     console.log('Tables truncated successfully.');
 
     // 2. Seed Admin
     console.log('Seeding default administrator user: rahul05...');
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash('200505', salt);
-    await connection.execute(
-      'INSERT INTO admins (full_name, email, password_hash, role) VALUES (?, ?, ?, ?)',
-      ['Rahul Dev', 'rahul05@sbartisan.com', passwordHash, 'admin']
-    );
+    await Admin.create({
+      fullName: 'Rahul Dev',
+      email: 'rahul05@sbartisan.com',
+      passwordHash,
+      role: 'admin'
+    });
     console.log('Admin seeded.');
 
     // 3. Seed Categories
     console.log('Seeding main showroom categories...');
-    const categoryIdMap = {}; // Maps slug to MySQL ID
+    const categoryIdMap = {}; // Maps slug to ID
     for (const cat of DEFAULT_CATEGORIES) {
-      const [res] = await connection.execute(
-        'INSERT INTO categories (name, slug, description) VALUES (?, ?, ?)',
-        [cat.name, cat.slug, cat.description]
-      );
-      categoryIdMap[cat.slug] = res.insertId;
-      console.log(`- Category inserted: ${cat.name} (ID: ${res.insertId})`);
+      const inserted = await Category.create(cat);
+      categoryIdMap[cat.slug] = inserted.id;
+      console.log(`- Category inserted: ${cat.name} (ID: ${inserted.id})`);
     }
 
     // 4. Seed Subcategories
     console.log('Seeding subcategories...');
-    const subcategoryIdMap = {}; // Maps slug to MySQL ID
+    const subcategoryIdMap = {}; // Maps slug to ID
     for (const sub of DEFAULT_SUBCATEGORIES) {
       const parentId = categoryIdMap[sub.parentSlug];
       if (!parentId) {
         console.error(`Warning: Parent category not found for subcategory ${sub.name}`);
         continue;
       }
-      const [res] = await connection.execute(
-        'INSERT INTO subcategories (category_id, name, slug, description) VALUES (?, ?, ?, ?)',
-        [parentId, sub.name, sub.slug, sub.description]
-      );
-      subcategoryIdMap[sub.slug] = res.insertId;
-      console.log(`  - Subcategory inserted: ${sub.name} (ID: ${res.insertId})`);
+      const inserted = await Subcategory.create({
+        category_id: parentId,
+        ...sub
+      });
+      subcategoryIdMap[sub.slug] = inserted.id;
+      console.log(`  - Subcategory inserted: ${sub.name} (ID: ${inserted.id})`);
     }
 
     // 5. Seed Products and Product Images
@@ -369,66 +355,47 @@ async function seed() {
       const materialStr = prod.materials.join(', ');
       const dimStr = `${prod.dimensions.height} x ${prod.dimensions.width} x ${prod.dimensions.depth} ${prod.dimensions.unit}`;
 
-      const [res] = await connection.execute(
-        `INSERT INTO products 
-         (category_id, subcategory_id, name, slug, description, material, dimensions, price, featured) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
-         ,
-        [catId, subId, prod.title, prod.slug, prod.description, materialStr, dimStr, prod.price, prod.featured]
-      );
+      const images = [
+        { url: prod.image, is_primary: true },
+        ...prod.imageGallery
+          .filter(imgUrl => imgUrl !== prod.image)
+          .map(imgUrl => ({ url: imgUrl, is_primary: false }))
+      ];
 
-      const productId = res.insertId;
-      console.log(`- Product inserted: ${prod.title} (ID: ${productId})`);
+      const inserted = await Product.create({
+        category_id: catId,
+        subcategory_id: subId,
+        name: prod.title,
+        slug: prod.slug,
+        description: prod.description,
+        material: materialStr,
+        dimensions: dimStr,
+        price: prod.price,
+        featured: prod.featured,
+        images
+      });
 
-      // Seed images
-      // Primary
-      await connection.execute(
-        'INSERT INTO product_images (product_id, image_url, is_primary) VALUES (?, ?, 1)',
-        [productId, prod.image]
-      );
-
-      // Gallery Secondary
-      for (const imgUrl of prod.imageGallery) {
-        // Skip duplicate of primary
-        if (imgUrl === prod.image) continue;
-        await connection.execute(
-          'INSERT INTO product_images (product_id, image_url, is_primary) VALUES (?, ?, 0)',
-          [productId, imgUrl]
-        );
-      }
-      console.log(`  - Seeded ${prod.imageGallery.length} images for product ID ${productId}`);
+      console.log(`- Product inserted: ${prod.title} (ID: ${inserted.id})`);
     }
 
     // 6. Seed Blogs
     console.log('Seeding blog insight articles...');
     for (const blog of BLOG_ARTICLES) {
-      await connection.execute(
-        `INSERT INTO blogs (title, slug, excerpt, content, featured_image, author, published_date) 
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        [blog.title, blog.slug, blog.excerpt, blog.content, blog.featured_image, blog.author, blog.published_date]
-      );
+      await Blog.create(blog);
       console.log(`- Blog inserted: ${blog.title}`);
     }
 
     // 7. Seed Projects
     console.log('Seeding case studies...');
     for (const proj of CASE_STUDIES) {
-      await connection.execute(
-        `INSERT INTO projects (title, slug, project_type, location, client_name, description, image_url, completion_year) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-        [proj.title, proj.slug, proj.project_type, proj.location, proj.client_name, proj.description, proj.image_url, proj.completion_year]
-      );
+      await Project.create(proj);
       console.log(`- Project inserted: ${proj.title}`);
     }
 
     // 8. Seed Inquiries
     console.log('Seeding customer trade inquiries...');
     for (const inq of DEFAULT_INQUIRIES) {
-      await connection.execute(
-        `INSERT INTO inquiries (name, company_name, email, phone, country, message, inquiry_type, status, notes) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [inq.name, inq.company_name, inq.email, inq.phone, inq.country, inq.message, inq.inquiry_type, inq.status, inq.notes]
-      );
+      await Inquiry.create(inq);
       console.log(`- Inquiry logged from: ${inq.name}`);
     }
 
@@ -436,7 +403,7 @@ async function seed() {
   } catch (error) {
     console.error('Fatal error during database seeding:', error);
   } finally {
-    await connection.end();
+    await db.pool.end();
   }
 }
 

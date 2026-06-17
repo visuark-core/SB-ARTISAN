@@ -87,7 +87,7 @@ export default function Homepage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFCF7] text-[#1A1A1A] antialiased selection:bg-[#EAE5D9] selection:text-[#1A1A1A]">
+    <div className="relative min-h-screen bg-[#FDFCF7] text-[#1A1A1A] antialiased selection:bg-[#EAE5D9] selection:text-[#1A1A1A]">
       <SEO
         title="Indian Furniture Manufacturer & Exporter | Jodhpur Solid Wood"
         description="SB Artisan is Jodhpur's premier solid wood furniture manufacturer and global exporter. Specializing in handcrafted teak, cane, and bone inlay contract furniture for hospitality developments."

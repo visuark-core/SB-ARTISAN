@@ -69,7 +69,7 @@ export default function SearchButton({ className }: SearchButtonProps) {
   return (
     <div
       ref={containerRef}
-      className={cn("flex items-center relative h-12 bg-transparent", className)}
+      className={cn("flex items-center relative h-10 bg-transparent", className)}
     >
       <AnimatePresence>
         {isExpanded && (
@@ -77,9 +77,9 @@ export default function SearchButton({ className }: SearchButtonProps) {
             ref={inputRef}
             initial={{ width: 0, opacity: 0, paddingRight: 0 }}
             animate={{
-              width: 220,
+              width: window.innerWidth < 480 ? 140 : 220,
               opacity: 1,
-              paddingRight: 48, // Space for the floating button inside
+              paddingRight: 40,
               transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
             }}
             exit={{
@@ -89,11 +89,11 @@ export default function SearchButton({ className }: SearchButtonProps) {
               transition: { duration: 0.3, ease: "easeInOut" },
             }}
             type="text"
-            placeholder="Search Atelier..."
+            placeholder="Search..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="h-full bg-transparent text-xs text-[#1A1A1A] placeholder:text-[#8C887E] font-sans font-light focus:outline-none border-b border-[#C5BFB2] pr-12 w-0 py-1"
+            className="h-full bg-transparent text-xs text-[#1A1A1A] placeholder:text-[#8C887E] font-sans font-light focus:outline-none border-b border-[#C5BFB2] pr-10 w-0 py-2"
           />
         )}
       </AnimatePresence>
@@ -103,7 +103,7 @@ export default function SearchButton({ className }: SearchButtonProps) {
         aria-label="Toggle search input"
         onClick={handleToggle}
         className={cn(
-          "z-10 bg-transparent transition-all border-none hover:bg-transparent text-[#5A5750] hover:text-black",
+          "z-10 bg-transparent transition-all border-none hover:bg-transparent text-[#5A5750] hover:text-[#1A1A1A]",
           isExpanded && "absolute right-0 text-[#1A1A1A]"
         )}
       >

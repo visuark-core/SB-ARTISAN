@@ -17,11 +17,11 @@ class Category {
   }
 
   static async create({ name, slug, description }) {
-    const [result] = await db.execute(
-      'INSERT INTO categories (name, slug, description) VALUES (?, ?, ?)',
+    const [rows] = await db.execute(
+      'INSERT INTO categories (name, slug, description) VALUES (?, ?, ?) RETURNING id',
       [name, slug, description]
     );
-    return { id: result.insertId, name, slug, description };
+    return { id: rows[0].id, name, slug, description };
   }
 
   static async update(id, { name, slug, description }) {
@@ -33,8 +33,8 @@ class Category {
   }
 
   static async delete(id) {
-    const [result] = await db.execute('DELETE FROM categories WHERE id = ?', [id]);
-    return result.affectedRows > 0;
+    const [rows] = await db.execute('DELETE FROM categories WHERE id = ? RETURNING id', [id]);
+    return rows.length > 0;
   }
 }
 

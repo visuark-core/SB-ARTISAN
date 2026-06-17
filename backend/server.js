@@ -6,6 +6,9 @@ const { errorHandler } = require('./middleware/errorMiddleware');
 // Load environment variables
 dotenv.config();
 
+// Initialize Database Connection
+require('./config/db');
+
 // Initialize Express App
 const app = express();
 
@@ -59,8 +62,11 @@ app.use(errorHandler);
 
 // Listen to Port
 const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-});
 
-module.exports = { app, server };
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+  });
+}
+
+module.exports = { app };

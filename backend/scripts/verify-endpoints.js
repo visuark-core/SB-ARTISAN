@@ -3,11 +3,14 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const PORT = process.env.PORT || 5002;
+const PORT = 5002;
 process.env.PORT = PORT; // override for test server
 
 // Import server app
-const { app, server } = require('../server');
+const { app } = require('../server');
+const server = app.listen(PORT, () => {
+  console.log(`Verification server running on port ${PORT}`);
+});
 
 function makeRequest(options, postData = null) {
   return new Promise((resolve, reject) => {

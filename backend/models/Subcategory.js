@@ -27,11 +27,11 @@ class Subcategory {
   }
 
   static async create({ category_id, name, slug, description }) {
-    const [result] = await db.execute(
-      'INSERT INTO subcategories (category_id, name, slug, description) VALUES (?, ?, ?, ?)',
+    const [rows] = await db.execute(
+      'INSERT INTO subcategories (category_id, name, slug, description) VALUES (?, ?, ?, ?) RETURNING id',
       [category_id, name, slug, description]
     );
-    return { id: result.insertId, category_id, name, slug, description };
+    return { id: rows[0].id, category_id, name, slug, description };
   }
 
   static async update(id, { category_id, name, slug, description }) {
@@ -43,8 +43,8 @@ class Subcategory {
   }
 
   static async delete(id) {
-    const [result] = await db.execute('DELETE FROM subcategories WHERE id = ?', [id]);
-    return result.affectedRows > 0;
+    const [rows] = await db.execute('DELETE FROM subcategories WHERE id = ? RETURNING id', [id]);
+    return rows.length > 0;
   }
 }
 

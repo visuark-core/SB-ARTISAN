@@ -63,7 +63,7 @@ function AppLayout() {
   }, [location.pathname]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#FDFCF7]">
+    <div className="relative flex flex-col min-h-screen bg-[#FDFCF7]">
       
       {/* Dynamic Golden Top Loading Progress Bar */}
       {showProgress && (

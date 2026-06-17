@@ -5,7 +5,7 @@ import { cn } from "../../lib/utils";
 import { CategoryCard } from "./section-data";
 import { Container, SectionTitle } from "../ui";
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 interface FeaturedCategoriesProps {
   categories: CategoryCard[];

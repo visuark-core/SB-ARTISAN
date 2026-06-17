@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '480px',
+      },
       fontFamily: {
         serif: ["Playfair Display", "Didot", "Georgia", "serif"],
         sans: ["Inter", "Helvetica Neue", "Arial", "sans-serif"],

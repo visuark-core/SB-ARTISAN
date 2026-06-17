@@ -12,12 +12,12 @@ class Inquiry {
   }
 
   static async create({ name, company_name, email, phone, country, message, inquiry_type, status = 'New', notes = '' }) {
-    const [result] = await db.execute(
+    const [rows] = await db.execute(
       `INSERT INTO inquiries (name, company_name, email, phone, country, message, inquiry_type, status, notes) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`,
       [name, company_name, email, phone, country, message, inquiry_type, status, notes]
     );
-    return { id: result.insertId, name, company_name, email, phone, country, message, inquiry_type, status, notes };
+    return { id: rows[0].id, name, company_name, email, phone, country, message, inquiry_type, status, notes };
   }
 
   static async updateStatusAndNotes(id, { status, notes }) {
@@ -29,8 +29,8 @@ class Inquiry {
   }
 
   static async delete(id) {
-    const [result] = await db.execute('DELETE FROM inquiries WHERE id = ?', [id]);
-    return result.affectedRows > 0;
+    const [rows] = await db.execute('DELETE FROM inquiries WHERE id = ? RETURNING id', [id]);
+    return rows.length > 0;
   }
 }
 

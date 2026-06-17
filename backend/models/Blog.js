@@ -17,12 +17,12 @@ class Blog {
   }
 
   static async create({ title, slug, excerpt, content, featured_image, author, published_date }) {
-    const [result] = await db.execute(
+    const [rows] = await db.execute(
       `INSERT INTO blogs (title, slug, excerpt, content, featured_image, author, published_date) 
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id`,
       [title, slug, excerpt, content, featured_image, author, published_date]
     );
-    return { id: result.insertId, title, slug, excerpt, content, featured_image, author, published_date };
+    return { id: rows[0].id, title, slug, excerpt, content, featured_image, author, published_date };
   }
 
   static async update(id, { title, slug, excerpt, content, featured_image, author, published_date }) {
@@ -35,8 +35,8 @@ class Blog {
   }
 
   static async delete(id) {
-    const [result] = await db.execute('DELETE FROM blogs WHERE id = ?', [id]);
-    return result.affectedRows > 0;
+    const [rows] = await db.execute('DELETE FROM blogs WHERE id = ? RETURNING id', [id]);
+    return rows.length > 0;
   }
 }
 
