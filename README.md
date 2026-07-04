@@ -1,119 +1,145 @@
-# Premium Luxury UI Component Suite
+# SB Artisan Jodhpur — Restructured Production-Ready Repository
 
-A reusable, highly-customizable layout, typography, buttons, and navigation system crafted specifically for luxury, high-end e-commerce and editorial interfaces. Designed using **Next.js App Router**, **TypeScript**, **Tailwind CSS**, and **Framer Motion** to support dynamic and polymorphic semantics with clean visual spacing.
-
----
-
-## Design Systems
-
-### 1. Typography & Spacing System
-Luxury design relies on scale, breathing room, and asymmetry.
-- **Headings (Playfair Display Serif Style)**: Serifs (`font-serif`) that use light weights, tight tracking in display/hero modes, and generous line-heights.
-- **Body Copy (Inter Sans Style)**: High-legibility sans-serifs (`font-sans`) featuring generous line-heights (`leading-loose` or `leading-relaxed`) and light weights.
-- **Micro-Copy**: Small uppercase layouts with heavy letter-spacing (`tracking-[0.25em]`).
-- **Airy Gutters**: Mobile layouts begin at `px-6` (24px). Desktop layouts scale up to `xl:px-32` (128px) margins.
-
-### 2. Reusable Button System
-Minimalist interactive controls free of startup gradients and heavy shadows:
-- **PrimaryButton**: Deep solid charcoal layout (`#1A1A1A`) transitioning to lighter warm charcoal.
-- **SecondaryButton**: Outlined layout (`#C5BFB2`) with an elegant full background fade into charcoal on hover.
-- **TextButton**: Inline link styling with a custom bottom underline expansion sliding from left-to-right on hover.
-- **IconButton**: Outlined circular layout for centering fine-line iconography.
-
-### 3. Navigation System (App Router Compatible)
-An interactive fixed header navigation system integrating Framer Motion for smooth transitions:
-- **Navbar**: Sticky header featuring transparency at scroll Y=0 and sliding transition to bone white background (`bg-[#FDFCF7]`) with bottom borders on scroll. Uses hover delays (200ms grace period) to prevent flickering.
-- **MegaMenu**: Generous full-width menu columns with promo banner cards. Uses custom cubic-bezier entry transitions.
-- **MobileMenu**: Full-screen slide-out panel with smooth accordion submenus.
-- **SearchButton**: Expanding search input expanding with custom slide width indicators.
+This repository has been restructured into two completely independent projects: `frontend` (React + Vite) and `backend` (Node.js + Express + PostgreSQL). This structure is designed to optimize deployment on AWS:
+- **Frontend**: Deployed to **Amazon S3** and distributed via **Amazon CloudFront** CDN.
+- **Backend API**: Hosted on **Amazon EC2**.
+- **Database**: **PostgreSQL** installed and configured on the **EC2 instance** (or migrated to Amazon RDS).
 
 ---
 
-## File Structure
+## Final Project Structure
 
 ```text
-luxury-furniture-container/
-├── components/
-│   ├── ui/
-│   │   ├── Container.tsx      # Polymorphic responsive container
-│   │   ├── Heading.tsx        # Polymorphic Heading component (serif)
-│   │   ├── SubHeading.tsx     # Polymorphic SubHeading component (caps/editorial)
-│   │   ├── Paragraph.tsx      # Polymorphic Paragraph component (sans)
-│   │   ├── SectionTitle.tsx   # Composite Section Title layout
-│   │   ├── PrimaryButton.tsx  # Solid luxury action button
-│   │   ├── SecondaryButton.tsx# Outlined luxury action button
-│   │   ├── TextButton.tsx     # Custom underline sliding link button
-│   │   ├── IconButton.tsx     # Circular icon button
-│   │   └── index.ts           # UI exports
-│   ├── navigation/
-│   │   ├── navbar.tsx         # Sticky fixed navigation bar
-│   │   ├── mega-menu.tsx      # Framer Motion mega menu columns overlay
-│   │   ├── mobile-menu.tsx    # Slide-out drawer menu with accordions
-│   │   ├── nav-link.tsx       # Navigation link with Framer Motion underline
-│   │   ├── nav-data.ts        # Typed category lists & promo data configs
-│   │   ├── search-button.tsx  # Expanding search action
-│   │   └── index.ts           # Navigation exports
-│   └── ExampleUsage.tsx       # Demo showcasing all elements in action
-├── lib/
-│   └── utils.ts               # cn() class utility using clsx + tailwind-merge
-├── package.json               # Workspace metadata and dependencies
-├── tsconfig.json              # TypeScript configuration
-└── README.md                  # Documentation (this file)
+sb-artisan/
+├── frontend/                     # React Frontend (Vite + TS + Tailwind)
+│   ├── components/               # Showroom & Admin UI components
+│   ├── lib/                      # Helper utilities (cn, API client configuration)
+│   ├── public/                   # Static assets
+│   ├── src/                      # React application source code (App, index, etc.)
+│   ├── .env                      # Local development environment settings
+│   ├── .env.example              # Template for frontend environment variables
+│   ├── index.html                # Entry HTML page
+│   ├── package.json              # Frontend dependencies and scripts
+│   ├── postcss.config.js         # PostCSS configuration
+│   ├── tailwind.config.js        # Tailwind CSS configuration
+│   ├── tsconfig.json             # TypeScript configuration
+│   └── vite.config.ts            # Vite configuration
+│
+└── backend/                      # Node.js API (Express + PostgreSQL)
+    ├── config/                   # Database pool and connection manager
+    ├── controllers/              # Request handlers for products, blogs, inquiries, etc.
+    ├── middleware/               # Auth validator, error handlers
+    ├── models/                   # DB queries & PostgreSQL tables mappings
+    ├── pgdata/                   # Local PostgreSQL data files (ignored by git)
+    ├── routes/                   # API routing tables (/api/products, /api/auth, etc.)
+    ├── scripts/                  # Seed, migration, and DB setup utilities
+    ├── .env                      # Local development environment settings
+    ├── .env.example              # Template for backend environment variables
+    ├── package.json              # Backend dependencies and scripts
+    └── server.js                 # API server entrypoint
 ```
 
 ---
 
-## API Specifications (Navigation System)
+## Environment Variables
 
-### 1. Navigation Data Schema (`components/navigation/nav-data.ts`)
-```typescript
-export interface NavLinkItem {
-  label: string;
-  href: string;
-}
+### Frontend (`frontend/.env`)
+Create a `.env` file in the `frontend` folder:
+```ini
+# Backend API base URL (Vite matches VITE_* prefix)
+VITE_API_URL=http://localhost:5000
+```
 
-export interface MegaMenuColumn {
-  title: string;
-  items: NavLinkItem[];
-}
+### Backend (`backend/.env`)
+Create a `.env` file in the `backend` folder:
+```ini
+PORT=5000
+DB_USER=tony
+DB_PASSWORD=123456
+DB_HOST=localhost
+DB_NAME=sb_artisan
+DB_PORT=5433
+DB_SSL=false
+JWT_SECRET=sb_artisan_golden_key_2026
+JWT_EXPIRE=24h
+NODE_ENV=development
 
-export interface MegaMenuPromo {
-  image: string;
-  title: string;
-  href: string;
-  linkText: string;
-}
+# URL of the running frontend application for CORS policy
+FRONTEND_URL=http://localhost:3000
 
-export interface MegaMenuConfig {
-  columns: MegaMenuColumn[];
-  promo?: MegaMenuPromo;
-}
-
-export interface NavItem {
-  label: string;
-  href?: string;
-  megaMenu?: MegaMenuConfig;
-}
+# Cloudinary parameters for uploads
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ```
 
 ---
 
-## Integration Guide
+## Local Development Execution
 
-Import the `Navbar` component and mount it at the top of your layout structure:
-
-```tsx
-import { Navbar } from "@/components/navigation";
-
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        {/* Add top padding offsets to clear the fixed navbar height */}
-        <main className="pt-24">{children}</main>
-      </body>
-    </html>
-  );
-}
+### 1. Running the Backend
+From the root workspace, navigate to the `backend` directory, install dependencies, and start the development server:
+```bash
+cd backend
+npm install
+npm run dev
 ```
+*Note: The backend features an auto-start script that starts the local PostgreSQL database service (if pgdata is present) on port `5433`.*
+
+### 2. Running the Frontend
+In another terminal, navigate to the `frontend` directory, install dependencies, and start the Vite dev server:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+By default, the Vite dev server will run on `http://localhost:3000`.
+
+---
+
+## Production AWS Deployment Architecture
+
+```text
+       Internet
+          │
+          ▼
+    Amazon CloudFront  (CDN HTTPS caching)
+          │
+          ▼
+      Amazon S3        (Frontend Static Website Hosting)
+          │
+          ▼ API Requests
+      Amazon EC2       (Node.js API inside systemd process / PM2)
+          │
+          ▼ Local Connections
+     PostgreSQL        (Installed locally on EC2, port 5432, secured by pg_hba.conf)
+```
+
+### Frontend Deployment (S3 + CloudFront)
+1. **Build the assets**:
+   ```bash
+   cd frontend
+   npm run build
+   ```
+   This will output a `dist/` directory containing static HTML, JS, and CSS files.
+2. **Upload to S3**:
+   Create an S3 bucket configured for static website hosting and upload the contents of the `dist/` directory.
+3. **Configure CloudFront**:
+   Set up a CloudFront distribution pointing to the S3 bucket as its origin. Enable custom domains, SSL/TLS certificates via AWS Certificate Manager (ACM), and set the default root object to `index.html`. Configure custom error responses to route all 403/404 errors back to `/index.html` (since this is a Single Page Application using client-side routing).
+
+### Backend Deployment (EC2 + PostgreSQL)
+1. **Launch EC2 Instance**:
+   Create an Ubuntu/Amazon Linux EC2 instance. Associate an Elastic IP and configure Security Groups to allow ports:
+   - `22` (SSH)
+   - `80` / `443` (HTTP/HTTPS)
+   - `5000` (API backend, or proxy through Nginx on port `80`)
+2. **Install Node.js & PM2**:
+   Install Node.js and PM2 globally to keep the Express app running in the background.
+3. **Install & Setup PostgreSQL**:
+   - Install PostgreSQL: `sudo apt install postgresql postgresql-contrib`
+   - Adjust `postgresql.conf` and `pg_hba.conf` to configure local access.
+   - Run setup and migrations: `npm run db:setup` and `npm run seed`.
+4. **Environment configuration**:
+   Add the production `.env` file on the server with production database parameters, JWT secret, and the frontend domain as the `FRONTEND_URL` for CORS restriction.
+5. **Nginx Reverse Proxy**:
+   Configure Nginx to listen on port `80` and reverse proxy `/api` traffic to `http://localhost:5000`.

@@ -40,11 +40,11 @@ All modifying actions (POST, PUT, DELETE) on resources require the request heade
 * **Body**:
   ```json
   {
-    "email": "rahul05@sbartisan.com",
-    "password": "200505"
+    "email": "admin@site.com",
+    "password": "12345678"
   }
   ```
-  *(Note: Setting `"email": "rahul05"` is also accepted for frontend compatibility).*
+  *(Note: Setting `"email": "admin"` is also accepted for frontend compatibility).*
 * **Success Response (200 OK)**:
   ```json
   {
@@ -52,8 +52,8 @@ All modifying actions (POST, PUT, DELETE) on resources require the request heade
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "admin": {
       "id": 1,
-      "fullName": "Rahul Dev",
-      "email": "rahul05@sbartisan.com",
+      "fullName": "Administrator",
+      "email": "admin@site.com",
       "role": "admin"
     }
   }

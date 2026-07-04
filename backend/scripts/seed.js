@@ -484,12 +484,12 @@ async function seed() {
     console.log('Tables truncated successfully.');
 
     // 2. Seed Admin
-    console.log('Seeding default administrator user: rahul05...');
+    console.log('Seeding default administrator user: admin@site.com...');
     const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash('200505', salt);
+    const passwordHash = await bcrypt.hash('12345678', salt);
     await Admin.create({
-      fullName: 'Rahul Dev',
-      email: 'rahul05@sbartisan.com',
+      fullName: 'Administrator',
+      email: 'admin@site.com',
       passwordHash,
       role: 'admin'
     });

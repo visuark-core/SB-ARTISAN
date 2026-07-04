@@ -1,7 +1,51 @@
 const { Pool } = require('pg');
 const dotenv = require('dotenv');
+const { execSync } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 
 dotenv.config();
+
+// Auto-start PostgreSQL if not running
+(() => {
+  const pgDataDir = path.resolve(__dirname, '../pgdata');
+  const pgCtlPath = '/usr/lib/postgresql/18/bin/pg_ctl';
+  const socketsDir = path.resolve(__dirname, '../sockets');
+  const pgLogFile = path.resolve(__dirname, '../pg_log');
+  const port = process.env.DB_PORT || '5433';
+
+  if (!fs.existsSync(pgCtlPath)) {
+    console.warn(`PostgreSQL control binary not found at ${pgCtlPath}. Skipping auto-start check.`);
+    return;
+  }
+
+  let isRunning = false;
+  try {
+    const statusOutput = execSync(`"${pgCtlPath}" -D "${pgDataDir}" status`, { encoding: 'utf8', stdio: 'pipe' });
+    if (statusOutput.includes('server is running')) {
+      isRunning = true;
+    }
+  } catch (err) {
+    isRunning = false;
+  }
+
+  if (!isRunning) {
+    console.log('PostgreSQL database is not running. Starting it now...');
+    try {
+      if (!fs.existsSync(socketsDir)) {
+        fs.mkdirSync(socketsDir, { recursive: true });
+      }
+      execSync(`"${pgCtlPath}" -D "${pgDataDir}" -o "-p ${port} -k '${socketsDir}'" -l "${pgLogFile}" start`, {
+        stdio: 'inherit'
+      });
+      console.log('PostgreSQL database started successfully.');
+    } catch (err) {
+      console.error('Failed to start PostgreSQL database automatically:', err.message);
+    }
+  } else {
+    console.log('PostgreSQL database is already running.');
+  }
+})();
 
 const pool = new Pool({
   host: process.env.DB_HOST,

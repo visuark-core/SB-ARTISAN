@@ -24,7 +24,7 @@ const getInquiryById = async (req, res, next) => {
 };
 
 const createInquiry = async (req, res, next) => {
-  const { name, company_name, email, phone, country, message, inquiry_type, status, notes } = req.body;
+  const { name, company_name, email, phone, country, message, inquiry_type, status, notes, location, moq } = req.body;
   try {
     const inquiry = await Inquiry.create({
       name,
@@ -35,7 +35,9 @@ const createInquiry = async (req, res, next) => {
       message,
       inquiry_type,
       status: status || 'New',
-      notes: notes || ''
+      notes: notes || '',
+      location,
+      moq
     });
 
     res.status(201).json({ success: true, data: inquiry });

@@ -1,9 +1,23 @@
+# Dependencies
 node_modules/
-backend/node_modules/
+**/node_modules/
+
+# Production builds
 dist/
+**/dist/
+frontend/dist/
+
+# Local env files
 .env
-backend/.env
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.production.local
+
+# TypeScript cache
 *.tsbuildinfo
+
+# PostgreSQL database directories
 backend/pgdata/
 backend/pg_log
 backend/sockets/

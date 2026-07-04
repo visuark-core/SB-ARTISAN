@@ -47,6 +47,21 @@ CREATE TABLE products (
     dimensions VARCHAR(255),
     price DECIMAL(10, 2),
     featured SMALLINT DEFAULT 0,
+    brand VARCHAR(255),
+    style VARCHAR(255),
+    color VARCHAR(255),
+    assembly VARCHAR(255),
+    finish VARCHAR(255),
+    dimensions_in VARCHAR(255),
+    dimensions_cm VARCHAR(255),
+    features TEXT,
+    height VARCHAR(255),
+    quantity INTEGER DEFAULT 1,
+    product_weight VARCHAR(255),
+    warranty VARCHAR(255),
+    sku VARCHAR(255),
+    care_instructions TEXT,
+    terms_conditions TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -65,6 +80,7 @@ CREATE TABLE blogs (
     excerpt TEXT,
     content TEXT,
     featured_image TEXT,
+    gallery_images TEXT DEFAULT '[]',
     author VARCHAR(255),
     published_date DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -94,6 +110,8 @@ CREATE TABLE inquiries (
     inquiry_type VARCHAR(100),
     status VARCHAR(50) DEFAULT 'New',
     notes TEXT,
+    location VARCHAR(255),
+    moq VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 `;

@@ -31,7 +31,7 @@ const getBlogBySlugOrId = async (req, res, next) => {
 };
 
 const createBlog = async (req, res, next) => {
-  const { title, slug, excerpt, content, featured_image, author, published_date } = req.body;
+  const { title, slug, excerpt, content, featured_image, gallery_images, author, published_date } = req.body;
   try {
     const existing = await Blog.findBySlug(slug);
     if (existing) {
@@ -45,6 +45,7 @@ const createBlog = async (req, res, next) => {
       excerpt,
       content,
       featured_image,
+      gallery_images,
       author,
       published_date: published_date || new Date().toISOString().slice(0, 10)
     });
@@ -57,7 +58,7 @@ const createBlog = async (req, res, next) => {
 
 const updateBlog = async (req, res, next) => {
   const { id } = req.params;
-  const { title, slug, excerpt, content, featured_image, author, published_date } = req.body;
+  const { title, slug, excerpt, content, featured_image, gallery_images, author, published_date } = req.body;
   try {
     const existing = await Blog.findById(id);
     if (!existing) {
@@ -78,6 +79,7 @@ const updateBlog = async (req, res, next) => {
       excerpt,
       content,
       featured_image,
+      gallery_images,
       author,
       published_date: published_date || existing.published_date
     });

@@ -16,22 +16,22 @@ class Blog {
     return rows[0];
   }
 
-  static async create({ title, slug, excerpt, content, featured_image, author, published_date }) {
+  static async create({ title, slug, excerpt, content, featured_image, gallery_images, author, published_date }) {
     const [rows] = await db.execute(
-      `INSERT INTO blogs (title, slug, excerpt, content, featured_image, author, published_date) 
-       VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id`,
-      [title, slug, excerpt, content, featured_image, author, published_date]
+      `INSERT INTO blogs (title, slug, excerpt, content, featured_image, gallery_images, author, published_date) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`,
+      [title, slug, excerpt, content, featured_image, gallery_images || '[]', author, published_date]
     );
-    return { id: rows[0].id, title, slug, excerpt, content, featured_image, author, published_date };
+    return { id: rows[0].id, title, slug, excerpt, content, featured_image, gallery_images: gallery_images || '[]', author, published_date };
   }
 
-  static async update(id, { title, slug, excerpt, content, featured_image, author, published_date }) {
+  static async update(id, { title, slug, excerpt, content, featured_image, gallery_images, author, published_date }) {
     await db.execute(
       `UPDATE blogs SET title = ?, slug = ?, excerpt = ?, content = ?, 
-       featured_image = ?, author = ?, published_date = ? WHERE id = ?`,
-      [title, slug, excerpt, content, featured_image, author, published_date, id]
+       featured_image = ?, gallery_images = ?, author = ?, published_date = ? WHERE id = ?`,
+      [title, slug, excerpt, content, featured_image, gallery_images || '[]', author, published_date, id]
     );
-    return { id, title, slug, excerpt, content, featured_image, author, published_date };
+    return { id, title, slug, excerpt, content, featured_image, gallery_images: gallery_images || '[]', author, published_date };
   }
 
   static async delete(id) {

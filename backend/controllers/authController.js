@@ -6,10 +6,10 @@ const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   try {
-    // Standardize email: if user inputs 'rahul05', treat as 'rahul05@sbartisan.com'
+    // Standardize email: if user inputs 'admin', treat as 'admin@site.com'
     let searchEmail = email;
-    if (email === 'rahul05') {
-      searchEmail = 'rahul05@sbartisan.com';
+    if (email === 'admin') {
+      searchEmail = 'admin@site.com';
     }
 
     const admin = await Admin.findByEmail(searchEmail);

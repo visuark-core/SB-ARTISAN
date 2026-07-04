@@ -11,13 +11,13 @@ class Inquiry {
     return rows[0];
   }
 
-  static async create({ name, company_name, email, phone, country, message, inquiry_type, status = 'New', notes = '' }) {
+  static async create({ name, company_name, email, phone, country, message, inquiry_type, status = 'New', notes = '', location = null, moq = null }) {
     const [rows] = await db.execute(
-      `INSERT INTO inquiries (name, company_name, email, phone, country, message, inquiry_type, status, notes) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`,
-      [name, company_name, email, phone, country, message, inquiry_type, status, notes]
+      `INSERT INTO inquiries (name, company_name, email, phone, country, message, inquiry_type, status, notes, location, moq) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`,
+      [name, company_name, email, phone, country, message, inquiry_type, status, notes, location, moq]
     );
-    return { id: rows[0].id, name, company_name, email, phone, country, message, inquiry_type, status, notes };
+    return { id: rows[0].id, name, company_name, email, phone, country, message, inquiry_type, status, notes, location, moq };
   }
 
   static async updateStatusAndNotes(id, { status, notes }) {

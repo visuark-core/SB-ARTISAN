@@ -50,7 +50,32 @@ class Product {
     query += ' ORDER BY p.id DESC';
 
     const [rows] = await db.execute(query, params);
-    return rows;
+    if (rows.length === 0) return [];
+
+    const productIds = rows.map(r => r.id);
+    const [images] = await db.execute(
+      `SELECT product_id, image_url, is_primary 
+       FROM product_images 
+       WHERE product_id IN (${productIds.map(() => '?').join(',')})
+       ORDER BY is_primary DESC, id ASC`,
+      productIds
+    );
+
+    const imageMap = {};
+    for (const img of images) {
+      if (!imageMap[img.product_id]) {
+        imageMap[img.product_id] = [];
+      }
+      imageMap[img.product_id].push({
+        image_url: img.image_url,
+        is_primary: img.is_primary === 1
+      });
+    }
+
+    return rows.map(r => ({
+      ...r,
+      images: imageMap[r.id] || []
+    }));
   }
 
   static async findById(id) {
@@ -112,6 +137,21 @@ class Product {
       dimensions,
       price,
       featured = 0,
+      brand,
+      style,
+      color,
+      assembly,
+      finish,
+      dimensions_in,
+      dimensions_cm,
+      features,
+      height,
+      quantity = 1,
+      product_weight,
+      warranty,
+      sku,
+      care_instructions,
+      terms_conditions,
       images = [] // Array of { url, is_primary }
     } = productData;
 
@@ -121,10 +161,14 @@ class Product {
 
       const [rows] = await conn.execute(
         `INSERT INTO products 
-         (category_id, subcategory_id, name, slug, description, material, dimensions, price, featured) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`
+         (category_id, subcategory_id, name, slug, description, material, dimensions, price, featured,
+          brand, style, color, assembly, finish, dimensions_in, dimensions_cm, features, height, quantity,
+          product_weight, warranty, sku, care_instructions, terms_conditions) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id`
          ,
-        [category_id, subcategory_id, name, slug, description, material, dimensions, price, featured ? 1 : 0]
+        [category_id, subcategory_id, name, slug, description, material, dimensions, price, featured ? 1 : 0,
+         brand, style, color, assembly, finish, dimensions_in, dimensions_cm, features, height, quantity,
+         product_weight, warranty, sku, care_instructions, terms_conditions]
       );
 
       const productId = rows[0].id;
@@ -159,6 +203,21 @@ class Product {
       dimensions,
       price,
       featured,
+      brand,
+      style,
+      color,
+      assembly,
+      finish,
+      dimensions_in,
+      dimensions_cm,
+      features,
+      height,
+      quantity,
+      product_weight,
+      warranty,
+      sku,
+      care_instructions,
+      terms_conditions,
       images = []
     } = productData;
 
@@ -169,9 +228,14 @@ class Product {
       await conn.execute(
         `UPDATE products SET 
          category_id = ?, subcategory_id = ?, name = ?, slug = ?, 
-         description = ?, material = ?, dimensions = ?, price = ?, featured = ? 
+         description = ?, material = ?, dimensions = ?, price = ?, featured = ?,
+         brand = ?, style = ?, color = ?, assembly = ?, finish = ?, 
+         dimensions_in = ?, dimensions_cm = ?, features = ?, height = ?, quantity = ?,
+         product_weight = ?, warranty = ?, sku = ?, care_instructions = ?, terms_conditions = ?
          WHERE id = ?`,
-        [category_id, subcategory_id, name, slug, description, material, dimensions, price, featured ? 1 : 0, id]
+        [category_id, subcategory_id, name, slug, description, material, dimensions, price, featured ? 1 : 0,
+         brand, style, color, assembly, finish, dimensions_in, dimensions_cm, features, height, quantity,
+         product_weight, warranty, sku, care_instructions, terms_conditions, id]
       );
 
       if (images && images.length > 0) {
