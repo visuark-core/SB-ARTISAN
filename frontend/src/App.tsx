@@ -26,9 +26,9 @@ import { InquiryModal, HospitalityProduct } from "../components/product";
 
 // Helper component to freeze the outlet content during route exit transitions
 function AnimatedOutlet({ context }: { context: any }) {
-  const o = useOutlet();
-  const [outlet] = useState(o);
-  return outlet ? React.cloneElement(outlet, { context }) : null;
+  const outlet = useOutlet(context);
+  const [cachedOutlet] = useState(outlet);
+  return cachedOutlet;
 }
 
 // 1. MASTER ROUTING LAYOUT COMPONENT
