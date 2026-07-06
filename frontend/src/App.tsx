@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Outlet, useLocation, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet, useLocation, Navigate, useOutlet } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/navigation/navbar";
 import Footer from "../components/navigation/footer";
@@ -23,6 +23,13 @@ import CategoryPage from "../components/pages/CategoryPage";
 import ContactPage from "../components/pages/ContactPage";
 import GetPricePage from "../components/pages/GetPricePage";
 import { InquiryModal, HospitalityProduct } from "../components/product";
+
+// Helper component to freeze the outlet content during route exit transitions
+function AnimatedOutlet({ context }: { context: any }) {
+  const o = useOutlet();
+  const [outlet] = useState(o);
+  return outlet ? React.cloneElement(outlet, { context }) : null;
+}
 
 // 1. MASTER ROUTING LAYOUT COMPONENT
 function AppLayout() {
@@ -87,7 +94,7 @@ function AppLayout() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
           >
-            <Outlet context={{ openInquiry }} />
+            <AnimatedOutlet context={{ openInquiry }} />
           </motion.div>
         </AnimatePresence>
       </main>

@@ -56,8 +56,18 @@ export default function ProductDetailsPage() {
             setRelatedProducts(filtered);
             setIsLoading(false);
           }
+        }).catch((err) => {
+          console.error("fetchProducts error in details page:", err);
+          if (isMounted) {
+            setIsLoading(false);
+          }
         });
       } else {
+        setIsLoading(false);
+      }
+    }).catch((err) => {
+      console.error("fetchProductById error in details page:", err);
+      if (isMounted) {
         setIsLoading(false);
       }
     });
