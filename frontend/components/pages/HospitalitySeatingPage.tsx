@@ -87,7 +87,7 @@ export default function HospitalitySeatingPage() {
       />
 
       {/* Category Hero Photo Banner */}
-      <div className="relative w-full h-[50vw] sm:h-[42vw] md:h-[35vw] min-h-[280px] max-h-[500px] overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]">
+      <div className="relative w-full aspect-[3.2/1] overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]">
         <div className="absolute inset-0 w-full h-full">
           <img
             src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=90"
@@ -99,8 +99,8 @@ export default function HospitalitySeatingPage() {
         </div>
         
         {/* Banner Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-6 sm:py-8 md:py-10 text-white max-w-[1600px] mx-auto w-full">
-          <div className="space-y-3.5 md:max-w-3xl">
+        <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-3.5 sm:py-6 md:py-8 text-white max-w-[1600px] mx-auto w-full">
+          <div className="space-y-2 md:space-y-3.5 md:max-w-3xl">
             <span className="text-[9px] sm:text-[10px] tracking-[0.35em] uppercase font-mono text-[#CBB593] font-semibold block">
               CONTRACT CATALOG
             </span>
@@ -108,7 +108,7 @@ export default function HospitalitySeatingPage() {
               Hospitality Seating
             </h1>
             <div className="w-12 h-[1px] bg-[#CBB593] my-1" />
-            <p className="font-sans text-[10px] sm:text-xs text-gray-300 font-light leading-relaxed max-w-2xl">
+            <p className="font-sans text-[10px] sm:text-xs text-gray-300 font-light leading-relaxed max-w-2xl hidden sm:block">
               Explore our collection of dining chairs, loungers, and daybeds handcrafted from aged teak, hand-woven cane, and natural coir ropes.
             </p>
           </div>

@@ -17,7 +17,7 @@ export default function CategoryBanner({
   className,
 }: CategoryBannerProps) {
   return (
-    <div className={cn("relative w-full h-[55vh] min-h-[350px] md:h-[60vh] overflow-hidden flex items-center bg-[#1E1D1C] rounded-sm shadow-[inset_0_0_100px_rgba(0,0,0,0.8)] border border-[#EAE5D9]/20", className)}>
+    <div className={cn("relative w-full aspect-[2.8/1] overflow-hidden flex items-center bg-[#1E1D1C] rounded-sm shadow-[inset_0_0_100px_rgba(0,0,0,0.8)] border border-[#EAE5D9]/20", className)}>
       
       {/* 1. PARALLAX BACKDROP IMAGE */}
       <div className="absolute inset-0 z-0">

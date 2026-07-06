@@ -310,14 +310,17 @@ export default function CategoryPage() {
       />
 
       {/* Category Hero Photo Banner */}
-      <div className="relative w-full h-[32vw] sm:h-[26vw] md:h-[20vw] min-h-[220px] sm:min-h-[240px] max-h-[320px] overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]">
+      <div className={cn(
+        "relative w-full overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]",
+        isBoneInlay ? "aspect-[5/1]" : "aspect-[3.2/1]"
+      )}>
         <div className="absolute inset-0 w-full h-full">
           <img
             src={config.image}
             alt={`${config.title} Showroom`}
             className={cn(
-              "w-full h-full object-cover object-center transition-transform duration-10000 hover:scale-105",
-              isBoneInlay ? "opacity-100" : "opacity-85"
+              "w-full h-full object-cover transition-transform duration-10000 hover:scale-105",
+              isBoneInlay ? "opacity-100 object-left" : "opacity-85 object-center"
             )}
           />
           {/* Subtle gradient shading overlay for luxury magazine aesthetic */}
@@ -328,8 +331,8 @@ export default function CategoryPage() {
         
         {/* Banner Content Overlay */}
         {!isBoneInlay && (
-          <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-6 sm:py-8 md:py-10 text-white max-w-[1600px] mx-auto w-full">
-            <div className="space-y-2.5 md:max-w-3xl">
+          <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-3.5 sm:py-6 md:py-8 text-white max-w-[1600px] mx-auto w-full">
+            <div className="space-y-2 md:space-y-2.5 md:max-w-3xl">
               <span className="text-[9px] sm:text-[10px] tracking-[0.35em] uppercase font-mono text-[#CBB593] font-semibold block">
                 {config.eyebrow}
               </span>
@@ -337,7 +340,7 @@ export default function CategoryPage() {
                 {config.title}
               </h1>
               <div className="w-12 h-[1px] bg-[#CBB593] my-1" />
-              <p className="font-sans text-[10px] sm:text-xs text-gray-300 font-light leading-relaxed max-w-2xl line-clamp-2 sm:line-clamp-none">
+              <p className="font-sans text-[10px] sm:text-xs text-gray-300 font-light leading-relaxed max-w-2xl hidden sm:block">
                 {config.description}
               </p>
             </div>

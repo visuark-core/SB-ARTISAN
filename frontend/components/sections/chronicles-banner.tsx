@@ -46,7 +46,7 @@ export default function ChroniclesBanner({
     <section
       ref={containerRef}
       className={cn(
-        "relative w-full aspect-[2.8/1] sm:aspect-[3.5/1] flex items-center overflow-hidden bg-black",
+        "relative w-full aspect-[2.8/1] flex items-center overflow-hidden bg-black",
         className
       )}
     >

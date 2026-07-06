@@ -83,20 +83,20 @@ export default function AtelierCasegoodsPage() {
       />
 
       {/* Category Hero Photo Banner */}
-      <div className="relative w-full h-[50vw] sm:h-[42vw] md:h-[35vw] min-h-[280px] max-h-[500px] overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]">
+      <div className="relative w-full aspect-[4.5/1] overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]">
         <div className="absolute inset-0 w-full h-full">
           <img
             src="/images/hero1.png"
             alt="Atelier Casegoods & Tables Showroom"
-            className="w-full h-full object-cover object-center opacity-85 transition-transform duration-10000 hover:scale-105"
+            className="w-full h-full object-cover object-left opacity-85 transition-transform duration-10000 hover:scale-105"
           />
           {/* Subtle gradient shading overlay for luxury magazine aesthetic */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
         </div>
         
         {/* Banner Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-6 sm:py-8 md:py-10 text-white max-w-[1600px] mx-auto w-full">
-          <div className="space-y-3.5 md:max-w-3xl">
+        <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-3.5 sm:py-6 md:py-8 text-white max-w-[1600px] mx-auto w-full">
+          <div className="space-y-2 md:space-y-3.5 md:max-w-3xl">
             <span className="text-[9px] sm:text-[10px] tracking-[0.35em] uppercase font-mono text-[#CBB593] font-semibold block">
               CONTRACT CATALOG
             </span>
@@ -104,7 +104,7 @@ export default function AtelierCasegoodsPage() {
               Atelier Casegoods & Tables
             </h1>
             <div className="w-12 h-[1px] bg-[#CBB593] my-1" />
-            <p className="font-sans text-[10px] sm:text-xs text-gray-300 font-light leading-relaxed max-w-2xl">
+            <p className="font-sans text-[10px] sm:text-xs text-gray-300 font-light leading-relaxed max-w-2xl hidden sm:block">
               Explore our hand-inlaid bone bar cabinets, custom Mango wood credenzas, and monolithic ancient teak coffee tables.
             </p>
           </div>
