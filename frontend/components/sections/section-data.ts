@@ -82,7 +82,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     title: "Timeless Artistry,\nHandcrafted to Impress",
     subtitle: "Bone Inlay Furniture Supplier & Exporter",
     description: "Explore exquisite bone inlay furniture handcrafted by skilled artisans, combining traditional craftsmanship with modern elegance for luxury homes, hotels, and designer interiors.",
-    image: "/images/hero1.png",
+    image: "/images/Bone Inlay Furniture.png",
     primaryLink: "/category/bone-inlay-furniture",
     primaryText: "Explore Bone Inlay",
     secondaryLink: "/contact",
