@@ -221,8 +221,8 @@ export default function CollectionsPage() {
 
         <div>
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((n) => (
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-12">
+              {[1, 2, 3, 4].map((n) => (
                 <div key={n} className="space-y-4 animate-pulse">
                   <div className="aspect-[3/4] bg-[#F5F2EA] w-full rounded-xs" />
                   <div className="h-4 bg-[#F5F2EA] w-1/3 rounded-xs" />
@@ -243,7 +243,7 @@ export default function CollectionsPage() {
             <ProductGrid
               products={filteredProducts}
               variant="editorial"
-              columns={3}
+              columns={4}
               wishlistedIds={wishlistedIds}
               onInquire={handleInquire}
               onTearSheet={handleTearSheet}
