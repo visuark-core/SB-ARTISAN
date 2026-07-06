@@ -310,17 +310,20 @@ export default function CategoryPage() {
       />
 
       {/* Category Hero Photo Banner */}
-      <div className={cn(
-        "relative w-full overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]",
-        isBoneInlay ? "aspect-[5/1]" : "aspect-[3.2/1]"
-      )}>
+      <div
+        className={cn(
+          "relative w-full overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]",
+          !isBoneInlay && "aspect-[3.2/1]"
+        )}
+        style={isBoneInlay ? { aspectRatio: "5000 / 838" } : undefined}
+      >
         <div className="absolute inset-0 w-full h-full">
           <img
             src={config.image}
             alt={`${config.title} Showroom`}
             className={cn(
-              "w-full h-full object-cover transition-transform duration-10000 hover:scale-105",
-              isBoneInlay ? "opacity-100 object-left" : "opacity-85 object-center"
+              "w-full h-full transition-transform duration-10000 hover:scale-105",
+              isBoneInlay ? "opacity-100 object-fill" : "opacity-85 object-cover object-center"
             )}
           />
           {/* Subtle gradient shading overlay for luxury magazine aesthetic */}

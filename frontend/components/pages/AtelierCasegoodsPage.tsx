@@ -83,12 +83,15 @@ export default function AtelierCasegoodsPage() {
       />
 
       {/* Category Hero Photo Banner */}
-      <div className="relative w-full aspect-[4.5/1] overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]">
+      <div 
+        className="relative w-full overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]"
+        style={{ aspectRatio: "5000 / 838" }}
+      >
         <div className="absolute inset-0 w-full h-full">
           <img
             src="/images/hero1.png"
             alt="Atelier Casegoods & Tables Showroom"
-            className="w-full h-full object-cover object-left opacity-85 transition-transform duration-10000 hover:scale-105"
+            className="w-full h-full object-fill opacity-85 transition-transform duration-10000 hover:scale-105"
           />
           {/* Subtle gradient shading overlay for luxury magazine aesthetic */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
