@@ -146,10 +146,14 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
             
             {/* 1. BRAND LOGO MARK */}
             <div className="flex items-center shrink-0">
-              <Link to="/" className="outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-2 rounded">
-                <Heading variant="sm" weight="normal" className="text-[11px] sm:text-xs tracking-[0.35em] sm:tracking-[0.45em] uppercase select-none transition-all duration-300 text-[#1A1A1A]">
-                  SB ARTISAN
-                </Heading>
+              <Link to="/" className="outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-2 rounded flex items-center">
+                <img
+                  src="/images/sb-logo.png"
+                  alt="SB Artisan"
+                  className={`object-contain transition-all duration-500 ${
+                    isScrolled ? "h-[42px] sm:h-[48px]" : "h-[58px] sm:h-[68px]"
+                  }`}
+                />
               </Link>
             </div>
 
@@ -203,11 +207,11 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
                 href="https://wa.me/919999999999?text=Hello%20SB%20Artisan%2C%20I%20would%20like%20to%20discuss%20a%20hospitality%20furniture%20project."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden xs:inline-flex items-center justify-center w-9 h-9 text-[#5A5750] hover:text-[#1A1A1A] hover:bg-[#F5F2EA] transition-all duration-300 rounded-full"
+                className="hidden xs:inline-flex items-center justify-center w-10 h-10 text-[#5A5750] hover:text-[#1A1A1A] hover:bg-[#F5F2EA] transition-all duration-300 rounded-full"
                 title="WhatsApp Trade Desk"
                 aria-label="Contact via WhatsApp"
               >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.859-4.42 9.863-9.864.002-2.637-1.023-5.116-2.887-6.98C16.584 1.897 14.11 1.867 11.47 1.867c-5.436 0-9.86 4.42-9.864 9.864 0 1.685.443 3.329 1.288 4.776L1.879 21.08l4.768-1.256c.001 0 .001 0 0 0zm11.758-5.321c-.266-.134-1.579-.78-1.823-.867-.243-.088-.42-.132-.596.133-.176.265-.681.861-.836 1.039-.153.176-.308.199-.575.066-.267-.134-1.129-.417-2.15-1.328-.793-.708-1.329-1.582-1.485-1.848-.156-.266-.017-.409.117-.541.12-.12.267-.309.4-.464.133-.155.177-.265.267-.442.089-.176.044-.331-.022-.464-.066-.133-.596-1.436-.816-1.966-.215-.518-.453-.448-.623-.456-.16-.008-.344-.01-.528-.01-.184 0-.485.069-.739.344-.254.275-.97.949-.97 2.314 0 1.365.992 2.68 1.114 2.846.122.166 1.953 2.983 4.73 4.181.661.285 1.176.455 1.579.583.664.211 1.269.181 1.747.11.533-.08 1.579-.646 1.8-.1237.221-.592.221-1.101.155-1.192-.066-.091-.243-.135-.508-.269z" />
                 </svg>
               </a>
@@ -216,7 +220,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
               {onOpenInquiry && (
                 <button
                   onClick={onOpenInquiry}
-                  className="hidden sm:inline-block font-sans text-[9px] uppercase tracking-[0.24em] font-medium py-2.5 px-3 lg:px-4 border border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FDFCF7] transition-all duration-300 rounded-sm whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-2"
+                  className="hidden sm:inline-block font-sans text-[11px] sm:text-xs uppercase tracking-[0.24em] font-medium py-3 px-4 lg:px-5 border border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FDFCF7] transition-all duration-300 rounded-sm whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-2"
                 >
                   Discuss Project
                 </button>
@@ -227,9 +231,9 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
                 size="sm"
                 aria-label="Toggle Navigation Drawer"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="lg:hidden border-none hover:bg-transparent text-[#5A5750] hover:text-[#1A1A1A] shrink-0"
+                className="lg:hidden border-none hover:bg-transparent text-[#5A5750] hover:text-[#1A1A1A] shrink-0 w-10 h-10"
               >
-                <svg className="w-5 h-4" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-6 h-5" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
                 </svg>
               </IconButton>

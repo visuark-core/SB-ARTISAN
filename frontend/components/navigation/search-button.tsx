@@ -97,7 +97,7 @@ export default function SearchButton({ className }: SearchButtonProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="h-full bg-transparent text-xs text-[#1A1A1A] placeholder:text-[#8C887E] font-sans font-light focus:outline-none border-b border-[#C5BFB2] pr-10 w-0 py-2"
+            className="h-full bg-transparent text-[13px] sm:text-sm text-[#1A1A1A] placeholder:text-[#8C887E] font-sans font-light focus:outline-none border-b border-[#C5BFB2] pr-10 w-0 py-2"
           />
         )}
       </AnimatePresence>
@@ -107,12 +107,12 @@ export default function SearchButton({ className }: SearchButtonProps) {
         aria-label="Toggle search input"
         onClick={handleToggle}
         className={cn(
-          "z-10 bg-transparent transition-all border-none hover:bg-transparent text-[#5A5750] hover:text-[#1A1A1A]",
+          "z-10 bg-transparent transition-all border-none hover:bg-transparent text-[#5A5750] hover:text-[#1A1A1A] w-10 h-10",
           isExpanded && "absolute right-0 text-[#1A1A1A]"
         )}
       >
         <svg
-          className="w-4 h-4"
+          className="w-5 h-5"
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

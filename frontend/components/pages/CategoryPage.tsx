@@ -3,7 +3,6 @@ import { useParams, useOutletContext, Link, useSearchParams } from "react-router
 import {
   fetchProducts,
   HospitalityProduct,
-  SubCategoryGrid,
   ProductGrid,
   ProductFilter,
   ProductSort,
@@ -353,18 +352,7 @@ export default function CategoryPage() {
 
       <Container variant="wide" className="space-y-12 md:space-y-16 pt-8 md:pt-12">
         
-        {/* 3. Classification Subcategories */}
-        {config.subcategories.length > 0 && (
-          <SubCategoryGrid
-            subcategories={config.subcategories}
-            activeSubcategory={activeSubcategory}
-            onSelect={(sub) => {
-              setActiveSubcategory(sub);
-              setCurrentPage(1);
-            }}
-            className="border-b border-[#F2EDE2] pb-6"
-          />
-        )}
+
 
         <div id="catalog-grid-anchor" className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start pt-4">
           

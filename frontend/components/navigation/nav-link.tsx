@@ -36,9 +36,9 @@ export default function NavLink({
     <Link
       to={href}
       className={cn(
-        // Luxury typography: Uppercase, spacing-widest, light weight sans-serif
-        "relative text-[9px] sm:text-[9.5px] md:text-[10px] uppercase tracking-[0.2em] font-light text-[#5A5750] hover:text-[#1A1A1A] transition-colors duration-300 outline-none select-none group inline-flex items-center whitespace-nowrap",
-        isActive && "text-[#1A1A1A] font-regular",
+        // Luxury typography: Uppercase, spacing-widest, normal weight sans-serif
+        "relative text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.2em] font-normal text-[#5A5750] hover:text-[#1A1A1A] transition-colors duration-300 outline-none select-none group inline-flex items-center whitespace-nowrap",
+        isActive && "text-[#1A1A1A] font-medium",
         className
       )}
       {...(props as any)}
