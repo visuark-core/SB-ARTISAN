@@ -30,7 +30,7 @@ export default function ProductGrid({
   onInquire,
   onTearSheet,
   onWishlistToggle,
-  aspectRatio = "portrait",
+  aspectRatio = "square",
   className,
   hideDesigner = false,
   hideDescription = false,

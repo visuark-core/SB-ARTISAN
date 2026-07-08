@@ -25,7 +25,7 @@ interface ProductCardProps {
 export default function ProductCard({
   product,
   variant = "editorial",
-  aspectRatio = "portrait",
+  aspectRatio = "square",
   isLoading = false,
   isWishlisted = false,
   onInquire,

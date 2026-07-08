@@ -20,7 +20,7 @@ interface ProductImageProps {
 export default function ProductImage({
   src,
   alt,
-  aspectRatio = "portrait",
+  aspectRatio = "square",
   isNew,
   isFeatured,
   isLoading = false,
@@ -31,11 +31,11 @@ export default function ProductImage({
   hoverSrc,
 }: ProductImageProps) {
   
-  // Custom aspect ratio mapping for premium layout structures
+  // Custom aspect ratio mapping for premium layout structures (all mapped to square 1:1)
   const aspectClass = {
-    portrait: "aspect-[3/4]",
+    portrait: "aspect-square",
     square: "aspect-square",
-    landscape: "aspect-[4/3]",
+    landscape: "aspect-square",
   }[aspectRatio];
 
   if (isLoading) {
