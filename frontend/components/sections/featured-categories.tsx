@@ -17,7 +17,7 @@ const CURATED_CATEGORIES = [
   {
     id: "space-restaurant",
     title: "Restaurant Furniture",
-    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/restaurant_furniture.png",
     href: "/category/restaurant-furniture",
     colSpan: "col-span-6 md:col-span-5",
     heightClass: "h-[110px] sm:h-[160px] md:h-[220px] lg:h-[260px]",
@@ -25,7 +25,7 @@ const CURATED_CATEGORIES = [
   {
     id: "space-cafe",
     title: "Café Furniture",
-    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/cafe_furniture.png",
     href: "/category/cafe-furniture",
     colSpan: "col-span-6 md:col-span-2",
     heightClass: "h-[110px] sm:h-[160px] md:h-[220px] lg:h-[260px]",
@@ -33,7 +33,7 @@ const CURATED_CATEGORIES = [
   {
     id: "space-bar",
     title: "Bar Furniture",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/bar_furniture.png",
     href: "/category/bar-furniture",
     colSpan: "col-span-6 md:col-span-2",
     heightClass: "h-[110px] sm:h-[160px] md:h-[220px] lg:h-[260px]",
@@ -41,7 +41,7 @@ const CURATED_CATEGORIES = [
   {
     id: "space-hotel",
     title: "Hotel Furniture",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/hotel_furniture.png",
     href: "/category/hotel-furniture",
     colSpan: "col-span-6 md:col-span-3",
     heightClass: "h-[110px] sm:h-[160px] md:h-[220px] lg:h-[260px]",
@@ -49,7 +49,7 @@ const CURATED_CATEGORIES = [
   {
     id: "space-cane",
     title: "Cane Furniture",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/cane_furniture.png",
     href: "/category/cane-furniture",
     colSpan: "col-span-4 md:col-span-3",
     heightClass: "h-[110px] sm:h-[160px] md:h-[220px] lg:h-[260px]",
@@ -57,7 +57,7 @@ const CURATED_CATEGORIES = [
   {
     id: "space-bone-inlay",
     title: "Bone Inlay Furniture",
-    image: "/images/hero1.png",
+    image: "/images/bone_inlay_furniture.png",
     href: "/category/bone-inlay-furniture",
     colSpan: "col-span-4 md:col-span-5",
     heightClass: "h-[110px] sm:h-[160px] md:h-[220px] lg:h-[260px]",
@@ -65,7 +65,7 @@ const CURATED_CATEGORIES = [
   {
     id: "space-rope",
     title: "Rope Furniture",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/rope_furniture.png",
     href: "/category/rope-furniture",
     colSpan: "col-span-4 md:col-span-4",
     heightClass: "h-[110px] sm:h-[160px] md:h-[220px] lg:h-[260px]",
