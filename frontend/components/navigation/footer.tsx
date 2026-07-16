@@ -51,7 +51,7 @@ export default function Footer({
             </h4>
             <div className="space-y-4 font-sans text-xs text-[#8C8273] font-light leading-relaxed">
               <p className="text-justify">
-                SB Artisan is a premier Indian manufacturer and exporter of luxury furniture. Based in Jodhpur, Rajasthan, we specialize in contract-grade solid wood, hand-woven cane, and bone inlay furniture tailored for international hospitality developments.
+                Rooted in Indian craftsmanship, SB Artisan supplies and exports handcrafted furniture for hotels, restaurants, cafés, resorts, and luxury interiors. We deliver custom furniture solutions that combine artisan heritage, premium quality, and global standards.
               </p>
               <div className="pt-3 flex flex-wrap gap-x-3 gap-y-2 border-t border-[#23211F]">
                 <span className="text-[9px] uppercase tracking-wider text-[#EAE5D9] bg-[#161513] px-2.5 py-1 rounded-sm border border-[#23211F]">

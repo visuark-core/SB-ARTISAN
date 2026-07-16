@@ -19,14 +19,15 @@ interface CategoryConfig {
   image: string;
   subcategories: { name: string; slug: string; image: string }[];
   seoTitle: string;
+  seoDescription?: string;
   seoKeywords: string;
 }
 
 const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
   "restaurant-furniture": {
-    title: "Restaurant Furniture",
-    eyebrow: "ARCHITECTURAL DINING SHOWCASE",
-    description: "Explore our premium contract commercial restaurant furniture collection. SB Artisan is a wholesale exporter of solid wood restaurant dining chairs, teak dining tables, and serving casegoods custom-crafted in our Jodhpur factory.",
+    title: "Premium Restaurant Furniture for Commercial Dining Spaces",
+    eyebrow: "Restaurant Furniture",
+    description: "Buy wholesale contract-grade restaurant furniture direct from our Jodhpur factory. Premium chairs, custom solid wood tables, and booth seating built for high-traffic hospitality venues.",
     image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
       { name: "Restaurant Chairs", slug: "restaurant-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
@@ -34,12 +35,13 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
       { name: "Restaurant Sofas", slug: "restaurant-sofas", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
       { name: "Outdoor Restaurant Furniture", slug: "outdoor-restaurant-furniture", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
     ],
-    seoTitle: "Commercial Restaurant Furniture Manufacturer & Exporter",
+    seoTitle: "Restaurant Furniture Supplier & Exporter from India | SB Artisan",
+    seoDescription: "SB Artisan is a trusted restaurant furniture supplier & exporter from India, offering custom restaurant chairs, dining tables, booths, bar furniture, and outdoor furniture for restaurants, cafés, hotels, and hospitality projects worldwide.",
     seoKeywords: "commercial restaurant furniture manufacturer, wholesale teak dining tables, restaurant dining chairs exporter Jodhpur, contract hospitality tables India",
   },
   "cafe-furniture": {
-    title: "Cafe Furniture",
-    eyebrow: "BOUTIQUE BISTRO CONTRACTS",
+    title: "Premium Cafe Furniture for Modern Coffee Shops & Hospitality Spaces",
+    eyebrow: "Cafe Furniture",
     description: "Buy wholesale cafe and bistro furniture direct from our Jodhpur manufacturing plant. Weather-treated dining chairs, lightweight rattan cane café armchairs, and outdoor dining tables built for high-traffic cafes.",
     image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
@@ -48,12 +50,13 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
       { name: "Café Benches", slug: "cafe-benches", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
       { name: "Outdoor Café Furniture", slug: "outdoor-cafe-furniture", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
     ],
-    seoTitle: "Bespoke Cafe Bistro Chairs & Tables Exporter | Jodhpur Factory",
+    seoTitle: "Cafe Furniture Supplier & Exporter from India | SB Artisan",
+    seoDescription: "SB Artisan is a trusted cafe furniture supplier & exporter from India, offering custom cafe furniture, cafe chairs, cafe tables, bar stools, outdoor cafe furniture, and commercial furniture for cafés, coffee shops, restaurants, and hospitality projects worldwide.",
     seoKeywords: "bespoke cafe furniture exporter, wholesale outdoor cafe tables, rattan cafe seating supplier Jodhpur, commercial bistro table manufacturer",
   },
   "bar-furniture": {
-    title: "Bar Furniture",
-    eyebrow: "UPMARKET LOUNGE COCKTAILS",
+    title: "Premium Bar Furniture for Hospitality & Commercial Spaces",
+    eyebrow: "Bar Furniture",
     description: "Source Jodhpur bone inlay bar cabinets, custom wholesale barstools, and leather-wrapped cocktail bar counters. Hand-crafted contract bar furniture designed for luxury hotel lounges and upscale restaurants.",
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
@@ -62,13 +65,13 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
       { name: "Bar Tables", slug: "bar-tables", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=150&q=80" },
       { name: "Outdoor Bar Furniture", slug: "outdoor-bar-furniture", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
     ],
-    seoTitle: "Bone Inlay Bar Cabinets & Contract Stools Supplier",
-    seoKeywords: "bone inlay bar cabinet manufacturer Jodhpur, custom contract barstools supplier, hospitality bar furniture, luxury home bar cabinets India",
+    seoTitle: "Bar Furniture Supplier & Exporter from India | SB Artisan",
+    seoKeywords: "SB Artisan is a trusted bar furniture supplier & exporter from India, offering custom bar furniture, bar stools, bar chairs, bar tables, lounge furniture, and outdoor bar furniture for hotels, restaurants, pubs, and hospitality projects worldwide.",
   },
   "hotel-furniture": {
-    title: "Hotel Furniture",
-    eyebrow: "PREMIUM LOBBY & SUITE OBJECTS",
-    description: "Procure luxury hotel furniture, grand lobby tables, custom carved consoles, and guest suite reading loungers direct from India's contract furniture manufacturer. Generational Jodhpur woodwork tailored to FF&E specifications.",
+    title: "Hotel Furniture Supplier & Exporter from India",
+    eyebrow: "Luxury Hotel Furniture",
+    description: "Create exceptional guest experiences with handcrafted hotel furniture designed for comfort, elegance, and long-lasting performance. We provide customized furniture solutions for hotels, resorts, villas, serviced apartments, and hospitality projects across global markets.",
     image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
       { name: "Hotel Dining Chairs", slug: "hotel-dining-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
@@ -77,7 +80,8 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
       { name: "Coffee Tables", slug: "coffee-tables", image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=150&q=80" },
       { name: "Bedside Tables", slug: "bedside-tables", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=150&q=80" },
     ],
-    seoTitle: "Luxury Hotel & Resort Lobby Furniture Manufacturer India",
+    seoTitle: "Hotel Furniture Supplier & Exporter from India | SB Artisan",
+    seoDescription: "Discover premium hotel furniture by SB Artisan. We supply and export custom hotel beds, lobby furniture, reception furniture, dining furniture, and hospitality solutions for hotels, resorts, and luxury projects worldwide.",
     seoKeywords: "hotel furniture manufacturer India, luxury resort lobby console supplier, hotel guest suite furniture Jodhpur, FF&E contract furniture contractor",
   },
   "cane-furniture": {
@@ -125,8 +129,8 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
       { name: "Rope Benches", slug: "rope-benches", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
       { name: "Rope Outdoor Furniture", slug: "rope-outdoor-furniture", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
     ],
-    seoTitle: "Indian Rope Daybeds & Benches Manufacturer | Woven Furniture",
-    seoKeywords: "Indian rope daybed exporter, wholesale woven jute benches, traditional charpai daybeds Jodhpur, coir rope stools manufacturer",
+    seoTitle: "Rope Furniture Supplier & Exporter from India | Handwoven Rope Furniture | SB Artisan",
+    seoKeywords: "Rope Sofas, Outdoor Rope Furniture, Rope Patio Furniture, Rope Garden Furniture, Custom Rope Furniture, Hospitality Furniture, Furniture Supplier from India, Furniture Exporter India, Rope Furniture Supplier, Rope Furniture Exporter, Handwoven Rope Furniture, Rope Chairs, Rope Dining Chairs, Rope Lounge Chairs, Rope Bar Stools, Indian rope daybed exporter, wholesale woven jute benches, traditional charpai daybeds Jodhpur, coir rope stools manufacturer",
   },
 };
 
@@ -203,7 +207,7 @@ export default function CategoryPage() {
         const sub = p.subcategory.toLowerCase();
         const targetSub = activeSubcategory.toLowerCase().replace(/-/g, " ");
         const tags = p.tags.map((t) => t.toLowerCase());
-        
+
         return sub.includes(targetSub) || targetSub.includes(sub) || tags.includes(activeSubcategory.toLowerCase());
       });
     }
@@ -254,7 +258,7 @@ export default function CategoryPage() {
 
   // Pagination bounds
   const totalPages = Math.ceil(filteredAndSorted.length / ITEMS_PER_PAGE);
-  
+
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
     return filteredAndSorted.slice(start, start + ITEMS_PER_PAGE);
@@ -300,9 +304,9 @@ export default function CategoryPage() {
 
   return (
     <div className="pt-28 pb-20 bg-[#FDFCF7]">
-      <SEO 
+      <SEO
         title={config.seoTitle}
-        description={config.description}
+        description={config.seoDescription || config.description}
         keywords={config.seoKeywords}
         canonical={`/category/${slug}`}
         schema={schemaMarkup}
@@ -330,7 +334,7 @@ export default function CategoryPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
           )}
         </div>
-        
+
         {/* Banner Content Overlay */}
         {!isBoneInlay && (
           <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-3.5 sm:py-6 md:py-8 text-white max-w-[1600px] mx-auto w-full">
@@ -351,11 +355,11 @@ export default function CategoryPage() {
       </div>
 
       <Container variant="wide" className="space-y-12 md:space-y-16 pt-8 md:pt-12">
-        
+
 
 
         <div id="catalog-grid-anchor" className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start pt-4">
-          
+
           {/* Mobile Filters Toggle Button */}
           <div className="w-full lg:hidden">
             <button
@@ -381,7 +385,7 @@ export default function CategoryPage() {
             "lg:col-span-3 space-y-8 lg:sticky lg:top-28 w-full",
             isFiltersExpanded ? "block" : "hidden lg:block"
           )}>
-            
+
             {/* Search Input */}
             <div className="space-y-3.5">
               <h4 className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#8C8273] font-semibold">
@@ -455,7 +459,7 @@ export default function CategoryPage() {
 
           {/* 5. RIGHT COLUMN: Dynamic Showcase Grid */}
           <div className="lg:col-span-9 space-y-6">
-            
+
             {/* Active filters status summary */}
             <div className="flex items-baseline justify-between select-none text-[10px] tracking-wider uppercase text-[#8C8273] font-sans border-b border-[#F2EDE2]/60 pb-3">
               <span>

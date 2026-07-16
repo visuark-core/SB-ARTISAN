@@ -124,7 +124,7 @@ export default function HeroSection({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center w-full">
 
           {/* Left Text Block */}
-          <div className="lg:col-span-5 min-h-[380px] md:min-h-[400px] lg:min-h-[450px] flex flex-col justify-center relative">
+          <div className="lg:col-span-6 min-h-[380px] md:min-h-[400px] lg:min-h-[450px] flex flex-col justify-center relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -155,19 +155,20 @@ export default function HeroSection({
                 </div>
 
                 <motion.div variants={itemVariants}>
-                  <Paragraph variant="md" className="text-[#6E6B64] font-light max-w-md leading-relaxed">
+                  <Paragraph variant="md" className="text-[#6E6B64] font-light max-w-lg leading-relaxed">
                     {currentSlide.description}
                   </Paragraph>
                 </motion.div>
 
                 {/* CTAs */}
-                <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
+                <motion.div variants={itemVariants} className="flex flex-row items-center gap-2 sm:gap-3.5 pt-2 flex-nowrap w-full overflow-x-visible">
                   <PrimaryButton
                     as={pLink.startsWith("/") ? Link : "a"}
                     {...(pLink.startsWith("/") ? { to: pLink } : { href: pLink })}
                     size="md"
                     shape="square"
                     rightIcon={<ArrowRight />}
+                    className="px-3 sm:px-4 md:px-5 py-3 md:py-3.5 text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.15em] whitespace-nowrap shrink-0"
                   >
                     {currentSlide.primaryText || "Explore Collection"}
                   </PrimaryButton>
@@ -178,6 +179,7 @@ export default function HeroSection({
                       {...(sLink.startsWith("/") ? { to: sLink } : { href: sLink })}
                       size="md"
                       shape="square"
+                      className="px-3 sm:px-4 md:px-5 py-3 md:py-3.5 text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.15em] whitespace-nowrap shrink-0"
                     >
                       {currentSlide.secondaryText}
                     </SecondaryButton>
@@ -188,7 +190,7 @@ export default function HeroSection({
           </div>
 
           {/* Right Cinematic Image Block */}
-          <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-[1.4] overflow-hidden bg-[#F5F2EA] group rounded-sm shadow-sm">
+          <div className="lg:col-span-6 relative aspect-[4/3] lg:aspect-[1.4] overflow-hidden bg-[#F5F2EA] group rounded-sm shadow-sm">
             {/* Soft shadow depth cover overlay */}
             <div className="absolute inset-0 bg-[#1A1A1A]/[0.03] z-10 pointer-events-none" />
 

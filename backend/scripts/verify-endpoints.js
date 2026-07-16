@@ -111,8 +111,8 @@ async function runTests() {
         'Content-Type': 'application/json'
       }
     }, {
-      email: 'rahul05',
-      password: '200505'
+      email: 'admin@site.com',
+      password: '12345678'
     });
     console.log(`Status Code: ${resLogin.statusCode}`);
     let token = '';

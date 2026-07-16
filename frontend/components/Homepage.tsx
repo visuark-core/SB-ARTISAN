@@ -91,8 +91,8 @@ export default function Homepage() {
   return (
     <div className="relative min-h-screen bg-[#FDFCF7] text-[#1A1A1A] antialiased selection:bg-[#EAE5D9] selection:text-[#1A1A1A]">
       <SEO
-        title="Indian Furniture Manufacturer & Exporter | Jodhpur Solid Wood"
-        description="SB Artisan is Jodhpur's premier solid wood furniture manufacturer and global exporter. Specializing in handcrafted teak, cane, and bone inlay contract furniture for hospitality developments."
+        title="India's Trusted Furniture Supplier & Exporter | Handcrafted Wooden Furniture | SB Artisan "
+        description="SB Artisan is India's trusted furniture supplier & exporter, offering handcrafted wooden furniture, hotel furniture, restaurant furniture, café furniture, rope furniture, cane furniture, bone inlay furniture, and custom hospitality solutions for global buyers."
         keywords="Furniture Manufacturer India, Furniture Exporter India, Hotel Furniture Manufacturer, Restaurant Furniture Supplier, Cafe Furniture Manufacturer, Bar Furniture Supplier, Cane Furniture Manufacturer, Bone Inlay Furniture Exporter, Rope Furniture Manufacturer, Custom Furniture Manufacturer India, solid wood furniture exporter Jodhpur"
         canonical="/"
         schema={homepageSchema}
