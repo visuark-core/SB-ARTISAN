@@ -160,7 +160,31 @@ export default function Footer({
           {/* Copyright, Policy links in center */}
           <div className="order-3 md:order-2 flex flex-col items-center md:items-start gap-2 text-center md:text-left">
             <p className="font-sans text-[10px] text-[#6E6B64] uppercase tracking-[0.2em]">
-              © {new Date().getFullYear()} {brandName}. All rights reserved.
+              © 2025 {brandName}. All rights reserved.
+            </p>
+            <p className="font-sans text-[9px] text-[#8C8273] uppercase tracking-[0.15em] flex items-center gap-1.5 mt-0.5">
+              <span>Made & Managed by</span>
+              <a
+                href="https://visuark.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#A3927B] hover:text-[#EAE5D9] transition-colors duration-300 inline-flex items-center gap-1 font-medium group"
+              >
+                <svg
+                  className="w-3 h-3 text-[#A3927B] group-hover:text-[#EAE5D9] transition-colors duration-300"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="5" r="3" />
+                  <line x1="12" y1="22" x2="12" y2="8" />
+                  <path d="M5 12H2a10 10 0 0 0 20 0h-3" />
+                </svg>
+                Visuark
+              </a>
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-[9px] text-[#6E6B64] uppercase tracking-[0.15em] font-sans">
               <Link to="/about" className="hover:text-[#EAE5D9] transition-colors duration-300">
