@@ -51,50 +51,49 @@ const DEFAULT_CATEGORIES = [
 const DEFAULT_SUBCATEGORIES = [
   // Restaurant Furniture
   { parentSlug: 'restaurant-furniture', name: 'Restaurant Chairs', slug: 'restaurant-chairs', description: 'Atelier dining chairs' },
-  { parentSlug: 'restaurant-furniture', name: 'Restaurant Tables', slug: 'restaurant-tables', description: 'Atelier dining tables' },
+  { parentSlug: 'restaurant-furniture', name: 'Restaurant Dining Tables', slug: 'restaurant-dining-tables', description: 'Atelier dining tables' },
+  { parentSlug: 'restaurant-furniture', name: 'Restaurant Booth Seating', slug: 'restaurant-booth-seating', description: 'Leather and custom dining booths' },
+  { parentSlug: 'restaurant-furniture', name: 'Restaurant Benches', slug: 'restaurant-benches', description: 'Haveli teak benches' },
+  { parentSlug: 'restaurant-furniture', name: 'Outdoor Restaurant Furniture', slug: 'outdoor-restaurant-furniture', description: 'Patio and terrace dining groups' },
   
   // Cafe Furniture
-  { parentSlug: 'cafe-furniture', name: 'Café Chairs', slug: 'cafe-chairs', description: 'Atelier design cafe chairs' },
-  { parentSlug: 'cafe-furniture', name: 'Café Tables', slug: 'cafe-tables', description: 'Heritage teak table tops' },
-  { parentSlug: 'cafe-furniture', name: 'Café Benches', slug: 'cafe-benches', description: 'Traditional weaving benches' },
-  { parentSlug: 'cafe-furniture', name: 'Outdoor Café Furniture', slug: 'outdoor-cafe-furniture', description: 'Weather resistant items' },
+  { parentSlug: 'cafe-furniture', name: 'Cafe Chairs', slug: 'cafe-chairs', description: 'Atelier design cafe chairs' },
+  { parentSlug: 'cafe-furniture', name: 'Cafe Tables', slug: 'cafe-tables', description: 'Heritage teak table tops' },
+  { parentSlug: 'cafe-furniture', name: 'Cafe Benches', slug: 'cafe-benches', description: 'Traditional weaving benches' },
+  { parentSlug: 'cafe-furniture', name: 'Outdoor Cafe Furniture', slug: 'outdoor-cafe-furniture', description: 'Weather resistant items' },
   
   // Bar Furniture
-  { parentSlug: 'bar-furniture', name: 'Bar Chairs', slug: 'bar-chairs', description: 'Woven bar chairs' },
   { parentSlug: 'bar-furniture', name: 'Bar Stools', slug: 'bar-stools', description: 'Woven high stools' },
+  { parentSlug: 'bar-furniture', name: 'Bar Chairs', slug: 'bar-chairs', description: 'Woven bar chairs' },
   { parentSlug: 'bar-furniture', name: 'Bar Tables', slug: 'bar-tables', description: 'Cocktail tables' },
   { parentSlug: 'bar-furniture', name: 'Outdoor Bar Furniture', slug: 'outdoor-bar-furniture', description: 'Weather resistant bar items' },
   
   // Hotel Furniture
-  { parentSlug: 'hotel-furniture', name: 'Hotel Dining Chairs', slug: 'hotel-dining-chairs', description: 'Lobby easy chairs' },
-  { parentSlug: 'hotel-furniture', name: 'Hotel Dining Tables', slug: 'hotel-dining-tables', description: 'Lobby dining tables' },
-  { parentSlug: 'hotel-furniture', name: 'Hotel Room Chairs', slug: 'hotel-room-chairs', description: 'Lobby reading chairs' },
-  { parentSlug: 'hotel-furniture', name: 'Coffee Tables', slug: 'coffee-tables', description: 'Large scale coffee tables' },
-  { parentSlug: 'hotel-furniture', name: 'Bedside Tables', slug: 'bedside-tables', description: 'Bespoke accent chests' },
+  { parentSlug: 'hotel-furniture', name: 'Hotel Chairs', slug: 'hotel-chairs', description: 'Lobby and suite lounge easy chairs' },
+  { parentSlug: 'hotel-furniture', name: 'Hotel Dining Tables', slug: 'hotel-dining-tables', description: 'Banqueting and private dining tables' },
+  { parentSlug: 'hotel-furniture', name: 'Hotel Bedroom Furniture', slug: 'hotel-bedroom-furniture', description: 'Beds, nightstands, and bedroom casegoods' },
+  { parentSlug: 'hotel-furniture', name: 'Hotel Sofas', slug: 'hotel-sofas', description: 'Lobby sofas and suite sectionals' },
+  { parentSlug: 'hotel-furniture', name: 'Outdoor Hotel Furniture', slug: 'outdoor-hotel-furniture', description: 'Resort pool loungers and patio items' },
   
   // Cane Furniture
   { parentSlug: 'cane-furniture', name: 'Cane Chairs', slug: 'cane-chairs', description: 'Airy tropical loungers' },
   { parentSlug: 'cane-furniture', name: 'Cane Dining Chairs', slug: 'cane-dining-chairs', description: 'Cane dining seating' },
-  { parentSlug: 'cane-furniture', name: 'Cane Bar Stools', slug: 'cane-bar-stools', description: 'High cane stools' },
-  { parentSlug: 'cane-furniture', name: 'Cane Sofa Sets', slug: 'cane-sofa-sets', description: 'Cane seating suites' },
-  { parentSlug: 'cane-furniture', name: 'Cane Sideboards', slug: 'cane-sideboards', description: 'Cane console credenzas' },
-  { parentSlug: 'cane-furniture', name: 'Cane Coffee Tables', slug: 'cane-coffee-tables', description: 'Marble topped cane coffee tables' },
-  { parentSlug: 'cane-furniture', name: 'Cane Bedside Tables', slug: 'cane-bedside-tables', description: 'Cane nightstands' },
-  { parentSlug: 'cane-furniture', name: 'Cane Cabinets', slug: 'cane-cabinets', description: 'Cane storage cupboards' },
+  { parentSlug: 'cane-furniture', name: 'Cane Tables', slug: 'cane-tables', description: 'Cane coffee and side tables' },
+  { parentSlug: 'cane-furniture', name: 'Cane Sofas', slug: 'cane-sofas', description: 'Cane lounge seating' },
+  { parentSlug: 'cane-furniture', name: 'Outdoor Cane Furniture', slug: 'outdoor-cane-furniture', description: 'Weatherproof cane items' },
   
   // Rope Furniture
   { parentSlug: 'rope-furniture', name: 'Rope Chairs', slug: 'rope-chairs', description: 'Woven rope chairs' },
-  { parentSlug: 'rope-furniture', name: 'Rope Stools', slug: 'rope-stools', description: 'Coir rope stools' },
-  { parentSlug: 'rope-furniture', name: 'Rope Sofa Sets', slug: 'rope-sofa-sets', description: 'Woven rope lounge sets' },
+  { parentSlug: 'rope-furniture', name: 'Rope Sofas', slug: 'rope-sofas', description: 'Woven rope sofas and lounges' },
   { parentSlug: 'rope-furniture', name: 'Rope Benches', slug: 'rope-benches', description: 'Charpais and rope weaving benches' },
-  { parentSlug: 'rope-furniture', name: 'Rope Outdoor Furniture', slug: 'rope-outdoor-furniture', description: 'Outdoor treated rope items' },
+  { parentSlug: 'rope-furniture', name: 'Outdoor Rope Furniture', slug: 'outdoor-rope-furniture', description: 'Outdoor treated rope items' },
   
   // Bone Inlay Furniture
-  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Storage Cabinets', slug: 'bone-inlay-storage-cabinets', description: 'Damask inlay cabinets' },
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Cabinets', slug: 'bone-inlay-cabinets', description: 'Damask inlay cabinets' },
   { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Sideboards', slug: 'bone-inlay-sideboards', description: 'Damask inlay credenzas' },
-  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Bedside Tables', slug: 'bone-inlay-bedside-tables', description: 'Floral inlay nightstands' },
   { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Coffee Tables', slug: 'bone-inlay-coffee-tables', description: 'Stepped arch bone inlay coffee tables' },
-  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Side Tables', slug: 'bone-inlay-side-tables', description: 'Inlay accent tables' }
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Bedside Tables', slug: 'bone-inlay-bedside-tables', description: 'Floral inlay nightstands' },
+  { parentSlug: 'bone-inlay-furniture', name: 'Bone Inlay Console Tables', slug: 'bone-inlay-console-tables', description: 'Decorative bone inlay console tables' }
 ];
 
 // Default Products Mock
@@ -136,7 +135,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Shekhawati Floral Bone Inlay Bar Cabinet',
     slug: 'shekhawati-floral-bone-inlay-bar-cabinet',
     categorySlug: 'bone-inlay-furniture',
-    subcategorySlug: 'bone-inlay-storage-cabinets',
+    subcategorySlug: 'bone-inlay-cabinets',
     description: 'An ornate bar cabinet featuring hand-cut camel bone tiles set in deep charcoal resin.',
     materials: ['Ethically Sourced Camel Bone', 'Water-resistant Resin Inlay', 'Brushed Brass Hardware', 'Solid Mango Wood Frame'],
     dimensions: { height: 142, width: 92, depth: 46, unit: 'cm' },
@@ -215,7 +214,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Thar Teakwood Monolithic Coffee Table',
     slug: 'thar-teakwood-monolithic-coffee-table',
     categorySlug: 'hotel-furniture',
-    subcategorySlug: 'coffee-tables',
+    subcategorySlug: 'hotel-bedroom-furniture',
     description: 'A grounding, monolithic coffee table carved from a single slab of desert teakwood.',
     materials: ['Aged Solid Teakwood Wood', 'Traditional Wooden Joinery'],
     dimensions: { height: 36, width: 120, depth: 120, unit: 'cm' },
@@ -246,7 +245,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Nilgiri Forest Cane Coffee Table',
     slug: 'nilgiri-forest-cane-coffee-table',
     categorySlug: 'cane-furniture',
-    subcategorySlug: 'cane-coffee-tables',
+    subcategorySlug: 'cane-tables',
     description: 'A double-tiered circular table combining green Indian marble, cane weave, and teak.',
     materials: ['Plantation Teakwood Frame', 'Woven Cane Mesh', 'Forest Green Indian Marble'],
     dimensions: { height: 40, width: 90, depth: 90, unit: 'cm' },
@@ -261,7 +260,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Maharaja Oval Sheesham Dining Table',
     slug: 'maharaja-oval-sheesham-dining-table',
     categorySlug: 'restaurant-furniture',
-    subcategorySlug: 'restaurant-tables',
+    subcategorySlug: 'restaurant-dining-tables',
     description: 'An expansive oval dining table sculpted from solid Indian Rosewood with elegant brass inlay strips.',
     materials: ['Solid Sheesham Wood', 'Brushed Brass Inlays', 'Weighted Iron Core'],
     dimensions: { height: 76, width: 240, depth: 110, unit: 'cm' },
@@ -339,7 +338,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Mehrangarh Carved Teak Lobby Console',
     slug: 'mehrangarh-carved-teak-lobby-console',
     categorySlug: 'hotel-furniture',
-    subcategorySlug: 'bedside-tables',
+    subcategorySlug: 'hotel-bedroom-furniture',
     description: 'A grand carved teakwood console featuring intricate Mughal arch lattice work.',
     materials: ['Plantation Teakwood', 'Brass Handle Accents'],
     dimensions: { height: 85, width: 180, depth: 50, unit: 'cm' },
@@ -355,7 +354,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Mughal Octagonal Floral Bone Inlay Table',
     slug: 'mughal-octagonal-floral-bone-inlay-table',
     categorySlug: 'bone-inlay-furniture',
-    subcategorySlug: 'bone-inlay-side-tables',
+    subcategorySlug: 'bone-inlay-console-tables',
     description: 'An octagonal accent table featuring floral bone inlay detailing set in olive green resin.',
     materials: ['Ethically Sourced Camel Bone', 'Olive Green Resin', 'Solid Mango Wood Core'],
     dimensions: { height: 50, width: 45, depth: 45, unit: 'cm' },
@@ -370,7 +369,7 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
     title: 'Rajputana Chevron Bone Inlay Wall Mirror',
     slug: 'rajputana-chevron-bone-inlay-wall-mirror',
     categorySlug: 'bone-inlay-furniture',
-    subcategorySlug: 'bone-inlay-storage-cabinets',
+    subcategorySlug: 'bone-inlay-console-tables',
     description: 'A wide, rectangular wall mirror with a hand-laid geometric bone inlay frame.',
     materials: ['Ethically Sourced Bone', 'Black Resin Pigment', 'Premium Mirrored Glass', 'Mango Wood Frame'],
     dimensions: { height: 120, width: 80, depth: 4, unit: 'cm' },
@@ -380,6 +379,321 @@ const INDIAN_HOSPITALITY_PRODUCTS = [
       'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=800&q=80'
     ],
     featured: 0
+  },
+  {
+    title: 'Thar Desert Handwoven Rope Dining Chair',
+    slug: 'thar-desert-handwoven-rope-dining-chair',
+    categorySlug: 'rope-furniture',
+    subcategorySlug: 'rope-chairs',
+    description: 'Sleek dining chair weaving high-tensile coir ropes over a reclaimed teak frame.',
+    materials: ['Reclaimed Teakwood', 'Natural Coir Rope'],
+    dimensions: { height: 85, width: 50, depth: 52, unit: 'cm' },
+    price: 18500.00,
+    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Malabar Coastal Organic Rope Sofa',
+    slug: 'malabar-coastal-organic-rope-sofa',
+    categorySlug: 'rope-furniture',
+    subcategorySlug: 'rope-sofas',
+    description: 'An elegant, low-profile two-seater sofa featuring high-tensile organic jute rope backing.',
+    materials: ['Solid Indian Rosewood', 'Dyed Organic Jute Rope', 'Natural Canvas Cushioning'],
+    dimensions: { height: 75, width: 160, depth: 85, unit: 'cm' },
+    price: 54000.00,
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Goa Resort Weatherproof Outdoor Rope Lounger',
+    slug: 'goa-resort-weatherproof-outdoor-rope-lounger',
+    categorySlug: 'rope-furniture',
+    subcategorySlug: 'outdoor-rope-furniture',
+    description: 'A reclining outdoor lounger crafted from powder-coated aluminum and UV-resistant polyester rope.',
+    materials: ['Powder-coated Aluminum', 'UV-resistant Polyester Rope', 'Quick-dry Foam Cushioning'],
+    dimensions: { height: 68, width: 75, depth: 150, unit: 'cm' },
+    price: 32500.00,
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Amanbagh Palace Teak Lobby Lounge Chair',
+    slug: 'amanbagh-palace-teak-lobby-lounge-chair',
+    categorySlug: 'hotel-furniture',
+    subcategorySlug: 'hotel-chairs',
+    description: 'Low-slung, premium lobby lounge chair sculpted from seasoned teak with woven cane back.',
+    materials: ['Plantation Teakwood', 'Natural Rattan Cane'],
+    dimensions: { height: 74, width: 78, depth: 80, unit: 'cm' },
+    price: 36000.00,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Udaipur Palace Carved Hotel Dining Table',
+    slug: 'udaipur-palace-carved-hotel-dining-table',
+    categorySlug: 'hotel-furniture',
+    subcategorySlug: 'hotel-dining-tables',
+    description: 'An opulent, hand-carved rectangular hotel dining table made of premium solid rosewood.',
+    materials: ['Solid Sheesham Wood', 'Brass Details'],
+    dimensions: { height: 76, width: 220, depth: 100, unit: 'cm' },
+    price: 92000.00,
+    image: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Rajputana Velvet Chesterfield Hotel Sofa',
+    slug: 'rajputana-velvet-chesterfield-hotel-sofa',
+    categorySlug: 'hotel-furniture',
+    subcategorySlug: 'hotel-sofas',
+    description: 'A deep-buttoned chesterfield hotel lounge sofa upholstered in premium organic cotton velvet.',
+    materials: ['Solid Teak Frame', 'Cotton Velvet', 'Brass Casters'],
+    dimensions: { height: 80, width: 210, depth: 90, unit: 'cm' },
+    price: 72000.00,
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Goa Resort Weatherproof Rattan Hotel Pool Lounger',
+    slug: 'goa-resort-weatherproof-rattan-hotel-pool-lounger',
+    categorySlug: 'hotel-furniture',
+    subcategorySlug: 'outdoor-hotel-furniture',
+    description: 'An adjustable outdoor lounger featuring weather-resistant wicker rattan and quick-dry cushioning.',
+    materials: ['Powder-coated Aluminum', 'UV-resistant Wicker Rattan', 'Performance Canvas'],
+    dimensions: { height: 40, width: 70, depth: 200, unit: 'cm' },
+    price: 28500.00,
+    image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Haveli Leather Upholstered Booth Seating',
+    slug: 'haveli-leather-upholstered-booth-seating',
+    categorySlug: 'restaurant-furniture',
+    subcategorySlug: 'restaurant-booth-seating',
+    description: 'Modular contract booth seating upholstered in premium full-grain Indian leather with a teak base.',
+    materials: ['Plantation Teakwood', 'Full-grain Indian Leather'],
+    dimensions: { height: 95, width: 150, depth: 70, unit: 'cm' },
+    price: 65000.00,
+    image: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Shekhawati Reclaimed Teak Dining Bench',
+    slug: 'shekhawati-reclaimed-teak-dining-bench',
+    categorySlug: 'restaurant-furniture',
+    subcategorySlug: 'restaurant-benches',
+    description: 'A solid, hand-planed dining bench crafted from century-old reclaimed haveli teak timbers.',
+    materials: ['Reclaimed Teakwood'],
+    dimensions: { height: 46, width: 160, depth: 40, unit: 'cm' },
+    price: 28000.00,
+    image: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Thar Desert Weatherproof Restaurant Dining Set',
+    slug: 'thar-desert-weatherproof-restaurant-dining-set',
+    categorySlug: 'restaurant-furniture',
+    subcategorySlug: 'outdoor-restaurant-furniture',
+    description: 'An outdoor dining set featuring a weather-treated teakwood table and 4 woven armchairs.',
+    materials: ['Plantation Teakwood', 'Synthetic Wicker'],
+    dimensions: { height: 75, width: 140, depth: 80, unit: 'cm' },
+    price: 88000.00,
+    image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Bespoke Jodhpur Live Edge Restaurant Table',
+    slug: 'bespoke-jodhpur-live-edge-restaurant-table',
+    categorySlug: 'restaurant-furniture',
+    subcategorySlug: 'restaurant-dining-tables',
+    description: 'A dramatic live-edge table top carved from a single slab of local Acacia wood.',
+    materials: ['Acacia Wood', 'Industrial Steel Legs'],
+    dimensions: { height: 76, width: 200, depth: 90, unit: 'cm' },
+    price: 76000.00,
+    image: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Atelier Teakwood High Bar Chair',
+    slug: 'atelier-teakwood-high-bar-chair',
+    categorySlug: 'bar-furniture',
+    subcategorySlug: 'bar-chairs',
+    description: 'Sleek, high-profile bar seating crafted from seasoned teakwood and premium leather.',
+    materials: ['Plantation Teakwood', 'Premium Leather', 'Brass Hardware'],
+    dimensions: { height: 104, width: 48, depth: 50, unit: 'cm' },
+    price: 22500.00,
+    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Jodhpur Industrial Steel & Wood Bar Table',
+    slug: 'jodhpur-industrial-steel-and-wood-bar-table',
+    categorySlug: 'bar-furniture',
+    subcategorySlug: 'bar-tables',
+    description: 'A high-top bar dining table combining a solid mango wood top with an industrial steel base.',
+    materials: ['Solid Mango Wood', 'Industrial Steel Base'],
+    dimensions: { height: 105, width: 120, depth: 60, unit: 'cm' },
+    price: 38000.00,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Goa Beach Club Weatherproof Barstool',
+    slug: 'goa-beach-club-weatherproof-barstool',
+    categorySlug: 'bar-furniture',
+    subcategorySlug: 'outdoor-bar-furniture',
+    description: 'An outdoor barstool weaving UV-resistant polyester rope over a powder-coated aluminum frame.',
+    materials: ['Powder-coated Aluminum', 'UV-resistant Polyester Rope'],
+    dimensions: { height: 98, width: 44, depth: 46, unit: 'cm' },
+    price: 18500.00,
+    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Bespoke Live Edge Suwar Wood Bar Counter',
+    slug: 'bespoke-live-edge-suwar-wood-bar-counter',
+    categorySlug: 'bar-furniture',
+    subcategorySlug: 'bar-tables',
+    description: 'A monumental live-edge bar counter carved from a single solid slab of Suwar wood.',
+    materials: ['Solid Suwar Wood', 'Brass Inserts'],
+    dimensions: { height: 110, width: 240, depth: 80, unit: 'cm' },
+    price: 145000.00,
+    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Monsoon Rattan Bar Stool',
+    slug: 'monsoon-rattan-bar-stool',
+    categorySlug: 'cafe-furniture',
+    subcategorySlug: 'cafe-chairs',
+    description: 'A high-profile café bar stool woven from sustainable natural rattan cane.',
+    materials: ['Natural Rattan Cane', 'Split Wicker'],
+    dimensions: { height: 102, width: 45, depth: 45, unit: 'cm' },
+    price: 16500.00,
+    image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Artisan Teakwood Cafe Bench',
+    slug: 'artisan-teakwood-cafe-bench',
+    categorySlug: 'cafe-furniture',
+    subcategorySlug: 'cafe-benches',
+    description: 'A minimalist solid teak dining bench designed for bistro and café group seating.',
+    materials: ['Plantation Teakwood'],
+    dimensions: { height: 45, width: 140, depth: 38, unit: 'cm' },
+    price: 24000.00,
+    image: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Monsoon Weatherproof Outdoor Cafe Bistro Set',
+    slug: 'monsoon-weatherproof-outdoor-cafe-bistro-set',
+    categorySlug: 'cafe-furniture',
+    subcategorySlug: 'outdoor-cafe-furniture',
+    description: 'A lightweight bistro set featuring a weather-treated teak table and 2 woven armchairs.',
+    materials: ['Plantation Teakwood', 'Synthetic Wicker', 'Aluminum Frame'],
+    dimensions: { height: 74, width: 70, depth: 70, unit: 'cm' },
+    price: 45000.00,
+    image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Nilgiri Rattan Cane Dining Chair',
+    slug: 'nilgiri-rattan-cane-dining-chair',
+    categorySlug: 'cane-furniture',
+    subcategorySlug: 'cane-dining-chairs',
+    description: 'A sturdy, hand-woven dining armchair blending grade-A teakwood with natural cane webbing.',
+    materials: ['Plantation Teakwood', 'Natural Cane Webbing'],
+    dimensions: { height: 85, width: 56, depth: 58, unit: 'cm' },
+    price: 18500.00,
+    image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Malabar Coastal Cane Sofa Set',
+    slug: 'malabar-coastal-cane-sofa-set',
+    categorySlug: 'cane-furniture',
+    subcategorySlug: 'cane-sofas',
+    description: 'A premium three-seater living room sofa utilizing organically bent cane framing and soft cotton upholstery.',
+    materials: ['Steamed Bent Cane', 'Premium Cotton Fabric'],
+    dimensions: { height: 80, width: 180, depth: 85, unit: 'cm' },
+    price: 54000.00,
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
+  },
+  {
+    title: 'Goa Resort Weatherproof Synthetic Cane Armchair',
+    slug: 'goa-resort-weatherproof-synthetic-cane-armchair',
+    categorySlug: 'cane-furniture',
+    subcategorySlug: 'outdoor-cane-furniture',
+    description: 'An outdoor armchair combining weather-treated synthetic cane mesh and powder-coated metal frame.',
+    materials: ['Synthetic Cane', 'Powder-coated Aluminum Frame'],
+    dimensions: { height: 76, width: 62, depth: 65, unit: 'cm' },
+    price: 22000.00,
+    image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80',
+    imageGallery: [
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80'
+    ],
+    featured: 1
   }
 ];
 

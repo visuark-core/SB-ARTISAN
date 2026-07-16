@@ -31,8 +31,9 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
       { name: "Restaurant Chairs", slug: "restaurant-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
-      { name: "Restaurant Tables", slug: "restaurant-tables", image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=150&q=80" },
-      { name: "Restaurant Sofas", slug: "restaurant-sofas", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
+      { name: "Restaurant Dining Tables", slug: "restaurant-dining-tables", image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=150&q=80" },
+      { name: "Restaurant Booth Seating", slug: "restaurant-booth-seating", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
+      { name: "Restaurant Benches", slug: "restaurant-benches", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
       { name: "Outdoor Restaurant Furniture", slug: "outdoor-restaurant-furniture", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
     ],
     seoTitle: "Restaurant Furniture Supplier & Exporter from India | SB Artisan",
@@ -45,10 +46,10 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     description: "Buy wholesale cafe and bistro furniture direct from our Jodhpur manufacturing plant. Weather-treated dining chairs, lightweight rattan cane café armchairs, and outdoor dining tables built for high-traffic cafes.",
     image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
-      { name: "Café Chairs", slug: "cafe-chairs", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
-      { name: "Café Tables", slug: "cafe-tables", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=150&q=80" },
-      { name: "Café Benches", slug: "cafe-benches", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
-      { name: "Outdoor Café Furniture", slug: "outdoor-cafe-furniture", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
+      { name: "Cafe Chairs", slug: "cafe-chairs", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
+      { name: "Cafe Tables", slug: "cafe-tables", image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=150&q=80" },
+      { name: "Cafe Benches", slug: "cafe-benches", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
+      { name: "Outdoor Cafe Furniture", slug: "outdoor-cafe-furniture", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
     ],
     seoTitle: "Cafe Furniture Supplier & Exporter from India | SB Artisan",
     seoDescription: "SB Artisan is a trusted cafe furniture supplier & exporter from India, offering custom cafe furniture, cafe chairs, cafe tables, bar stools, outdoor cafe furniture, and commercial furniture for cafés, coffee shops, restaurants, and hospitality projects worldwide.",
@@ -60,8 +61,8 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     description: "Source Jodhpur bone inlay bar cabinets, custom wholesale barstools, and leather-wrapped cocktail bar counters. Hand-crafted contract bar furniture designed for luxury hotel lounges and upscale restaurants.",
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
-      { name: "Bar Chairs", slug: "bar-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
       { name: "Bar Stools", slug: "bar-stools", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=150&q=80" },
+      { name: "Bar Chairs", slug: "bar-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
       { name: "Bar Tables", slug: "bar-tables", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=150&q=80" },
       { name: "Outdoor Bar Furniture", slug: "outdoor-bar-furniture", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
     ],
@@ -74,11 +75,11 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     description: "Create exceptional guest experiences with handcrafted hotel furniture designed for comfort, elegance, and long-lasting performance. We provide customized furniture solutions for hotels, resorts, villas, serviced apartments, and hospitality projects across global markets.",
     image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
-      { name: "Hotel Dining Chairs", slug: "hotel-dining-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
+      { name: "Hotel Chairs", slug: "hotel-chairs", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=150&q=80" },
       { name: "Hotel Dining Tables", slug: "hotel-dining-tables", image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=150&q=80" },
-      { name: "Hotel Room Chairs", slug: "hotel-room-chairs", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=150&q=80" },
-      { name: "Coffee Tables", slug: "coffee-tables", image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=150&q=80" },
-      { name: "Bedside Tables", slug: "bedside-tables", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=150&q=80" },
+      { name: "Hotel Bedroom Furniture", slug: "hotel-bedroom-furniture", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=150&q=80" },
+      { name: "Hotel Sofas", slug: "hotel-sofas", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
+      { name: "Outdoor Hotel Furniture", slug: "outdoor-hotel-furniture", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
     ],
     seoTitle: "Hotel Furniture Supplier & Exporter from India | SB Artisan",
     seoDescription: "Discover premium hotel furniture by SB Artisan. We supply and export custom hotel beds, lobby furniture, reception furniture, dining furniture, and hospitality solutions for hotels, resorts, and luxury projects worldwide.",
@@ -92,30 +93,28 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     subcategories: [
       { name: "Cane Chairs", slug: "cane-chairs", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=150&q=80" },
       { name: "Cane Dining Chairs", slug: "cane-dining-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
-      { name: "Cane Bar Stools", slug: "cane-bar-stools", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=150&q=80" },
-      { name: "Cane Sofa Sets", slug: "cane-sofa-sets", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
-      { name: "Cane Sideboards", slug: "cane-sideboards", image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=150&q=80" },
-      { name: "Cane Coffee Tables", slug: "cane-coffee-tables", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=150&q=80" },
-      { name: "Cane Bedside Tables", slug: "cane-bedside-tables", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=150&q=80" },
-      { name: "Cane Cabinets", slug: "cane-cabinets", image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=150&q=80" },
+      { name: "Cane Tables", slug: "cane-tables", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=150&q=80" },
+      { name: "Cane Sofas", slug: "cane-sofas", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
+      { name: "Outdoor Cane Furniture", slug: "outdoor-cane-furniture", image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=150&q=80" },
     ],
     seoTitle: "Rattan Cane Resort Furniture Exporter | Jodhpur Hand-Woven",
     seoKeywords: "rattan cane resort furniture exporter, tropical cane armchairs, Jodhpur handmade cane loungers, wholesale rattan table supplier",
   },
   "bone-inlay-furniture": {
     title: "Bone Inlay Furniture",
-    eyebrow: "ROYAL JODHPUR RESIN CASEGOODS",
-    description: "Global Jodhpur bone inlay furniture exporter. Custom resin color inlay cabinets, geometric dresser casegoods, and floral mother of pearl accent tables manufactured for interior designers and wholesale importers.",
+    eyebrow: "Luxury Bone Inlay Furniture for Elegant Interiors",
+    description: "SB Artisan is a trusted bone inlay furniture supplier and exporter offering handcrafted bone inlay furniture for luxury homes, hotels, resorts, interior designers, furniture retailers, and hospitality projects. Every piece is meticulously handcrafted by skilled artisans, combining traditional Indian craftsmanship with timeless elegance.",
     image: "/images/hero1.png",
     subcategories: [
-      { name: "Bone Inlay Storage Cabinets", slug: "bone-inlay-storage-cabinets", image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=150&q=80" },
+      { name: "Bone Inlay Cabinets", slug: "bone-inlay-cabinets", image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=150&q=80" },
       { name: "Bone Inlay Sideboards", slug: "bone-inlay-sideboards", image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=150&q=80" },
-      { name: "Bone Inlay Bedside Tables", slug: "bone-inlay-bedside-tables", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=150&q=80" },
       { name: "Bone Inlay Coffee Tables", slug: "bone-inlay-coffee-tables", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=150&q=80" },
-      { name: "Bone Inlay Side Tables", slug: "bone-inlay-side-tables", image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=150&q=80" },
+      { name: "Bone Inlay Bedside Tables", slug: "bone-inlay-bedside-tables", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=150&q=80" },
+      { name: "Bone Inlay Console Tables", slug: "bone-inlay-console-tables", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=150&q=80" },
     ],
-    seoTitle: "Jodhpur Bone Inlay Furniture Exporter & Supplier | Custom Resins",
-    seoKeywords: "Jodhpur bone inlay furniture exporter, wholesale mother of pearl cabinets, custom resin inlay dressers, bone inlay accent tables India",
+    seoTitle: "Bone Inlay Furniture Supplier & Exporter from India | SB Artisan",
+    seoDescription: "SB Artisan is a trusted bone inlay furniture supplier & exporter from India, offering handcrafted bone inlay cabinets, tables, chests, bedside tables, mirrors, and custom bone inlay furniture for luxury homes, hotels, and interior projects worldwide.",
+    seoKeywords: "handcrafted bone inlay cabinets, premium bone inlay sideboards, luxury bone inlay coffee tables, elegant bone inlay bedside tables, decorative bone inlay console tables",
   },
   "rope-furniture": {
     title: "Rope Furniture",
@@ -124,10 +123,9 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=90",
     subcategories: [
       { name: "Rope Chairs", slug: "rope-chairs", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=150&q=80" },
-      { name: "Rope Stools", slug: "rope-stools", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=150&q=80" },
-      { name: "Rope Sofa Sets", slug: "rope-sofa-sets", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
+      { name: "Rope Sofas", slug: "rope-sofas", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
       { name: "Rope Benches", slug: "rope-benches", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=150&q=80" },
-      { name: "Rope Outdoor Furniture", slug: "rope-outdoor-furniture", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
+      { name: "Outdoor Rope Furniture", slug: "outdoor-rope-furniture", image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&q=80" },
     ],
     seoTitle: "Rope Furniture Supplier & Exporter from India | Handwoven Rope Furniture | SB Artisan",
     seoKeywords: "Rope Sofas, Outdoor Rope Furniture, Rope Patio Furniture, Rope Garden Furniture, Custom Rope Furniture, Hospitality Furniture, Furniture Supplier from India, Furniture Exporter India, Rope Furniture Supplier, Rope Furniture Exporter, Handwoven Rope Furniture, Rope Chairs, Rope Dining Chairs, Rope Lounge Chairs, Rope Bar Stools, Indian rope daybed exporter, wholesale woven jute benches, traditional charpai daybeds Jodhpur, coir rope stools manufacturer",
@@ -182,7 +180,7 @@ export default function CategoryPage() {
   // Extract unique materials for the active category
   const categoryMaterials = useMemo(() => {
     const catProducts = allProducts.filter((p) =>
-      p.category.toLowerCase().includes(config.title.split(" ")[0].toLowerCase())
+      p.category.toLowerCase().includes((slug?.split("-")[0] || "").toLowerCase())
     );
     const mats = catProducts.flatMap((p) => p.materials);
     // Standardize to top material categories
@@ -191,13 +189,13 @@ export default function CategoryPage() {
       mats.some((pm) => pm.toLowerCase().includes(m.toLowerCase()))
     );
     return matched.length > 0 ? matched : ["Teakwood", "Cane", "Brass"];
-  }, [allProducts, config]);
+  }, [allProducts, config, slug]);
 
   // Filter, Search, and Sort Pipeline
   const filteredAndSorted = useMemo(() => {
     let result = allProducts.filter((p) => {
       // 1. Match primary category name (e.g. Restaurant Furniture matches "Restaurant")
-      const catKeyword = config.title.split(" ")[0].toLowerCase();
+      const catKeyword = (slug?.split("-")[0] || "").toLowerCase();
       return p.category.toLowerCase().includes(catKeyword);
     });
 

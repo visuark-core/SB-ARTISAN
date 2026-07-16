@@ -87,7 +87,7 @@ export default function MegaMenu({ config, onMouseEnter, onMouseLeave, onItemCli
                 <div key={index} className="space-y-6" role="none">
                   {/* Subtle grey uppercase column title as clickable link */}
                   <Link
-                    to={column.items[0]?.href || "#"}
+                    to={column.href || column.items[0]?.href || "#"}
                     onClick={onItemClick}
                     className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#8C887E] hover:text-[#1A1A1A] transition-colors duration-200 font-normal block mb-4 outline-none"
                   >

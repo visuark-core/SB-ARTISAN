@@ -5,6 +5,7 @@ export interface NavLinkItem {
 
 export interface MegaMenuColumn {
   title: string;
+  href?: string;
   items: NavLinkItem[];
 }
 
@@ -35,35 +36,44 @@ export const NAVIGATION_DATA: NavItem[] = [
       columns: [
         {
           title: "Restaurant Furniture",
+          href: "/category/restaurant-furniture",
           items: [
-            { label: "All Restaurant Furniture", href: "/category/restaurant-furniture" },
-            { label: "Dining Seating", href: "/category/restaurant-furniture?sub=seating" },
-            { label: "Dining Tables", href: "/category/restaurant-furniture?sub=tables" },
+            { label: "Restaurant Chairs", href: "/category/restaurant-furniture?sub=restaurant-chairs" },
+            { label: "Restaurant Dining Tables", href: "/category/restaurant-furniture?sub=restaurant-dining-tables" },
+            { label: "Restaurant Booth Seating", href: "/category/restaurant-furniture?sub=restaurant-booth-seating" },
+            { label: "Restaurant Benches", href: "/category/restaurant-furniture?sub=restaurant-benches" },
+            { label: "Outdoor Restaurant Furniture", href: "/category/restaurant-furniture?sub=outdoor-restaurant-furniture" },
           ],
         },
         {
           title: "Café Furniture",
+          href: "/category/cafe-furniture",
           items: [
-            { label: "All Café Furniture", href: "/category/cafe-furniture" },
-            { label: "Cafe Seating", href: "/category/cafe-furniture?sub=seating" },
-            { label: "Bistro Tables", href: "/category/cafe-furniture?sub=tables" },
+            { label: "Cafe Chairs", href: "/category/cafe-furniture?sub=cafe-chairs" },
+            { label: "Cafe Tables", href: "/category/cafe-furniture?sub=cafe-tables" },
+            { label: "Cafe Benches", href: "/category/cafe-furniture?sub=cafe-benches" },
+            { label: "Outdoor Cafe Furniture", href: "/category/cafe-furniture?sub=outdoor-cafe-furniture" },
           ],
         },
         {
           title: "Bar Furniture",
+          href: "/category/bar-furniture",
           items: [
-            { label: "All Bar Furniture", href: "/category/bar-furniture" },
-            { label: "Bar Seating", href: "/category/bar-furniture?sub=seating" },
-            { label: "Bar Cabinets", href: "/category/bar-furniture?sub=cabinet" },
+            { label: "Bar Stools", href: "/category/bar-furniture?sub=bar-stools" },
+            { label: "Bar Chairs", href: "/category/bar-furniture?sub=bar-chairs" },
+            { label: "Bar Tables", href: "/category/bar-furniture?sub=bar-tables" },
+            { label: "Outdoor Bar Furniture", href: "/category/bar-furniture?sub=outdoor-bar-furniture" },
           ],
         },
         {
           title: "Hotel Furniture",
+          href: "/category/hotel-furniture",
           items: [
-            { label: "All Hotel Furniture", href: "/category/hotel-furniture" },
-            { label: "Lobby Consoles", href: "/category/hotel-furniture?sub=cabinet" },
-            { label: "Suite Sanctuary", href: "/category/hotel-furniture?sub=lounge" },
-            { label: "Lobby Tables", href: "/category/hotel-furniture?sub=table" },
+            { label: "Hotel Chairs", href: "/category/hotel-furniture?sub=hotel-chairs" },
+            { label: "Hotel Dining Tables", href: "/category/hotel-furniture?sub=hotel-dining-tables" },
+            { label: "Hotel Bedroom Furniture", href: "/category/hotel-furniture?sub=hotel-bedroom-furniture" },
+            { label: "Hotel Sofas", href: "/category/hotel-furniture?sub=hotel-sofas" },
+            { label: "Outdoor Hotel Furniture", href: "/category/hotel-furniture?sub=outdoor-hotel-furniture" },
           ],
         },
       ],
@@ -82,27 +92,34 @@ export const NAVIGATION_DATA: NavItem[] = [
       columns: [
         {
           title: "Cane Furniture",
+          href: "/category/cane-furniture",
           items: [
-            { label: "All Cane Furniture", href: "/category/cane-furniture" },
-            { label: "Lounge Loungers", href: "/category/cane-furniture?sub=lounge" },
-            { label: "Cane Tables", href: "/category/cane-furniture?sub=table" },
+            { label: "Cane Chairs", href: "/category/cane-furniture?sub=cane-chairs" },
+            { label: "Cane Dining Chairs", href: "/category/cane-furniture?sub=cane-dining-chairs" },
+            { label: "Cane Tables", href: "/category/cane-furniture?sub=cane-tables" },
+            { label: "Cane Sofas", href: "/category/cane-furniture?sub=cane-sofas" },
+            { label: "Outdoor Cane Furniture", href: "/category/cane-furniture?sub=outdoor-cane-furniture" },
           ],
         },
         {
           title: "Bone Inlay Furniture",
+          href: "/category/bone-inlay-furniture",
           items: [
-            { label: "All Bone Inlay Furniture", href: "/category/bone-inlay-furniture" },
-            { label: "Cabinets & Storage", href: "/category/bone-inlay-furniture?sub=cabinet" },
-            { label: "Bistro & Accent Tables", href: "/category/bone-inlay-furniture?sub=table" },
-            { label: "Wall Mirror Frames", href: "/category/bone-inlay-furniture?sub=accessories" },
+            { label: "Bone Inlay Cabinets", href: "/category/bone-inlay-furniture?sub=bone-inlay-cabinets" },
+            { label: "Bone Inlay Sideboards", href: "/category/bone-inlay-furniture?sub=bone-inlay-sideboards" },
+            { label: "Bone Inlay Coffee Tables", href: "/category/bone-inlay-furniture?sub=bone-inlay-coffee-tables" },
+            { label: "Bone Inlay Bedside Tables", href: "/category/bone-inlay-furniture?sub=bone-inlay-bedside-tables" },
+            { label: "Bone Inlay Console Tables", href: "/category/bone-inlay-furniture?sub=bone-inlay-console-tables" },
           ],
         },
         {
           title: "Rope Furniture",
+          href: "/category/rope-furniture",
           items: [
-            { label: "All Rope Furniture", href: "/category/rope-furniture" },
-            { label: "Daybeds & Benches", href: "/category/rope-furniture?sub=daybed" },
-            { label: "Dining Benches", href: "/category/rope-furniture?sub=bench" },
+            { label: "Rope Chairs", href: "/category/rope-furniture?sub=rope-chairs" },
+            { label: "Rope Sofas", href: "/category/rope-furniture?sub=rope-sofas" },
+            { label: "Rope Benches", href: "/category/rope-furniture?sub=rope-benches" },
+            { label: "Outdoor Rope Furniture", href: "/category/rope-furniture?sub=outdoor-rope-furniture" },
           ],
         },
       ],
