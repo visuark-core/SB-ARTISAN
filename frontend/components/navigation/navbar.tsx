@@ -146,7 +146,16 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
             
             {/* 1. BRAND LOGO MARK */}
             <div className="flex items-center shrink-0">
-              <Link to="/" className="outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-2 rounded flex items-center">
+              <Link
+                to="/"
+                onClick={(e) => {
+                  if (location.pathname === "/") {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                className="outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-2 rounded flex items-center"
+              >
                 <img
                   src="/images/sb-logo.png"
                   alt="SB Artisan"
