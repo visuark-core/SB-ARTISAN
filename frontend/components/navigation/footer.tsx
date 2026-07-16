@@ -158,20 +158,20 @@ export default function Footer({
           </div>
 
           {/* Copyright, Policy links in center */}
-          <div className="order-3 md:order-2 flex flex-col items-center md:items-start gap-2 text-center md:text-left">
-            <p className="font-sans text-[10px] text-[#6E6B64] uppercase tracking-[0.2em]">
+          <div className="order-3 md:order-2 flex flex-col items-center md:items-start gap-2.5 text-center md:text-left">
+            <p className="font-sans text-[11px] text-[#8C8273] uppercase tracking-[0.2em] select-none">
               © 2025 {brandName}. All rights reserved.
             </p>
-            <p className="font-sans text-[9px] text-[#8C8273] uppercase tracking-[0.15em] flex items-center gap-1.5 mt-0.5">
-              <span>Made & Managed by</span>
+            <p className="font-sans text-[10px] sm:text-[11px] text-[#8C8273] uppercase tracking-[0.15em] flex items-center gap-1.5 mt-0.5 select-none">
+              <span className="text-[#6E6B64]">Made & Managed by</span>
               <a
                 href="https://visuark.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#A3927B] hover:text-[#EAE5D9] transition-colors duration-300 inline-flex items-center gap-1 font-medium group"
+                className="text-[#CBB593] hover:text-[#EAE5D9] transition-colors duration-300 inline-flex items-center gap-1.5 font-medium group"
               >
                 <svg
-                  className="w-3 h-3 text-[#A3927B] group-hover:text-[#EAE5D9] transition-colors duration-300"
+                  className="w-3.5 h-3.5 text-[#CBB593] group-hover:text-[#EAE5D9] transition-colors duration-300"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -186,7 +186,7 @@ export default function Footer({
                 Visuark
               </a>
             </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-[9px] text-[#6E6B64] uppercase tracking-[0.15em] font-sans">
+            <div className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-[10px] text-[#6E6B64] uppercase tracking-[0.15em] font-sans">
               <Link to="/about" className="hover:text-[#EAE5D9] transition-colors duration-300">
                 Privacy Policy
               </Link>
