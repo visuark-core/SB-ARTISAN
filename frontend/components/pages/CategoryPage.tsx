@@ -326,7 +326,7 @@ export default function CategoryPage() {
               src={config.image}
               alt={`${config.title} Showroom`}
               className={cn(
-                "w-full h-full transition-transform duration-10000 hover:scale-105",
+                "w-full h-full",
                 isBoneInlay ? "opacity-100 object-fill" : "opacity-100 object-cover object-center"
               )}
             />
