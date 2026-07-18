@@ -60,7 +60,8 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     title: "Premium Bar Furniture for Hospitality & Commercial Spaces",
     eyebrow: "Bar Furniture",
     description: "Source Jodhpur bone inlay bar cabinets, custom wholesale barstools, and leather-wrapped cocktail bar counters. Hand-crafted contract bar furniture designed for luxury hotel lounges and upscale restaurants.",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1200&q=90",
+    image: "/images/Many Bars.png",
+    aspectRatio: "6400 / 1072",
     subcategories: [
       { name: "Bar Stools", slug: "bar-stools", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=150&q=80" },
       { name: "Bar Chairs", slug: "bar-chairs", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=150&q=80" },
