@@ -105,7 +105,7 @@ export default function Homepage() {
       <FeaturedCategories categories={CATEGORIES_DATA} />
 
       {/* 4. PHILOSOPHY INTERSTITIAL BANNER */}
-      <LuxuryBanner image="/images/home-hero.png" />
+      <LuxuryBanner image="/images/home-hero.png" aspectRatio="aspect-[6000/1713]" />
 
       {/* 5. ACCLAIMED OBJECTS SHOWCASE (BEST SELLERS) */}
       <BestSellers
