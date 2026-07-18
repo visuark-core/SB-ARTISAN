@@ -17,6 +17,7 @@ interface CategoryConfig {
   eyebrow: string;
   description: string;
   image: string;
+  aspectRatio?: string;
   subcategories: { name: string; slug: string; image: string }[];
   seoTitle: string;
   seoDescription?: string;
@@ -73,7 +74,8 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
     title: "Hotel Furniture Supplier & Exporter from India",
     eyebrow: "Luxury Hotel Furniture",
     description: "Create exceptional guest experiences with handcrafted hotel furniture designed for comfort, elegance, and long-lasting performance. We provide customized furniture solutions for hotels, resorts, villas, serviced apartments, and hospitality projects across global markets.",
-    image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1200&q=90",
+    image: "/images/Many Beds.png",
+    aspectRatio: "2048 / 343",
     subcategories: [
       { name: "Hotel Chairs", slug: "hotel-chairs", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=150&q=80" },
       { name: "Hotel Dining Tables", slug: "hotel-dining-tables", image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=150&q=80" },
@@ -315,9 +317,9 @@ export default function CategoryPage() {
         <div
           className={cn(
             "relative w-full overflow-hidden bg-[#1E1D1C] border-b border-[#F2EDE2]",
-            !isBoneInlay && "aspect-[3.2/1]"
+            (!isBoneInlay && !config.aspectRatio) && "aspect-[3.2/1]"
           )}
-          style={isBoneInlay ? { aspectRatio: "5000 / 838" } : undefined}
+          style={config.aspectRatio ? { aspectRatio: config.aspectRatio } : (isBoneInlay ? { aspectRatio: "5000 / 838" } : undefined)}
         >
           <div className="absolute inset-0 w-full h-full">
             <img
