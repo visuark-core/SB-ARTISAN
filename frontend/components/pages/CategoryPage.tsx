@@ -327,32 +327,10 @@ export default function CategoryPage() {
               alt={`${config.title} Showroom`}
               className={cn(
                 "w-full h-full transition-transform duration-10000 hover:scale-105",
-                isBoneInlay ? "opacity-100 object-fill" : "opacity-85 object-cover object-center"
+                isBoneInlay ? "opacity-100 object-fill" : "opacity-100 object-cover object-center"
               )}
             />
-            {/* Subtle gradient shading overlay for luxury magazine aesthetic */}
-            {!isBoneInlay && (
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
-            )}
           </div>
-
-          {/* Banner Content Overlay */}
-          {!isBoneInlay && (
-            <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 py-3.5 sm:py-6 md:py-8 text-white max-w-[1600px] mx-auto w-full">
-              <div className="space-y-2 md:space-y-2.5 md:max-w-3xl">
-                <span className="text-[9px] sm:text-[10px] tracking-[0.35em] uppercase font-mono text-[#CBB593] font-semibold block">
-                  {config.eyebrow}
-                </span>
-                <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-light tracking-wide text-white leading-tight">
-                  {config.title}
-                </h1>
-                <div className="w-12 h-[1px] bg-[#CBB593] my-1" />
-                <p className="font-sans text-[10px] sm:text-xs text-gray-300 font-light leading-relaxed max-w-2xl hidden sm:block">
-                  {config.description}
-                </p>
-              </div>
-            </div>
-          )}
         </div>
       ) : (
         /* Elegant typography header for subcategory pages when photo banner is hidden */
