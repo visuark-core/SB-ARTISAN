@@ -8,6 +8,7 @@ export { default as CraftsmanshipSection } from "./craftsmanship-section";
 export { default as BlogPreview } from "./blog-preview";
 export { default as InquiryCTA } from "./inquiry-cta";
 export { default as WhyArtisan } from "./why-artisan";
+export { default as BestSellersCategories } from "./best-sellers-categories";
 export { default as ChroniclesBanner } from "./chronicles-banner";
 export * from "./section-data";
 
