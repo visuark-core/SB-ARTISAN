@@ -15,6 +15,8 @@ const app = express();
 // Middlewares
 const allowedOrigins = [
   process.env.FRONTEND_URL,
+  'https://www.sbartisan.com',
+  'https://sbartisan.com',
   'http://localhost:3000',
   'http://localhost:5173'
 ].filter(Boolean);
