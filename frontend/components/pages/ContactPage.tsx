@@ -118,10 +118,10 @@ export default function ContactPage() {
     "email": "contact@sbartisan.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Phase II, Basni Industrial Area",
+      "streetAddress": "SB-Artisan, iStart Nest Incubation Center, Vikramaditya Nagar, Surya Colony",
       "addressLocality": "Jodhpur",
       "addressRegion": "Rajasthan",
-      "postalCode": "342005",
+      "postalCode": "342011",
       "addressCountry": "IN"
     },
     "geo": {
@@ -160,7 +160,7 @@ export default function ContactPage() {
                   className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                  <span className="text-[9px] uppercase tracking-widest text-[#8C6D4F] font-mono">Basni Industrial Estate</span>
+                  <span className="text-[9px] uppercase tracking-widest text-[#8C6D4F] font-mono">Pal Gaon, Jodhpur</span>
                   <h3 className="font-serif text-lg font-light tracking-wide mt-1">Jodhpur Production Headquarters</h3>
                   <p className="text-[11px] text-gray-300 font-light mt-1 max-w-md">
                     Integrated logs wood seasoning kilns, carpentry workshops, polishing facilities, and secure container crating bays.
@@ -384,10 +384,18 @@ export default function ContactPage() {
                   <p className="text-sm font-serif text-[#1A1A1A] font-light">+91 96021 14711, +91 70144 37945</p>
                 </div>
                 <div className="border-l-2 border-[#8C6D4F]/30 pl-4 space-y-1">
-                  <span className="block text-[8px] uppercase tracking-widest text-[#8C8273] font-semibold font-mono">FACTORY WORKSHOP ADDRESS</span>
+                  <span className="block text-[8px] uppercase tracking-widest text-[#8C8273] font-semibold font-mono">OFFICE ADDRESS</span>
                   <p className="text-sm text-[#1A1A1A] font-light leading-snug">
-                    SB Artisan, Phase II, Basni Industrial Area,<br />
-                    Jodhpur, Rajasthan 342005, India
+                    SB-Artisan, iStart Nest Incubation Center,<br />
+                    Vikramaditya Nagar, Surya Colony,<br />
+                    Jodhpur, Rajasthan 342011, India
+                  </p>
+                </div>
+                <div className="border-l-2 border-[#8C6D4F]/30 pl-4 space-y-1">
+                  <span className="block text-[8px] uppercase tracking-widest text-[#8C8273] font-semibold font-mono">FACTORY ADDRESS</span>
+                  <p className="text-sm text-[#1A1A1A] font-light leading-snug">
+                    Khasra No. 387/4, Near Rameshwar Dham,<br />
+                    Pal Gaon, Jodhpur, Rajasthan 342014, India
                   </p>
                 </div>
               </div>
@@ -398,7 +406,7 @@ export default function ContactPage() {
                 <div className="relative w-full h-[260px] border border-[#EAE5D9] rounded-xs overflow-hidden bg-[#FAF8F2] shadow-sm group">
                   <iframe
                     title="SB Artisan Jodhpur Location Map"
-                    src="https://maps.google.com/maps?q=Basni,%20Jodhpur,%20Rajasthan%20342005,%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Pal%20Gaon,%20Jodhpur,%20Rajasthan%20342014,%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: "grayscale(1) contrast(1.1) brightness(0.95)" }}

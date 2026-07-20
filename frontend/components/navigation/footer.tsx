@@ -138,8 +138,12 @@ export default function Footer({
                 <p>+91 96021 14711, +91 70144 37945</p>
               </div>
               <div className="space-y-1">
-                <p className="text-[#EAE5D9] font-medium uppercase text-[10px] tracking-wider">Jodhpur Workshop</p>
-                <p>Plot No. 124, Basni Industrial Area, Phase II, Jodhpur, Rajasthan, 342005, India</p>
+                <p className="text-[#EAE5D9] font-medium uppercase text-[10px] tracking-wider">Office Address</p>
+                <p>SB-Artisan, iStart Nest Incubation Center, Vikramaditya Nagar, Surya Colony, Jodhpur, Rajasthan 342011</p>
+              </div>
+              <div className="space-y-1 pt-1">
+                <p className="text-[#EAE5D9] font-medium uppercase text-[10px] tracking-wider">Factory Address</p>
+                <p>Khasra No. 387/4, Near Rameshwar Dham, Pal Gaon, Jodhpur, Rajasthan 342014</p>
               </div>
               <div className="pt-1 text-[10px] italic text-[#5C574F]">
                 Meetings scheduled by corporate appointment.

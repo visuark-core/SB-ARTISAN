@@ -292,10 +292,10 @@ export default function CategoryPage() {
       "image": "https://www.sbartisan.com/images/commercial_workshop_custom.png",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Phase II, Basni Industrial Area",
+        "streetAddress": "SB-Artisan, iStart Nest Incubation Center, Vikramaditya Nagar, Surya Colony",
         "addressLocality": "Jodhpur",
         "addressRegion": "Rajasthan",
-        "postalCode": "342005",
+        "postalCode": "342011",
         "addressCountry": "IN"
       }
     }

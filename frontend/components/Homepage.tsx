@@ -74,10 +74,10 @@ export default function Homepage() {
     "description": "Premium solid wood furniture manufacturer & exporter in Jodhpur, India. We supply custom contract and hospitality furniture collections globally.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Phase II, Basni Industrial Area",
+      "streetAddress": "SB-Artisan, iStart Nest Incubation Center, Vikramaditya Nagar, Surya Colony",
       "addressLocality": "Jodhpur",
       "addressRegion": "Rajasthan",
-      "postalCode": "342005",
+      "postalCode": "342011",
       "addressCountry": "IN"
     },
     "contactPoint": {
