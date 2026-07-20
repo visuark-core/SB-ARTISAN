@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "../../lib/utils";
+import { Container } from "../ui";
 
 interface LuxuryBannerProps {
   quote?: string;
@@ -10,23 +11,20 @@ interface LuxuryBannerProps {
 }
 
 export default function LuxuryBanner({
-  image = "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=90",
+  image = "/images/home-hero.png",
   className,
-  aspectRatio = "aspect-[1590/400]",
 }: LuxuryBannerProps) {
   return (
-    <section
-      className={cn(
-        "relative w-full overflow-hidden bg-[#0F0E0D]",
-        aspectRatio,
-        className
-      )}
-    >
-      <img
-        src={image}
-        alt="Philosophy Showcase"
-        className="w-full h-full object-cover select-none"
-      />
+    <section className={cn("w-full py-6 sm:py-8 md:py-12 bg-[#FDFCF7]", className)}>
+      <Container variant="wide">
+        <div className="relative w-full overflow-hidden rounded-lg sm:rounded-xl shadow-xs bg-[#F5F2EA]">
+          <img
+            src={image}
+            alt="Philosophy Showcase"
+            className="w-full h-auto block select-none"
+          />
+        </div>
+      </Container>
     </section>
   );
 }

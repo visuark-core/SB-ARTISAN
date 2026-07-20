@@ -9,7 +9,7 @@ import {
   FeaturedCollections,
   ShopByRoom,
   BestSellers,
-  BestSellersCategories,
+  LuxuryBanner,
   BlogPreview,
   InquiryCTA,
   ChroniclesBanner,
@@ -104,8 +104,8 @@ export default function Homepage() {
       {/* 3. FEATURING CATEGORIES */}
       <FeaturedCategories categories={CATEGORIES_DATA} />
 
-      {/* 4. HERITAGE BEST SELLERS SHOWCASE */}
-      <BestSellersCategories />
+      {/* 4. PHILOSOPHY INTERSTITIAL BANNER */}
+      <LuxuryBanner image="/images/home-hero.png" />
 
       {/* 5. ACCLAIMED OBJECTS SHOWCASE (BEST SELLERS) */}
       <BestSellers
