@@ -185,7 +185,7 @@ export default function App() {
         </Route>
 
         {/* Dedicated Admin CMS Dashboard (No Public Header/Footer) */}
-        <Route path="admin" element={<AdminLayout />}>
+        <Route path="/admin/*" element={<AdminLayout />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<AdminDashboardPage />} />
           <Route path="products" element={<AdminProductsPage />} />
@@ -194,6 +194,7 @@ export default function App() {
           <Route path="inquiries" element={<AdminInquiriesPage />} />
           <Route path="blogs" element={<AdminBlogsPage />} />
           <Route path="settings" element={<AdminSettingsPage />} />
+          <Route path="*" element={<Navigate to="dashboard" replace />} />
         </Route>
       </Routes>
     </Router>
