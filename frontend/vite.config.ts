@@ -9,6 +9,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: "assets/index-DiGJdLe4.js",
+      },
+    },
+  },
   server: {
     port: 3000,
     open: true,

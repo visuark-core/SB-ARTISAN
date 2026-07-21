@@ -18,35 +18,33 @@ const allowedOrigins = [
   'https://www.sbartisan.com',
   'https://sbartisan.com',
   'http://localhost:3000',
+  'http://localhost:3001',
   'http://localhost:5173'
 ].filter(Boolean);
 
 const corsOptionsDelegate = (req, callback) => {
   const origin = req.header('Origin');
-  const host = req.header('Host');
   
-  let isSameOrigin = false;
-  if (origin && host) {
-    try {
-      const originHost = new URL(origin).host;
-      isSameOrigin = originHost === host;
-    } catch (e) {
-      isSameOrigin = false;
-    }
+  let isAllowed = false;
+  if (!origin) {
+    isAllowed = true;
+  } else if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+    isAllowed = true;
+  } else if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+    isAllowed = true;
+  } else if (origin.endsWith('.sbartisan.com') || origin === 'https://sbartisan.com') {
+    isAllowed = true;
+  } else if (process.env.NODE_ENV === 'development') {
+    isAllowed = true;
   }
 
   const corsOptions = {
+    origin: isAllowed,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
   };
 
-  if (!origin || isSameOrigin || allowedOrigins.includes(origin) || allowedOrigins.includes('*') || process.env.NODE_ENV === 'development') {
-    corsOptions.origin = true;
-  } else {
-    corsOptions.origin = false;
-  }
-  
   callback(null, corsOptions);
 };
 
