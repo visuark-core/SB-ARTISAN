@@ -57,7 +57,7 @@ export default function ProductCard({
       const text = encodeURIComponent(
         `Hello SB Artisan, I would like to seek a trade pricing quote for the "${product.name}" (${product.category}) for an upcoming hospitality project.`
       );
-      window.open(`https://wa.me/919999999999?text=${text}`, "_blank");
+      window.open(`https://wa.me/918949051324?text=${text}`, "_blank");
     }
   };
 

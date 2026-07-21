@@ -18,8 +18,8 @@ export default function InquiryCTA({
   subtitle = "Private Trade Consultations",
   description = "Whether selecting wood finishes for a resort masterplan, requesting customized dimensions, or coordinating a private walkthrough of our Jodhpur woodworking workshops, our trade desk team is prepared to execute your request.",
   email = "contact@sbartisan.com",
-  phone = "+91 96021 14711, +91 70144 37945",
-  whatsappNumber = "919602114711", // WhatsApp concierge
+  phone = "+91 89490 51324",
+  whatsappNumber = "918949051324", // WhatsApp concierge
   className,
 }: InquiryCTAProps) {
   

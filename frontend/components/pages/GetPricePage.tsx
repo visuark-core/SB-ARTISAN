@@ -84,7 +84,7 @@ export default function GetPricePage() {
     const text = encodeURIComponent(
       `Hello SB Artisan, I just submitted a B2B price request for ${productText} and would like to coordinate delivery estimates.`
     );
-    window.open(`https://wa.me/919999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/918949051324?text=${text}`, "_blank");
   };
 
   const handleCloseWindow = () => {

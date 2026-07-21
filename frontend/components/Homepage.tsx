@@ -82,7 +82,7 @@ export default function Homepage() {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+91-96021-14711, +91-70144-37945",
+      "telephone": "+91-89490-51324",
       "contactType": "Export Sales Desk",
       "email": "contact@sbartisan.com"
     }

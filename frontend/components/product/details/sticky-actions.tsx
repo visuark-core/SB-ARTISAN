@@ -37,7 +37,7 @@ export default function StickyActions({
       `Hello SB Artisan, I am interested in seeking a trade quote for the "${title}" in the "${selectedFinish}" finish for a hospitality project.`
     );
     // WhatsApp API redirect link
-    window.open(`https://wa.me/919999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/918949051324?text=${text}`, "_blank");
   };
 
   return (

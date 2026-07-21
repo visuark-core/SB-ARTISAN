@@ -135,7 +135,7 @@ export default function Footer({
                     contact@sbartisan.com
                   </a>
                 </p>
-                <p>+91 96021 14711, +91 70144 37945</p>
+                <p>+91 89490 51324</p>
               </div>
               <div className="space-y-1">
                 <p className="text-[#EAE5D9] font-medium uppercase text-[10px] tracking-wider">Office Address</p>

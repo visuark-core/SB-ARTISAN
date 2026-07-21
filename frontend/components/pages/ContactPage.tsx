@@ -81,7 +81,7 @@ export default function ContactPage() {
       text = "Hello SB Artisan, I want to check shipping transit schedules, container loading capacities, and certificate files (FSC/fumigation).";
     }
     const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/919602114711?text=${encoded}`, "_blank");
+    window.open(`https://wa.me/918949051324?text=${encoded}`, "_blank");
   };
 
   // B2B FAQ State

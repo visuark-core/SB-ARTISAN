@@ -5,7 +5,7 @@ export default function AdminSettingsPage() {
   const [conciergeEmail, setConciergeEmail] = useState("contact@sbartisan.com");
   const [markupRate, setMarkupRate] = useState("15");
   const [isWhatsAppActive, setIsWhatsAppActive] = useState(true);
-  const [whatsappNumber, setWhatsappNumber] = useState("+919602114711");
+  const [whatsappNumber, setWhatsappNumber] = useState("+918949051324");
   const [leadTimeWeeks, setLeadTimeWeeks] = useState("8");
 
   const [isSaved, setIsSaved] = useState(false);

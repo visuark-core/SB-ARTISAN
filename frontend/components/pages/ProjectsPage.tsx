@@ -394,7 +394,7 @@ export default function ProjectsPage() {
               {/* WhatsApp Call to Action */}
               <div className="pt-4 border-t border-[#EAE5D9]">
                 <a
-                  href={`https://wa.me/919999999999?text=Hello%20SB%20Artisan%2C%20I%20would%20like%20to%20discuss%20a%20commercial%20furniture%20inquiry%20modeled%20after%20your%20${encodeURIComponent(
+                  href={`https://wa.me/918949051324?text=Hello%20SB%20Artisan%2C%20I%20would%20like%20to%20discuss%20a%20commercial%20furniture%20inquiry%20modeled%20after%20your%20${encodeURIComponent(
                     selectedProject.title
                   )}%20project.`}
                   target="_blank"

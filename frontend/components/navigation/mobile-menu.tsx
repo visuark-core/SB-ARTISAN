@@ -181,7 +181,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 Book Consultation
               </PrimaryButton>
               <a
-                href="https://wa.me/919999999999?text=Hello%20SB%20Artisan%2C%20I%20would%20like%20to%20discuss%20a%20hospitality%20furniture%20project."
+                href="https://wa.me/918949051324?text=Hello%20SB%20Artisan%2C%20I%20would%20like%20to%20discuss%20a%20hospitality%20furniture%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}

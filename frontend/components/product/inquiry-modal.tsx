@@ -78,7 +78,7 @@ export default function InquiryModal({ isOpen, onClose, product }: InquiryModalP
     const text = encodeURIComponent(
       `Hello SB Artisan, I would like to initiate a trade consultation ${productText}.`
     );
-    window.open(`https://wa.me/919999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/918949051324?text=${text}`, "_blank");
   };
 
   return (

@@ -70,7 +70,7 @@ export default function InquirySidebar({
     const text = encodeURIComponent(
       `Hello SB Artisan, I am interested in seeking a trade pricing quote for the "${product.title}" in the "${selectedFinish}" finish for a hospitality project.`
     );
-    window.open(`https://wa.me/919602114711?text=${text}`, "_blank");
+    window.open(`https://wa.me/918949051324?text=${text}`, "_blank");
   };
 
   const handleDownloadCatalog = () => {
@@ -100,7 +100,7 @@ Hospitality Suitability:
 
 Trade Inquiry & Customization:
 Contact our Trade Acquisition Desk at contact@sbartisan.com
-or via WhatsApp at +91 96021 14711 / +91 70144 37945 for volume orders, custom finishes,
+or via WhatsApp at +91 89490 51324 for volume orders, custom finishes,
 and global shipping logistics.
 `;
 

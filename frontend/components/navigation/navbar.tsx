@@ -213,7 +213,7 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
 
               {/* Direct WhatsApp Consultation Icon - Hidden on very small screens to save space */}
               <a
-                href="https://wa.me/919999999999?text=Hello%20SB%20Artisan%2C%20I%20would%20like%20to%20discuss%20a%20hospitality%20furniture%20project."
+                href="https://wa.me/918949051324?text=Hello%20SB%20Artisan%2C%20I%20would%20like%20to%20discuss%20a%20hospitality%20furniture%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden xs:inline-flex items-center justify-center w-10 h-10 text-[#5A5750] hover:text-[#1A1A1A] hover:bg-[#F5F2EA] transition-all duration-300 rounded-full"
